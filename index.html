@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="apple-mobile-app-status-bar-style" content="black" />
+	<meta name="apple-touch-fullscreen" content="YES" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+	<title>ColorPicker</title>
+	<link rel="stylesheet" href="static/css/index.css">
+	<script src="static/js/angular.js"></script>
+	<script src="static/js/mdbtn.js"></script>
+</head>
+<body>
+	<div ng-app="colorPicker" ng-controller="colorPickerCtrl" class="card">
+
+		<div class="cardcontent colorpick" ng-class="{'pageshow': page == 'pick'}">
+			<div class="cardindex">
+				<div class="header">
+					<div class="headerstrap" style="background-color: {{getHex()}};"></div>
+					<div class="colorstrap" style="background-color: {{getHex()}};">
+						<div class="colorstraptip"  style="color:{{getContrastColor()}}">{{getHex()}}</div>
+					</div>
+					<div class="brush">
+						<div class="brushbackground"></div>
+						<div class="brushbackgroundcolor" style="background-color: {{getHex()}};"></div>
+					</div>
+				</div>
+				<div class="colorpicker">
+					<div class="colortype selector">
+						<label>
+							<input type="radio" name="colortype" value="hex" ng-model="checkedpicker" ng-click="lastcheckedpicker='hex'">
+							<span>HEX</span>
+						</label>
+						<label>
+							<input type="radio" name="colortype" value="hsb" ng-model="checkedpicker">
+							<span>HSB</span>
+						</label>
+						<label>
+							<input type="radio" name="colortype" value="rgb" ng-model="checkedpicker" ng-click="lastcheckedpicker='rgb'">
+							<span>RGB</span>
+						</label>
+					</div>
+					<div class="colorpickerctrl">
+						<div class="animated pickerctrldiv" ng-class="{'fadeInRight':checkedpicker=='hex','fadeOutLeft':checkedpicker!='hex'}" id="hexpicker">
+							<div class="inputtext">
+								<input type="text" name="hexcolor" id="hexcolor" class="typing" ng-class="{'error': isHexError}" ng-cloak ng-model="color.HEX" ng-focus="isHexError=false" ng-blur="updateHEX()" autocomplete="off" spellcheck="false">
+								<label for="hexcolor">HEX颜色</label>
+							</div>
+						</div>
+						<div class="animated pickerctrldiv" ng-class="{'fadeInRight':checkedpicker=='hsb' && lastcheckedpicker=='rgb','fadeOutLeft':checkedpicker!='hsb' && checkedpicker=='rgb','fadeInLeft':checkedpicker=='hsb' && lastcheckedpicker=='hex','fadeOutRight':checkedpicker!='hsb' && checkedpicker=='hex'}" id="hsbpicker">
+							<label class="rangelabel">
+								<input type="range" id="rangehsbh" ng-model="color.HSB.h" min="0" max="359" step="1" value="1" ng-change="updateHSB()">
+								<span ng-cloak>H {{color.HSB.h}}</span>
+							</label>
+							<label class="rangelabel">
+								<input type="range" id="rangehsbs" ng-model="color.HSB.s" min="0" max="100" step="1" value="1" ng-change="updateHSB()" style="background-image:linear-gradient(90deg,#fff,hsl({{color.HSB.h}},100%,50%));">
+								<span ng-cloak>S {{color.HSB.s}}</span>
+							</label>
+							<label class="rangelabel">
+								<input type="range" id="rangehsbb" ng-model="color.HSB.b" min="0" max="100" step="1" value="1" ng-change="updateHSB()" style="background-image:linear-gradient(90deg,#000,hsl({{color.HSB.h}},100%,50%));">
+								<span ng-cloak>B {{color.HSB.b}}</span>
+							</label>
+						</div>
+						<div class="animated pickerctrldiv" ng-class="{'fadeInLeft':checkedpicker=='rgb','fadeOutRight':checkedpicker!='rgb'}" id="rgbpicker">
+							<label class="rangelabel">
+								<input type="range" id="rangergbr" ng-model="color.RGB.r" min="0" max="255" step="1" value="1" ng-change="updateRGB()">
+								<span ng-cloak>R {{color.RGB.r}}</span>
+							</label>
+							<label class="rangelabel">
+								<input type="range" id="rangergbg" ng-model="color.RGB.g" min="0" max="255" step="1" value="1" ng-change="updateRGB()">
+								<span ng-cloak>G {{color.RGB.g}}</span>
+							</label>
+							<label class="rangelabel">
+	 							<input type="range" id="rangergbb" ng-model="color.RGB.b" min="0" max="255" step="1" value="1" ng-change="updateRGB()">
+								<span ng-cloak>B {{color.RGB.b}}</span>
+							</label>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="cardoption mdbtn" style="background-color:{{getHex()}};color:{{getContrastColor()}}"  data-color="{{getFamiliarColor()}}" ng-click="page='show'">确定</div>
+		</div>
+
+
+		<div class="cardcontent colorshow">
+			<div class="cardindex" style="background-color:{{getHex()}};">
+				<div class="header" style="color:{{getContrastColor()}}"  ng-class="{'colorshowheader': page == 'show'}">ColorPicker</div>
+				<div class="colordetail" ng-bind="getHex()" style="color:{{getContrastColor()}}"></div>
+				<div class="mdbtn" style="color:{{getContrastColor()}}" data-color="{{getFamiliarColor()}}" ng-click="page='pick'">选</div>
+			</div>
+			<div class="cardoption">
+
+			</div>
+		</div>
+	</div>
+
+<script src="static/js/main.js"></script>
+</body>
+</html>
