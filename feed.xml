@@ -2,12 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IwYvI</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</description>
-    <link>http://www.iwyvi.com//</link>
-    <atom:link href="http://www.iwyvi.com//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 24 Mar 2016 13:47:21 +0800</pubDate>
-    <lastBuildDate>Thu, 24 Mar 2016 13:47:21 +0800</lastBuildDate>
+    <description>IwYvI的博客，分享心得和学习过程</description>
+    <link>http://www.iwyvi.com/</link>
+    <atom:link href="http://www.iwyvi.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 24 Mar 2016 17:52:52 +0800</pubDate>
+    <lastBuildDate>Thu, 24 Mar 2016 17:52:52 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -214,8 +213,8 @@
 &lt;/p&gt;
 </description>
         <pubDate>Thu, 24 Mar 2016 11:40:09 +0800</pubDate>
-        <link>http://www.iwyvi.com//wechat/2016/03/24/wechat-test.html</link>
-        <guid isPermaLink="true">http://www.iwyvi.com//wechat/2016/03/24/wechat-test.html</guid>
+        <link>http://www.iwyvi.com/wechat/wechat-test</link>
+        <guid isPermaLink="true">http://www.iwyvi.com/wechat/wechat-test</guid>
         
         
         <category>wechat</category>
@@ -330,8 +329,8 @@
 &lt;p&gt;文字之间的&lt;code class=&quot;highlighter-rouge&quot;&gt;eegeh utehu&lt;/code&gt;这个&lt;/p&gt;
 </description>
         <pubDate>Wed, 23 Mar 2016 09:42:29 +0800</pubDate>
-        <link>http://www.iwyvi.com//test/2016/03/23/test-markdown.html</link>
-        <guid isPermaLink="true">http://www.iwyvi.com//test/2016/03/23/test-markdown.html</guid>
+        <link>http://www.iwyvi.com/test/test-markdown</link>
+        <guid isPermaLink="true">http://www.iwyvi.com/test/test-markdown</guid>
         
         
         <category>test</category>
@@ -354,8 +353,8 @@ To add new posts, simply add a file in the &lt;code class=&quot;highlighter-roug
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 Mar 2016 19:32:29 +0800</pubDate>
-        <link>http://www.iwyvi.com//test/2016/03/22/two11.html</link>
-        <guid isPermaLink="true">http://www.iwyvi.com//test/2016/03/22/two11.html</guid>
+        <link>http://www.iwyvi.com/test/two11</link>
+        <guid isPermaLink="true">http://www.iwyvi.com/test/two11</guid>
         
         
         <category>test</category>
@@ -378,8 +377,8 @@ To add new posts, simply add a file in the &lt;code class=&quot;highlighter-roug
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 Mar 2016 09:42:29 +0800</pubDate>
-        <link>http://www.iwyvi.com//test/2016/03/22/two12.html</link>
-        <guid isPermaLink="true">http://www.iwyvi.com//test/2016/03/22/two12.html</guid>
+        <link>http://www.iwyvi.com/test/two12</link>
+        <guid isPermaLink="true">http://www.iwyvi.com/test/two12</guid>
         
         
         <category>test</category>
@@ -402,8 +401,8 @@ To add new posts, simply add a file in the &lt;code class=&quot;highlighter-roug
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 Mar 2016 09:42:29 +0800</pubDate>
-        <link>http://www.iwyvi.com//test/2016/03/22/two10.html</link>
-        <guid isPermaLink="true">http://www.iwyvi.com//test/2016/03/22/two10.html</guid>
+        <link>http://www.iwyvi.com/test/two10</link>
+        <guid isPermaLink="true">http://www.iwyvi.com/test/two10</guid>
         
         
         <category>test</category>
@@ -426,8 +425,8 @@ To add new posts, simply add a file in the &lt;code class=&quot;highlighter-roug
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 Mar 2016 09:36:29 +0800</pubDate>
-        <link>http://www.iwyvi.com//test/2016/03/22/two9.html</link>
-        <guid isPermaLink="true">http://www.iwyvi.com//test/2016/03/22/two9.html</guid>
+        <link>http://www.iwyvi.com/test/two9</link>
+        <guid isPermaLink="true">http://www.iwyvi.com/test/two9</guid>
         
         
         <category>test</category>
@@ -450,8 +449,8 @@ To add new posts, simply add a file in the &lt;code class=&quot;highlighter-roug
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 Mar 2016 09:35:29 +0800</pubDate>
-        <link>http://www.iwyvi.com//test/2016/03/22/two8.html</link>
-        <guid isPermaLink="true">http://www.iwyvi.com//test/2016/03/22/two8.html</guid>
+        <link>http://www.iwyvi.com/test/two8</link>
+        <guid isPermaLink="true">http://www.iwyvi.com/test/two8</guid>
         
         
         <category>test</category>
@@ -474,8 +473,8 @@ To add new posts, simply add a file in the &lt;code class=&quot;highlighter-roug
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 Mar 2016 09:34:29 +0800</pubDate>
-        <link>http://www.iwyvi.com//test/2016/03/22/two7.html</link>
-        <guid isPermaLink="true">http://www.iwyvi.com//test/2016/03/22/two7.html</guid>
+        <link>http://www.iwyvi.com/test/two7</link>
+        <guid isPermaLink="true">http://www.iwyvi.com/test/two7</guid>
         
         
         <category>test</category>
@@ -498,8 +497,8 @@ To add new posts, simply add a file in the &lt;code class=&quot;highlighter-roug
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 Mar 2016 09:33:29 +0800</pubDate>
-        <link>http://www.iwyvi.com//test/2016/03/22/two6.html</link>
-        <guid isPermaLink="true">http://www.iwyvi.com//test/2016/03/22/two6.html</guid>
+        <link>http://www.iwyvi.com/test/two6</link>
+        <guid isPermaLink="true">http://www.iwyvi.com/test/two6</guid>
         
         
         <category>test</category>
@@ -522,8 +521,8 @@ To add new posts, simply add a file in the &lt;code class=&quot;highlighter-roug
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 Mar 2016 09:32:59 +0800</pubDate>
-        <link>http://www.iwyvi.com//test/2016/03/22/two5.html</link>
-        <guid isPermaLink="true">http://www.iwyvi.com//test/2016/03/22/two5.html</guid>
+        <link>http://www.iwyvi.com/test/two5</link>
+        <guid isPermaLink="true">http://www.iwyvi.com/test/two5</guid>
         
         
         <category>test</category>
