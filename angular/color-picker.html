@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="baidu-site-verification" content="KO6S3jtigf" />
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>Color Picker | IwYvI</title>
+  <meta name="author" content="IwYvI">
+  <meta name="description" content="这个是16年寒假的时候学习angular时写的一个demo，可以实现颜色HEX、RGB、HSB转换，因为是初学所以有什么用什么，写的代码也很乱，所以就不在github上建一个项目放了，代码空间见ColorPicker。">
+  <meta name="keywords" content="angular,iwyvi,IwYvI,iwyvi的博客,IwYvI的博客,前端">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.iwyvi.com/angular/color-picker">
+  <link rel="alternate" type="application/rss+xml" title="IwYvI" href="http://www.iwyvi.com/feed.xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      <td><a href="/">首页</a></td>
+      <td><a href="/archives/">文章</a></td>
+      <td><a href="/works/">作品</a></td>
+      <td><a href="/about/">关于</a></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="http://7xsaq2.com1.z0.glb.clouddn.com/img%2Favatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h1>IwYvI</h1>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+          <pre>html {
+  width: 100%;
+  height: 100%; }
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #333333;
+  position: relative;
+  padding-top: 1px;
+  margin-top: -1px; }
+
+.background {
+  width: 100%;
+  height: 100%; }</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        <div class="article largeCard">
+	<div class="articleContent largeCardContent">
+	    <h2>Color Picker</h2>
+	    
+	    	<p class="date"><time datetime="2016-03-28T15:59:15+08:00" itemprop="datePublished">Mar 28, 2016</time></p>
+	    
+	    
+	    	<p class="categories">angular</p>
+	    
+	    <div class="articleDetail">
+	    	<div class="markdown">
+	<p>这个是16年寒假的时候学习<code class="highlighter-rouge">angular</code>时写的一个demo，可以实现颜色HEX、RGB、HSB转换，因为是初学所以有什么用什么，写的代码也很乱，所以就不在github上建一个项目放了，代码空间见<a href="https://coding.net/u/IwYvI/p/ColorPicker/git">ColorPicker</a>。</p>
+
+<iframe src="http://iwyvi.coding.me/ColorPicker" frameborder="0" style="width:100%;height: 650px;overflow: hidden;"></iframe>
+
+<p><strong>演示在IE下完全跪了，不用看了</strong></p>
+
+<p>整体的样式参照了dribble上的<a href="https://dribbble.com/shots/2415041-Daily-UI-45-Colorrrs">Ranjith Alingal</a>所做的图，使用angular对数据和view层进行了绑定，同时将color储存在localStorage里。</p>
+
+<p><em>本来是想直接在post的文章里面放这份演示的，然后发现jekyll会解析两个大括号，然后导致angular绑定的直接跪了，所以最后使用了coding的pages用iframe来处理演示</em></p>
+
+<h6 id="section">关于颜色转换</h6>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//HEX to RGB</span>
+<span class="kd">var</span> <span class="nx">HexToRgb</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">hex</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">rgb</span> <span class="o">=</span> <span class="p">{</span><span class="na">r</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="na">g</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="na">b</span><span class="p">:</span><span class="mi">0</span><span class="p">};</span>
+    <span class="k">if</span><span class="p">(</span><span class="sr">/^#</span><span class="se">{0,1}([</span><span class="sr">0-9a-fA-f</span><span class="se">]{3}</span><span class="sr">|</span><span class="se">[</span><span class="sr">0-9a-fA-f</span><span class="se">]{6})</span><span class="sr">$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">hex</span><span class="p">)){</span>
+        <span class="kd">var</span> <span class="nx">aNum</span> <span class="o">=</span> <span class="nx">hex</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/#/</span><span class="p">,</span><span class="s2">""</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">aNum</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">6</span><span class="p">){</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"0x"</span> <span class="o">+</span> <span class="nx">aNum</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">aNum</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"0x"</span> <span class="o">+</span> <span class="nx">aNum</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="nx">aNum</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"0x"</span> <span class="o">+</span> <span class="nx">aNum</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="nx">aNum</span><span class="p">[</span><span class="mi">5</span><span class="p">]);</span>
+        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">aNum</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">3</span><span class="p">){</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"0x"</span> <span class="o">+</span> <span class="nx">aNum</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">aNum</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"0x"</span> <span class="o">+</span> <span class="nx">aNum</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">aNum</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"0x"</span> <span class="o">+</span> <span class="nx">aNum</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="nx">aNum</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">rgb</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">//RGB to HEX</span>
+<span class="kd">var</span> <span class="nx">RgbToHex</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="nx">g</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">hex</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">r</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">){</span>
+        <span class="nx">hex</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">"0"</span> <span class="o">+</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">r</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">));</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">hex</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">r</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">g</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">){</span>
+        <span class="nx">hex</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">"0"</span> <span class="o">+</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">g</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">));</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">hex</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">g</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">b</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">){</span>
+        <span class="nx">hex</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">"0"</span> <span class="o">+</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">b</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">));</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">hex</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">b</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="s1">'#'</span> <span class="o">+</span> <span class="nx">hex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">hex</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">hex</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="c1">//RGB to HSB</span>
+<span class="kd">var</span> <span class="nx">RgbToHsb</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="nx">g</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">rgb_Min</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="nx">g</span><span class="p">),</span><span class="nx">b</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">rgb_Max</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="nx">g</span><span class="p">),</span><span class="nx">b</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">hsb</span> <span class="o">=</span> <span class="p">{</span><span class="na">h</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="na">s</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="na">b</span><span class="p">:</span><span class="mi">0</span><span class="p">};</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">rgb_Min</span> <span class="o">==</span> <span class="nx">rgb_Max</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">hsb</span><span class="p">.</span><span class="nx">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">rgb_Max</span> <span class="o">==</span> <span class="nx">r</span> <span class="o">&amp;&amp;</span> <span class="nx">g</span> <span class="o">&gt;=</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">hsb</span><span class="p">.</span><span class="nx">h</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="nx">g</span> <span class="o">-</span> <span class="nx">b</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">rgb_Max</span> <span class="o">-</span> <span class="nx">rgb_Min</span><span class="p">)</span> <span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">rgb_Max</span> <span class="o">==</span> <span class="nx">r</span> <span class="o">&amp;&amp;</span> <span class="nx">g</span> <span class="o">&lt;</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">hsb</span><span class="p">.</span><span class="nx">h</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="nx">g</span> <span class="o">-</span> <span class="nx">b</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">rgb_Max</span> <span class="o">-</span> <span class="nx">rgb_Min</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">360</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">rgb_Max</span> <span class="o">==</span> <span class="nx">g</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">hsb</span><span class="p">.</span><span class="nx">h</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="nx">b</span> <span class="o">-</span> <span class="nx">r</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">rgb_Max</span> <span class="o">-</span> <span class="nx">rgb_Min</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">120</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">rgb_Max</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">hsb</span><span class="p">.</span><span class="nx">h</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="nx">r</span> <span class="o">-</span> <span class="nx">g</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">rgb_Max</span> <span class="o">-</span> <span class="nx">rgb_Min</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">240</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">hsb</span><span class="p">.</span><span class="nx">h</span> <span class="o">=</span> <span class="p">(</span><span class="nx">hsb</span><span class="p">.</span><span class="nx">h</span><span class="o">&gt;=</span><span class="mi">360</span><span class="p">)</span> <span class="p">?</span> <span class="mi">0</span> <span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">hsb</span><span class="p">.</span><span class="nx">h</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">rgb_Max</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">){</span>
+        <span class="nx">hsb</span><span class="p">.</span><span class="nx">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">hsb</span><span class="p">.</span><span class="nx">s</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="nx">rgb_Min</span><span class="o">/</span><span class="nx">rgb_Max</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">hsb</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">rgb_Max</span><span class="o">/</span><span class="mi">255</span><span class="o">*</span><span class="mi">100</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">hsb</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">//HSB to RGB</span>
+<span class="kd">var</span> <span class="nx">HsbToRgb</span> <span class="o">=</span> <span class="kd">function</span>  <span class="p">(</span><span class="nx">h</span><span class="p">,</span><span class="nx">s</span><span class="p">,</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">rgb</span> <span class="o">=</span> <span class="p">{</span><span class="na">r</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="na">g</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="na">b</span><span class="p">:</span><span class="mi">0</span><span class="p">};</span>
+    <span class="nx">s</span><span class="o">/=</span><span class="mi">100</span><span class="p">;</span>
+    <span class="nx">b</span><span class="o">/=</span><span class="mi">100</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">s</span> <span class="o">===</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="nx">rgb</span><span class="p">.</span><span class="nx">r</span><span class="o">=</span> <span class="nx">rgb</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="nx">rgb</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span> <span class="mi">255</span><span class="p">);</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">h</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span><span class="o">%</span><span class="mi">6</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">h</span><span class="o">/</span><span class="mi">60</span> <span class="o">-</span><span class="nx">i</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">b</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">s</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">q</span> <span class="o">=</span> <span class="nx">b</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">s</span><span class="o">*</span><span class="nx">f</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nx">b</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">s</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">f</span><span class="p">));</span>
+        <span class="k">switch</span><span class="p">(</span><span class="nx">i</span><span class="p">){</span>
+        <span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="nx">t</span><span class="p">;</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">p</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nx">q</span><span class="p">;</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">p</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nx">p</span><span class="p">;</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">t</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nx">p</span><span class="p">;</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="nx">q</span><span class="p">;</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nx">t</span><span class="p">;</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="nx">p</span><span class="p">;</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="nx">p</span><span class="p">;</span>
+            <span class="nx">rgb</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nx">q</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">rgb</span><span class="p">.</span><span class="nx">r</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">rgb</span><span class="p">.</span><span class="nx">r</span> <span class="o">*</span> <span class="mi">255</span><span class="p">);</span>
+        <span class="nx">rgb</span><span class="p">.</span><span class="nx">g</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">rgb</span><span class="p">.</span><span class="nx">g</span> <span class="o">*</span> <span class="mi">255</span><span class="p">);</span>
+        <span class="nx">rgb</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">rgb</span><span class="p">.</span><span class="nx">b</span> <span class="o">*</span> <span class="mi">255</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">rgb</span><span class="p">;</span>
+<span class="p">};</span></code></pre></figure>
+
+
+</div>
+
+
+	    </div>
+  	</div>
+</div>
+
+
+	<div class="largeCard comments">
+	<div id="disqus_thread" class="largeCardContent commentsContent"></div>
+	<script>
+	/**
+	* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+	*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+
+	s.src = '//iwyvi.disqus.com/embed.js';
+
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a href="https://github.com/IwYvI"><img src="http://7xsaq2.com1.z0.glb.clouddn.com/img%2Fgithub.png" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016, Content By <a href="https://github.com/IwYvI">IwYvI</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a href="https://github.com/IwYvI">IwYvI</a></p>
+    </div>
+  </div>
+</div>
+
+
+  </body>
+
+</html>
