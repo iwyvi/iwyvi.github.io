@@ -34,10 +34,10 @@
 <div class="nav">
   <table>
     <tr>
-      <td><a href="/">首页</a></td>
-      <td><a href="/archives/">文章</a></td>
-      <td><a href="/works/">作品</a></td>
-      <td><a href="/about/">关于</a></td>
+      <td><a href="/" rel="nofollow">首页</a></td>
+      <td><a href="/archives/" rel="bookmark">文章</a></td>
+      <td><a href="/works/" rel="bookmark">作品</a></td>
+      <td><a href="/about/" rel="bookmark">关于</a></td>
     </tr>
     <tr>
       <td></td>
@@ -87,21 +87,27 @@
       <div class="mainBackgroundLeft"></div>
       <div class="mainBackgroundRight">
         <div class="mainBackgroundCode">
-          <pre>html {
-  width: 100%;
-  height: 100%; }
+<!-- 这段代码是从电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
 
-body {
-  width: 100%;
-  height: 100%;
-  background-color: #333333;
-  position: relative;
-  padding-top: 1px;
-  margin-top: -1px; }
-
-.background {
-  width: 100%;
-  height: 100%; }</pre>
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
         </div>
       </div>
     </div>

@@ -34,10 +34,10 @@
 <div class="nav">
   <table>
     <tr>
-      <td><a href="/">首页</a></td>
-      <td><a href="/archives/">文章</a></td>
-      <td><a href="/works/">作品</a></td>
-      <td><a href="/about/">关于</a></td>
+      <td><a href="/" rel="nofollow">首页</a></td>
+      <td><a href="/archives/" rel="bookmark">文章</a></td>
+      <td><a href="/works/" rel="bookmark">作品</a></td>
+      <td><a href="/about/" rel="bookmark">关于</a></td>
     </tr>
     <tr>
       <td></td>
@@ -87,21 +87,27 @@
       <div class="mainBackgroundLeft"></div>
       <div class="mainBackgroundRight">
         <div class="mainBackgroundCode">
-          <pre>html {
-  width: 100%;
-  height: 100%; }
+<!-- 这段代码是从电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
 
-body {
-  width: 100%;
-  height: 100%;
-  background-color: #333333;
-  position: relative;
-  padding-top: 1px;
-  margin-top: -1px; }
-
-.background {
-  width: 100%;
-  height: 100%; }</pre>
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
         </div>
       </div>
     </div>
@@ -112,7 +118,7 @@ body {
   
     <li>
       <div class="postContent">
-        <h3><a href="/angular/color-picker">Color Picker</a></h3>
+        <h3><a href="/angular/color-picker" rel="nofollow">Color Picker</a></h3>
         <p class="date">Mar 28, 2016</p>
         
           <p class="categories">angular</p>
@@ -120,14 +126,14 @@ body {
         <p><p>这个是16年寒假的时候学习angular时写的一个demo，可以实现颜色HEX、RGB、HSB转换，因为是初学所以有什么用什么，写的代码也很乱，所以就不在github上建一个项目放了，代码空间见ColorPicker。
 
 </p></p>
-        <a href="/angular/color-picker" class="linkBtn">Read More</a>
+        <a href="/angular/color-picker" class="linkBtn" rel="nofollow">Read More</a>
       </div>
       <div class="postLargeTitle"><p>Color Picker</p></div>
     </li>
   
     <li>
       <div class="postContent">
-        <h3><a href="/jekyll/hello-vizory">Hello Vizory</a></h3>
+        <h3><a href="/jekyll/hello-vizory" rel="nofollow">Hello Vizory</a></h3>
         <p class="date">Mar 26, 2016</p>
         
           <p class="categories">jekyll</p>
@@ -137,14 +143,14 @@ body {
 Vizory是我设计的第一个博客主题，本来的是让想别人先看看效果图提出修改意见以后再写预览，然而我就直接动手了，代码空间在这里vizory-design。首页强行使用黑白对比，布局部分参考了Dribbble上的一个页面的设计。
 
 </p></p>
-        <a href="/jekyll/hello-vizory" class="linkBtn">Read More</a>
+        <a href="/jekyll/hello-vizory" class="linkBtn" rel="nofollow">Read More</a>
       </div>
       <div class="postLargeTitle"><p>Hello Vizory</p></div>
     </li>
   
     <li>
       <div class="postContent">
-        <h3><a href="/wechat/wechat-test">wechat test</a></h3>
+        <h3><a href="/wechat/wechat-test" rel="nofollow">wechat test</a></h3>
         <p class="date">Mar 24, 2016</p>
         
           <p class="categories">wechat</p>
@@ -152,14 +158,14 @@ Vizory是我设计的第一个博客主题，本来的是让想别人先看看�
         <p><p>文字摘要
 
 </p></p>
-        <a href="/wechat/wechat-test" class="linkBtn">Read More</a>
+        <a href="/wechat/wechat-test" class="linkBtn" rel="nofollow">Read More</a>
       </div>
       <div class="postLargeTitle"><p>wechat test</p></div>
     </li>
   
     <li>
       <div class="postContent">
-        <h3><a href="/test/test-markdown">Test Markdown</a></h3>
+        <h3><a href="/test/test-markdown" rel="nofollow">Test Markdown</a></h3>
         <p class="date">Mar 23, 2016</p>
         
           <p class="categories">test</p>
@@ -202,14 +208,14 @@ jekyllrb.com
 
 
 粗体...</p></p>
-        <a href="/test/test-markdown" class="linkBtn">Read More</a>
+        <a href="/test/test-markdown" class="linkBtn" rel="nofollow">Read More</a>
       </div>
       <div class="postLargeTitle"><p>Test Markdown</p></div>
     </li>
   
     <li>
       <div class="postContent">
-        <h3><a href="/jekyll/update/welcome-to-jekyll">Welcome to Jekyll!</a></h3>
+        <h3><a href="/jekyll/update/welcome-to-jekyll" rel="nofollow">Welcome to Jekyll!</a></h3>
         <p class="date">Feb 25, 2016</p>
         
           <p class="categories">jekyll,update</p>
@@ -217,7 +223,7 @@ jekyllrb.com
         <p><p>You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.
 
 To add new posts, simply add a file in the _posts directory that follows the convention YYYY-MM-DD-name-of-post.ext and includes the neces...</p></p>
-        <a href="/jekyll/update/welcome-to-jekyll" class="linkBtn">Read More</a>
+        <a href="/jekyll/update/welcome-to-jekyll" class="linkBtn" rel="nofollow">Read More</a>
       </div>
       <div class="postLargeTitle"><p>Welcome to Jekyll!</p></div>
     </li>

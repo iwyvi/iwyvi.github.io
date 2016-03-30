@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+	
+	<url>
+	  <loc>http://www.iwyvi.com/404</loc>
+	  <lastmod>Wed, 30 Mar 2016 16:09:12 +0800</lastmod>
+	  <changefreq>weekly</changefreq>
+	</url>
+	
+	<url>
+	  <loc>http://www.iwyvi.com/about/</loc>
+	  <lastmod>Wed, 30 Mar 2016 16:09:12 +0800</lastmod>
+	  <changefreq>weekly</changefreq>
+	</url>
+	
+	<url>
+	  <loc>http://www.iwyvi.com/archives/</loc>
+	  <lastmod>Wed, 30 Mar 2016 16:09:12 +0800</lastmod>
+	  <changefreq>weekly</changefreq>
+	</url>
+	
+	<url>
+	  <loc>http://www.iwyvi.com/feed.xml</loc>
+	  <lastmod>Wed, 30 Mar 2016 16:09:12 +0800</lastmod>
+	  <changefreq>weekly</changefreq>
+	</url>
+	
+	<url>
+	  <loc>http://www.iwyvi.com/</loc>
+	  <lastmod>Wed, 30 Mar 2016 16:09:12 +0800</lastmod>
+	  <changefreq>weekly</changefreq>
+	</url>
+	
+	<url>
+	  <loc>http://www.iwyvi.com/css/main.css</loc>
+	  <lastmod>Wed, 30 Mar 2016 16:09:12 +0800</lastmod>
+	  <changefreq>weekly</changefreq>
+	</url>
+	
+	<url>
+	  <loc>http://www.iwyvi.com/sitemap.xml</loc>
+	  <lastmod>Wed, 30 Mar 2016 16:09:12 +0800</lastmod>
+	  <changefreq>weekly</changefreq>
+	</url>
+	
+	<url>
+	  <loc>http://www.iwyvi.com/works/</loc>
+	  <lastmod>Wed, 30 Mar 2016 16:09:12 +0800</lastmod>
+	  <changefreq>weekly</changefreq>
+	</url>
+	
+  
+  <url>
+  	<loc>http://www.iwyvi.com/angular/color-picker</loc>
+  	<lastmod>Mon, 28 Mar 2016 15:59:15 +0800</lastmod>
+  	<changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+  	<loc>http://www.iwyvi.com/jekyll/hello-vizory</loc>
+  	<lastmod>Sat, 26 Mar 2016 00:13:15 +0800</lastmod>
+  	<changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+  	<loc>http://www.iwyvi.com/wechat/wechat-test</loc>
+  	<lastmod>Thu, 24 Mar 2016 11:40:09 +0800</lastmod>
+  	<changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+  	<loc>http://www.iwyvi.com/test/test-markdown</loc>
+  	<lastmod>Wed, 23 Mar 2016 09:42:29 +0800</lastmod>
+  	<changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+  	<loc>http://www.iwyvi.com/jekyll/update/welcome-to-jekyll</loc>
+  	<lastmod>Thu, 25 Feb 2016 21:32:09 +0800</lastmod>
+  	<changefreq>monthly</changefreq>
+  </url>
+  
+
+</urlset>
