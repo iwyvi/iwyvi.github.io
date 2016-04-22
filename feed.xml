@@ -5,8 +5,8 @@
     <description>IwYvI的博客，分享心得和学习过程</description>
     <link>http://www.iwyvi.com/</link>
     <atom:link href="http://www.iwyvi.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 22 Apr 2016 18:25:10 +0800</pubDate>
-    <lastBuildDate>Fri, 22 Apr 2016 18:25:10 +0800</lastBuildDate>
+    <pubDate>Fri, 22 Apr 2016 18:34:32 +0800</pubDate>
+    <lastBuildDate>Fri, 22 Apr 2016 18:34:32 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -368,8 +368,9 @@
 &lt;/blockquote&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;There are couple examples of PostCSS plugins, but &lt;code class=&quot;highlighter-rouge&quot;&gt;no plugin can achieve true complete parity according to the specification because of the DOM cascade unknowns&lt;/code&gt; + they are not dynamic.
-It might be solved when we see the bright future and CSS Houdini group dream of implementing &lt;a href=&quot;https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/&quot;&gt;an easy native way for CSS “polyfills” to all major browsers&lt;/a&gt; will come true. And even in that case variables syntax, most of all, cannot be shimmed.&lt;/p&gt;
+  &lt;p&gt;There are couple examples of PostCSS plugins, but &lt;code class=&quot;highlighter-rouge&quot;&gt;no plugin can achieve true complete parity according to the specification because of the DOM cascade unknowns&lt;/code&gt; + they are not dynamic.&lt;/p&gt;
+
+  &lt;p&gt;It might be solved when we see the bright future and CSS Houdini group dream of implementing &lt;a href=&quot;https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/&quot;&gt;an easy native way for CSS “polyfills” to all major browsers&lt;/a&gt; will come true. And even in that case variables syntax, most of all, cannot be shimmed.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;现在已经有许多关于PostCSS插件的例子，但是这些插件都不能根据规范真正实现对等处理，因为DOM层叠结构对它们是未知的，而且这些插件所做的处理也是非动态的。&lt;/p&gt;
