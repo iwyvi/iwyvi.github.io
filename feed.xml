@@ -5,13 +5,13 @@
     <description>IwYvI的博客，分享心得和学习过程</description>
     <link>http://www.iwyvi.com/</link>
     <atom:link href="http://www.iwyvi.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 22 Apr 2016 17:34:12 +0800</pubDate>
-    <lastBuildDate>Fri, 22 Apr 2016 17:34:12 +0800</lastBuildDate>
+    <pubDate>Fri, 22 Apr 2016 17:47:14 +0800</pubDate>
+    <lastBuildDate>Fri, 22 Apr 2016 17:47:14 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
         <title>【译】深入了解CSS自定义属性</title>
-        <description>&lt;p&gt;【翻译】《CSS custom properties (native variables) In-Depth》：CSS自定义属性是一项新的CSS特性，它是一种在CSS中定义的变量，我们可以用这些变量实现一些新的功能，同时CSS自定义属性也提供了CSS与JS交互的新方式，与其他CSS预处理器也能做到完美配合。&lt;/p&gt;
+        <description>&lt;div class=&quot;description&quot;&gt;【翻译】《CSS custom properties (native variables) In-Depth》：CSS自定义属性是一项新的CSS特性，它是一种在CSS中定义的变量，我们可以用这些变量实现一些新的功能，同时CSS自定义属性也提供了CSS与JS交互的新方式，与其他CSS预处理器也能做到完美配合。&lt;/div&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;原文链接：&lt;a href=&quot;https://blog.gospodarets.com/css_properties_in_depth&quot;&gt;CSS custom properties (native variables) In-Depth&lt;/a&gt;&lt;/p&gt;
