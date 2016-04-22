@@ -506,23 +506,23 @@ It might be solved when we see the bright future and CSS Houdini group dream of 
 
 <p>现在开始和预处理器一起使用CSS自定义属性，我们可以使用<a href="http://codepen.io/malyw/pen/grRQeq">一种混合语法来检查浏览器的支持</a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@supports</span> <span class="p">(</span> <span class="p">(</span><span class="n">--a</span><span class="p">:</span> <span class="m">0</span><span class="p">))</span> <span class="p">{</span>
-  <span class="c">/* Custom properties are supported in the browser */</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@supports</span> <span class="o">(</span> <span class="o">(</span><span class="nt">--a</span><span class="nd">:</span> <span class="nt">0</span><span class="o">))</span> <span class="p">{</span>
+  <span class="cm">/* Custom properties are supported in the browser */</span>
   <span class="nd">:root</span><span class="p">{</span>
-    <span class="py">--main-bg</span><span class="p">:</span> <span class="m">#4d4e53</span><span class="p">;</span>
+    <span class="na">--main-bg</span><span class="p">:</span> <span class="mh">#4d4e53</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="nt">body</span> <span class="p">{</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--main-bg</span><span class="p">);</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">main-bg</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">@supports</span> <span class="p">(</span> <span class="n">not</span> <span class="p">(</span><span class="n">--a</span><span class="p">:</span> <span class="m">0</span><span class="p">))</span> <span class="p">{</span>
-  <span class="c">/* Custom properties are NOT supported in the browser */</span>
-  <span class="err">$</span><span class="nt">main-bg</span><span class="o">:</span> <span class="nf">#4d4e53</span><span class="o">;</span>
+<span class="k">@supports</span> <span class="o">(</span> <span class="nt">not</span> <span class="o">(</span><span class="nt">--a</span><span class="nd">:</span> <span class="nt">0</span><span class="o">))</span> <span class="p">{</span>
+  <span class="cm">/* Custom properties are NOT supported in the browser */</span>
+  <span class="nv">$main-bg</span><span class="p">:</span> <span class="mh">#4d4e53</span><span class="p">;</span>
 
   <span class="nt">body</span> <span class="p">{</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="err">$</span><span class="n">main-bg</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nv">$main-bg</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
@@ -631,7 +631,7 @@ It might be solved when we see the bright future and CSS Houdini group dream of 
 <p><a href="https://blog.gospodarets.com/demos/css-custom-props-theme-switcher/"><img src="https://i.imgur.com/DwLCfC0.gif" alt="" /></a></p>
 
 <ul>
-  <li>当然，自定义属相在<a href="http://codepen.io/malyw/pen/KzZXRq?editors=1100">补全CSS属性</a>这一方面看起来很好用</li>
+  <li>当然，自定义属性在<a href="http://codepen.io/malyw/pen/KzZXRq?editors=1100">补全CSS属性</a>这里看起来也很好用</li>
 </ul>
 
 <p><a href="http://codepen.io/malyw/pen/KzZXRq?editors=1100"><img src="https://i.imgur.com/E0FTuI1.jpg" alt="" /></a></p>
