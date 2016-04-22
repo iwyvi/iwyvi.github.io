@@ -17,7 +17,7 @@
 
   <title>【译】深入了解CSS自定义属性 | IwYvI</title>
   <meta name="author" content="IwYvI">
-  <meta name="description" content="  原文链接CSS custom properties (native variables) In-Depth  这将是我翻译的第一篇文章，主要是关于CSS自定义属性等内容。（这篇文章看上去翻译起来比较简单，（不知道我翻译完了还会不会这么说">
+  <meta name="description" content="【翻译】《CSS custom properties (native variables) In-Depth》：CSS自定义属性是一项新的CSS特性，它是一种在CSS中定义的变量，我们可以用这些变量实现一些新的功能，同时CSS自定义属性也提供了CSS与JS交互的新方式，与其他CSS预处理器也能做到完美配合。">
   <meta name="keywords" content="css,iwyvi,IwYvI,iwyvi的博客,IwYvI的博客,前端">
 
   <link rel="stylesheet" href="/css/main.css">
@@ -126,17 +126,37 @@
 	    
 	    <div class="articleDetail largeCardDetail">
 	    	<div class="markdown">
-	<blockquote>
-  <p>原文链接<a href="https://blog.gospodarets.com/css_properties_in_depth">CSS custom properties (native variables) In-Depth</a></p>
+	<p>【翻译】《CSS custom properties (native variables) In-Depth》：CSS自定义属性是一项新的CSS特性，它是一种在CSS中定义的变量，我们可以用这些变量实现一些新的功能，同时CSS自定义属性也提供了CSS与JS交互的新方式，与其他CSS预处理器也能做到完美配合。</p>
+
+<blockquote>
+  <p>原文链接：<a href="https://blog.gospodarets.com/css_properties_in_depth">CSS custom properties (native variables) In-Depth</a></p>
+
+  <p>原文发布时间：March 29, 2016</p>
+
+  <p>原作者：Serg Gospodarets</p>
+
+  <p>翻译者：IwYvI</p>
 </blockquote>
 
 <blockquote>
   <p>这将是我翻译的第一篇文章，主要是关于CSS自定义属性等内容。（这篇文章看上去翻译起来比较简单，（不知道我翻译完了还会不会这么说</p>
 </blockquote>
 
+<blockquote>
+  <p>词汇翻译：</p>
+
+  <ul>
+    <li>CSS property：CSS属性</li>
+    <li>CSS custom property：CSS自定义属性</li>
+    <li>CSS variable：CSS变量</li>
+  </ul>
+
+  <p>翻译这篇文章借助了有道、bing、Google的翻译。如果出现不准确的地方希望能向我提出来</p>
+</blockquote>
+
 <p>在这篇文章中，我本想从解释CSS变量的用途开始说起，但是事实上许多流行的CSS预、后处理器已经实现了这个功能</p>
 
-<p>几个例子：</p>
+<p>几个用途的例子：</p>
 
 <ul>
   <li>颜色变量</li>
@@ -144,7 +164,7 @@
   <li>避免代码冗余</li>
 </ul>
 
-<p>当然，你仍然可以手动在你的代码库里查找或者替换你所想修改的部分，但是这就像在JS中没有定义变量一样痛苦。动态的和限定作用域的CSS变量将对你的实验和应用程序提供更多功能：你可以自由地阅读，设置和更新它们！同时你可以避免在代码库中造成代码冗余，这里你可以看看最近的这篇文章<a href="https://webkit.org/blog/5989/css-variables-in-webkit/">Webkit guys did in their Web Inspector</a>。</p>
+<p>当然，你仍然可以手动在你的代码库里查找或者替换你所想修改的部分，但是这就像在JS中没有定义变量直接使用硬编码的值一样痛苦。动态的和限定作用域的CSS变量将对你的实验和应用程序提供更多功能：你可以自由地阅读，设置和更新它们！同时你可以避免在代码库中造成代码冗余，你可以看看最近的这篇文章<a href="https://webkit.org/blog/5989/css-variables-in-webkit/">Webkit guys did in their Web Inspector</a>。</p>
 
 <p>同时你终于有了一个可以轻松地从CSS向JS传递数据的接口（例如媒体断点的值(media breakpoint values)）</p>
 
@@ -247,7 +267,7 @@
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"block"</span><span class="nt">&gt;</span>
   My block is
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"block__highlight"</span><span class="nt">&gt;</span>awesome<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"block__highlight"</span><span class="nt">&gt;</span>awesome<span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 </div>
@@ -349,13 +369,13 @@
 
 <p>上面已经提到你不能像这样使用变量：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>	<span class="nt">padding</span><span class="o">:</span> <span class="nt">var</span><span class="o">(</span><span class="nt">--spacer</span><span class="o">)</span><span class="nt">px</span>
+<div class="highlighter-rouge"><pre class="highlight"><code>  <span class="nt">padding</span><span class="o">:</span> <span class="nt">var</span><span class="o">(</span><span class="nt">--spacer</span><span class="o">)</span><span class="nt">px</span>
 </code></pre>
 </div>
 
 <p>但是可以使用<code class="highlighter-rouge">calc()</code>来进行计算。让我们做一个<a href="http://codepen.io/malyw/pen/MymmNK">vertical rhythm</a>（这个怎么翻译嘤嘤嘤）的例子：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>	<span class="nt">margin</span><span class="o">:</span> <span class="nt">0</span> <span class="nt">0</span> <span class="nt">calc</span><span class="o">(</span><span class="nt">var</span><span class="o">(</span><span class="nt">--base-line-height</span><span class="o">,</span> <span class="nt">0</span><span class="o">)</span> <span class="o">*</span> <span class="nt">1rem</span><span class="o">);</span>
+<div class="highlighter-rouge"><pre class="highlight"><code>  <span class="nt">margin</span><span class="o">:</span> <span class="nt">0</span> <span class="nt">0</span> <span class="nt">calc</span><span class="o">(</span><span class="nt">var</span><span class="o">(</span><span class="nt">--base-line-height</span><span class="o">,</span> <span class="nt">0</span><span class="o">)</span> <span class="o">*</span> <span class="nt">1rem</span><span class="o">);</span>
 </code></pre>
 </div>
 
@@ -414,8 +434,10 @@
 
 <h3 id="section-6">浏览器支持</h3>
 
-<p>自定义属性已经可以在Chrome，Firefox和桌面版Safari 9.1里正常使用了：
-<img src="" alt="browser_support" /></p>
+<p>自定义属性已经可以在Chrome，Firefox和桌面版Safari 9.1里正常使用了：</p>
+
+<p><img src="http://7xsaq2.com1.z0.glb.clouddn.com/img/cssvariablesbrowsersupport.jpg" alt="browser_support" /></p>
+
 <p style="text-align:center">Stats from <a href="http://caniuse.com/#feat=css-variables">caniuse.com</a></p>
 
 <p>这个特性在<a href="https://dev.windows.com/en-us/microsoft-edge/platform/status/cssvariables">Microsoft Edge浏览器里的支持还在考虑中</a></p>
@@ -456,9 +478,18 @@
 
 <p>（这个标题似乎并没有什么中文词语能直接翻译，大意就是让老浏览器支持新功能）</p>
 
-<p><del>现在已经有许多关于PostCSS的例子，但是它们都不能根据规范真正实现对等</del>，因为DOM层级结构对它们是未知的 + 它们是非动态的。</p>
+<blockquote>
+  <p>接下来这两段翻译的实在是有些勉强</p>
+</blockquote>
 
-<p>这个问题最终将会被解决，因为我们能看到CSS广阔的前景，还有在CSS Houdini中 <a href="https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/">an easy native way for CSS “polyfills” to all major browsers</a>，这种梦想将会实现。什么鬼什么鬼什么鬼</p>
+<blockquote>
+  <p>There are couple examples of PostCSS plugins, but <code class="highlighter-rouge">no plugin can achieve true complete parity according to the specification because of the DOM cascade unknowns</code> + they are not dynamic.
+It might be solved when we see the bright future and CSS Houdini group dream of implementing <a href="https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/">an easy native way for CSS “polyfills” to all major browsers</a> will come true. And even in that case variables syntax, most of all, cannot be shimmed.</p>
+</blockquote>
+
+<p>现在已经有许多关于PostCSS插件的例子，但是这些插件都不能根据规范真正实现对等处理，因为DOM层叠结构对它们是未知的，而且这些插件所做的处理也是非动态的。</p>
+
+<p>这个问题最终将会被解决，CSS Houdini组织提出的<a href="https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/">an easy native way for CSS “polyfills” to all major browsers</a>，应该会实现，我们也可以看得出CSS广阔的前景。最重要的是在这种情况下，变量语法不再会被忽视。</p>
 
 <p>然而到目前为止有这样一个清单：</p>
 
@@ -591,8 +622,79 @@
   <li>现在可以使用原生的方法来处理CSS与JS的通信，而不是<a href="https://css-tricks.com/making-sass-talk-to-javascript-with-json/">以前用的hack方法</a></li>
   <li>另一个例子是<a href="http://codepen.io/malyw/pen/grgVGx">国际化地使用自定义属性</a>，不同语言中的text和colors可以使用<code class="highlighter-rouge">external link</code>来解决</li>
   <li>Jake Archibald 提出了一个想法：根据加载到页面的块和样式，使用CSS变量控制元素的可见性（<a href="https://jakearchibald.com/2016/css-loading-with-custom-props/">文章链接</a>）</li>
-  <li>主题切换：现在不必再为特定class添加CSS样式或者增加新的CSS样式文件来改变网站主题，</li>
+  <li>主题切换：现在不必再为特定class添加CSS样式或者增加新的CSS样式文件来改变网站主题，你可以使用自定义属性来解决这个问题。Michael Scharnagl在<a href="https://justmarkup.com/log/2016/02/theme-switcher-using-css-custom-properties/">这篇文章</a>中描述了如何处理主题切换。</li>
+  <li>我还想到了一些用法，例如用于特定域名（对 domain1.site.com和domain1.site.com提供不同的外观）（原文如此）。这样我们就可以很轻松上传并应用重定义了自定义属性的CSS文件（取决于域名）</li>
 </ul>
+
+<p>最后一个想法很贴近使用自定义属性的主题切换，所以可以把他们放在一起用（<a href="https://blog.gospodarets.com/demos/css-custom-props-theme-switcher/">demo</a>）</p>
+
+<p><a href="https://blog.gospodarets.com/demos/css-custom-props-theme-switcher/"><img src="https://i.imgur.com/DwLCfC0.gif" alt="" /></a></p>
+
+<ul>
+  <li>当然，自定义属相在<a href="http://codepen.io/malyw/pen/KzZXRq?editors=1100">补全CSS属性</a>这一方面看起来很好用</li>
+</ul>
+
+<p><a href="http://codepen.io/malyw/pen/KzZXRq?editors=1100"><img src="https://i.imgur.com/E0FTuI1.jpg" alt="" /></a></p>
+
+<h3 id="demo">Demo</h3>
+
+<p>受到Wes Bos <a href="https://twitter.com/wesbos/status/697808716905652224">demos of interacting with CSS custom properties</a>的启发，我决定更进一步在CSS中使用<code class="highlighter-rouge">calc();</code>对颜色的R,G,B值进行计算。</p>
+
+<p>这是灰度过滤器的代码：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nc">.grayscale</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span>
+    <span class="n">calc</span><span class="p">(</span><span class="m">0.2126</span> <span class="err">*</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)),</span>
+    <span class="n">calc</span><span class="p">(</span><span class="m">0.7152</span> <span class="err">*</span> <span class="n">var</span><span class="p">(</span><span class="n">--g</span><span class="p">)),</span>
+    <span class="n">calc</span><span class="p">(</span><span class="m">0.0722</span> <span class="err">*</span> <span class="n">var</span><span class="p">(</span><span class="n">--b</span><span class="p">)),</span>
+    <span class="m">1</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p><a href="https://blog.gospodarets.com/demos/css-colors-from-custom-props/">DEMO</a></p>
+
+<p><a href="https://blog.gospodarets.com/demos/css-colors-from-custom-props/"><img src="https://i.imgur.com/9IUE3FR.gif" alt="" /></a></p>
+
+<p>有趣的事实：</p>
+
+<ul>
+  <li>Chrome似乎并不喜欢<code class="highlighter-rouge">calc()</code>中的CSS变量的非整数乘除法</li>
+  <li>Firefox完全不计算<code class="highlighter-rouge">rgba()</code>里面需要使用<code class="highlighter-rouge">calc()</code>计算的自定义变量</li>
+  <li>Demo在Safari里能达到预期效果O(∩_∩)O~~（原本是个emoji表情）</li>
+</ul>
+
+<h3 id="section-11">结论</h3>
+
+<p>现在你应该已经知道了CSS自定义变量的含义和如下几点：</p>
+
+<ul>
+  <li>它的语法支持CSS和JS的交互</li>
+  <li>它是动态的、可继承的、层叠的和有作用域的</li>
+  <li>浏览器的支持和它的fallbacks</li>
+  <li>它可以和Sass变量一起使用</li>
+  <li>总之，通过一些有趣的用法和示例，自定义属性确实为开发者和web平台加入了新的能力</li>
+</ul>
+
+<p>我希望读完这篇文章后你能用上自定义属性</p>
+
+<h3 id="section-12">扩展阅读</h3>
+
+<p>近期CSS原生mixins语法发布 - <a href="https://blog.gospodarets.com/css_apply_rule">【待翻译】CSS @apply rule (native CSS mixins)</a></p>
+
+<blockquote>
+  <p>原文链接：<a href="https://blog.gospodarets.com/css_properties_in_depth">CSS custom properties (native variables) In-Depth</a></p>
+
+  <p>原文发布时间：March 29, 2016</p>
+
+  <p>原作者：Serg Gospodarets</p>
+
+  <p>翻译者：IwYvI</p>
+
+  <p>翻译时间：2016/4/22</p>
+
+  <p>第一次翻译英语文章，如有不准确的地方希望向我提出来</p>
+</blockquote>
 
 
 </div>

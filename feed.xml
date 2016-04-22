@@ -5,23 +5,43 @@
     <description>IwYvI的博客，分享心得和学习过程</description>
     <link>http://www.iwyvi.com/</link>
     <atom:link href="http://www.iwyvi.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 22 Apr 2016 15:18:37 +0800</pubDate>
-    <lastBuildDate>Fri, 22 Apr 2016 15:18:37 +0800</lastBuildDate>
+    <pubDate>Fri, 22 Apr 2016 17:34:12 +0800</pubDate>
+    <lastBuildDate>Fri, 22 Apr 2016 17:34:12 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
         <title>【译】深入了解CSS自定义属性</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;原文链接&lt;a href=&quot;https://blog.gospodarets.com/css_properties_in_depth&quot;&gt;CSS custom properties (native variables) In-Depth&lt;/a&gt;&lt;/p&gt;
+        <description>&lt;p&gt;【翻译】《CSS custom properties (native variables) In-Depth》：CSS自定义属性是一项新的CSS特性，它是一种在CSS中定义的变量，我们可以用这些变量实现一些新的功能，同时CSS自定义属性也提供了CSS与JS交互的新方式，与其他CSS预处理器也能做到完美配合。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;原文链接：&lt;a href=&quot;https://blog.gospodarets.com/css_properties_in_depth&quot;&gt;CSS custom properties (native variables) In-Depth&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;原文发布时间：March 29, 2016&lt;/p&gt;
+
+  &lt;p&gt;原作者：Serg Gospodarets&lt;/p&gt;
+
+  &lt;p&gt;翻译者：IwYvI&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;这将是我翻译的第一篇文章，主要是关于CSS自定义属性等内容。（这篇文章看上去翻译起来比较简单，（不知道我翻译完了还会不会这么说&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;词汇翻译：&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;CSS property：CSS属性&lt;/li&gt;
+    &lt;li&gt;CSS custom property：CSS自定义属性&lt;/li&gt;
+    &lt;li&gt;CSS variable：CSS变量&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;翻译这篇文章借助了有道、bing、Google的翻译。如果出现不准确的地方希望能向我提出来&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;在这篇文章中，我本想从解释CSS变量的用途开始说起，但是事实上许多流行的CSS预、后处理器已经实现了这个功能&lt;/p&gt;
 
-&lt;p&gt;几个例子：&lt;/p&gt;
+&lt;p&gt;几个用途的例子：&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;颜色变量&lt;/li&gt;
@@ -29,7 +49,7 @@
   &lt;li&gt;避免代码冗余&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;当然，你仍然可以手动在你的代码库里查找或者替换你所想修改的部分，但是这就像在JS中没有定义变量一样痛苦。动态的和限定作用域的CSS变量将对你的实验和应用程序提供更多功能：你可以自由地阅读，设置和更新它们！同时你可以避免在代码库中造成代码冗余，这里你可以看看最近的这篇文章&lt;a href=&quot;https://webkit.org/blog/5989/css-variables-in-webkit/&quot;&gt;Webkit guys did in their Web Inspector&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;当然，你仍然可以手动在你的代码库里查找或者替换你所想修改的部分，但是这就像在JS中没有定义变量直接使用硬编码的值一样痛苦。动态的和限定作用域的CSS变量将对你的实验和应用程序提供更多功能：你可以自由地阅读，设置和更新它们！同时你可以避免在代码库中造成代码冗余，你可以看看最近的这篇文章&lt;a href=&quot;https://webkit.org/blog/5989/css-variables-in-webkit/&quot;&gt;Webkit guys did in their Web Inspector&lt;/a&gt;。&lt;/p&gt;
 
 &lt;p&gt;同时你终于有了一个可以轻松地从CSS向JS传递数据的接口（例如媒体断点的值(media breakpoint values)）&lt;/p&gt;
 
@@ -132,7 +152,7 @@
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;block&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
   My block is
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;block__highlight&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;awesome&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;block__highlight&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;awesome&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -234,13 +254,13 @@
 
 &lt;p&gt;上面已经提到你不能像这样使用变量：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;nt&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--spacer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;px&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--spacer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;px&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;但是可以使用&lt;code class=&quot;highlighter-rouge&quot;&gt;calc()&lt;/code&gt;来进行计算。让我们做一个&lt;a href=&quot;http://codepen.io/malyw/pen/MymmNK&quot;&gt;vertical rhythm&lt;/a&gt;（这个怎么翻译嘤嘤嘤）的例子：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;nt&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--base-line-height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1rem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--base-line-height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1rem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -299,8 +319,10 @@
 
 &lt;h3 id=&quot;section-6&quot;&gt;浏览器支持&lt;/h3&gt;
 
-&lt;p&gt;自定义属性已经可以在Chrome，Firefox和桌面版Safari 9.1里正常使用了：
-&lt;img src=&quot;&quot; alt=&quot;browser_support&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;自定义属性已经可以在Chrome，Firefox和桌面版Safari 9.1里正常使用了：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsaq2.com1.z0.glb.clouddn.com/img/cssvariablesbrowsersupport.jpg&quot; alt=&quot;browser_support&quot; /&gt;&lt;/p&gt;
+
 &lt;p style=&quot;text-align:center&quot;&gt;Stats from &lt;a href=&quot;http://caniuse.com/#feat=css-variables&quot;&gt;caniuse.com&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;这个特性在&lt;a href=&quot;https://dev.windows.com/en-us/microsoft-edge/platform/status/cssvariables&quot;&gt;Microsoft Edge浏览器里的支持还在考虑中&lt;/a&gt;&lt;/p&gt;
@@ -341,9 +363,18 @@
 
 &lt;p&gt;（这个标题似乎并没有什么中文词语能直接翻译，大意就是让老浏览器支持新功能）&lt;/p&gt;
 
-&lt;p&gt;&lt;del&gt;现在已经有许多关于PostCSS的例子，但是它们都不能根据规范真正实现对等&lt;/del&gt;，因为DOM层级结构对它们是未知的 + 它们是非动态的。&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;接下来这两段翻译的实在是有些勉强&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;这个问题最终将会被解决，因为我们能看到CSS广阔的前景，还有在CSS Houdini中 &lt;a href=&quot;https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/&quot;&gt;an easy native way for CSS “polyfills” to all major browsers&lt;/a&gt;，这种梦想将会实现。什么鬼什么鬼什么鬼&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;There are couple examples of PostCSS plugins, but &lt;code class=&quot;highlighter-rouge&quot;&gt;no plugin can achieve true complete parity according to the specification because of the DOM cascade unknowns&lt;/code&gt; + they are not dynamic.
+It might be solved when we see the bright future and CSS Houdini group dream of implementing &lt;a href=&quot;https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/&quot;&gt;an easy native way for CSS “polyfills” to all major browsers&lt;/a&gt; will come true. And even in that case variables syntax, most of all, cannot be shimmed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;现在已经有许多关于PostCSS插件的例子，但是这些插件都不能根据规范真正实现对等处理，因为DOM层叠结构对它们是未知的，而且这些插件所做的处理也是非动态的。&lt;/p&gt;
+
+&lt;p&gt;这个问题最终将会被解决，CSS Houdini组织提出的&lt;a href=&quot;https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/&quot;&gt;an easy native way for CSS “polyfills” to all major browsers&lt;/a&gt;，应该会实现，我们也可以看得出CSS广阔的前景。最重要的是在这种情况下，变量语法不再会被忽视。&lt;/p&gt;
 
 &lt;p&gt;然而到目前为止有这样一个清单：&lt;/p&gt;
 
@@ -476,8 +507,79 @@
   &lt;li&gt;现在可以使用原生的方法来处理CSS与JS的通信，而不是&lt;a href=&quot;https://css-tricks.com/making-sass-talk-to-javascript-with-json/&quot;&gt;以前用的hack方法&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;另一个例子是&lt;a href=&quot;http://codepen.io/malyw/pen/grgVGx&quot;&gt;国际化地使用自定义属性&lt;/a&gt;，不同语言中的text和colors可以使用&lt;code class=&quot;highlighter-rouge&quot;&gt;external link&lt;/code&gt;来解决&lt;/li&gt;
   &lt;li&gt;Jake Archibald 提出了一个想法：根据加载到页面的块和样式，使用CSS变量控制元素的可见性（&lt;a href=&quot;https://jakearchibald.com/2016/css-loading-with-custom-props/&quot;&gt;文章链接&lt;/a&gt;）&lt;/li&gt;
-  &lt;li&gt;主题切换：现在不必再为特定class添加CSS样式或者增加新的CSS样式文件来改变网站主题，&lt;/li&gt;
+  &lt;li&gt;主题切换：现在不必再为特定class添加CSS样式或者增加新的CSS样式文件来改变网站主题，你可以使用自定义属性来解决这个问题。Michael Scharnagl在&lt;a href=&quot;https://justmarkup.com/log/2016/02/theme-switcher-using-css-custom-properties/&quot;&gt;这篇文章&lt;/a&gt;中描述了如何处理主题切换。&lt;/li&gt;
+  &lt;li&gt;我还想到了一些用法，例如用于特定域名（对 domain1.site.com和domain1.site.com提供不同的外观）（原文如此）。这样我们就可以很轻松上传并应用重定义了自定义属性的CSS文件（取决于域名）&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;最后一个想法很贴近使用自定义属性的主题切换，所以可以把他们放在一起用（&lt;a href=&quot;https://blog.gospodarets.com/demos/css-custom-props-theme-switcher/&quot;&gt;demo&lt;/a&gt;）&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://blog.gospodarets.com/demos/css-custom-props-theme-switcher/&quot;&gt;&lt;img src=&quot;https://i.imgur.com/DwLCfC0.gif&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;当然，自定义属相在&lt;a href=&quot;http://codepen.io/malyw/pen/KzZXRq?editors=1100&quot;&gt;补全CSS属性&lt;/a&gt;这一方面看起来很好用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://codepen.io/malyw/pen/KzZXRq?editors=1100&quot;&gt;&lt;img src=&quot;https://i.imgur.com/E0FTuI1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;demo&quot;&gt;Demo&lt;/h3&gt;
+
+&lt;p&gt;受到Wes Bos &lt;a href=&quot;https://twitter.com/wesbos/status/697808716905652224&quot;&gt;demos of interacting with CSS custom properties&lt;/a&gt;的启发，我决定更进一步在CSS中使用&lt;code class=&quot;highlighter-rouge&quot;&gt;calc();&lt;/code&gt;对颜色的R,G,B值进行计算。&lt;/p&gt;
+
+&lt;p&gt;这是灰度过滤器的代码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.grayscale&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.2126&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;--r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.7152&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;--g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.0722&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;--b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
+    &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.gospodarets.com/demos/css-colors-from-custom-props/&quot;&gt;DEMO&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://blog.gospodarets.com/demos/css-colors-from-custom-props/&quot;&gt;&lt;img src=&quot;https://i.imgur.com/9IUE3FR.gif&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;有趣的事实：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Chrome似乎并不喜欢&lt;code class=&quot;highlighter-rouge&quot;&gt;calc()&lt;/code&gt;中的CSS变量的非整数乘除法&lt;/li&gt;
+  &lt;li&gt;Firefox完全不计算&lt;code class=&quot;highlighter-rouge&quot;&gt;rgba()&lt;/code&gt;里面需要使用&lt;code class=&quot;highlighter-rouge&quot;&gt;calc()&lt;/code&gt;计算的自定义变量&lt;/li&gt;
+  &lt;li&gt;Demo在Safari里能达到预期效果O(∩_∩)O~~（原本是个emoji表情）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-11&quot;&gt;结论&lt;/h3&gt;
+
+&lt;p&gt;现在你应该已经知道了CSS自定义变量的含义和如下几点：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;它的语法支持CSS和JS的交互&lt;/li&gt;
+  &lt;li&gt;它是动态的、可继承的、层叠的和有作用域的&lt;/li&gt;
+  &lt;li&gt;浏览器的支持和它的fallbacks&lt;/li&gt;
+  &lt;li&gt;它可以和Sass变量一起使用&lt;/li&gt;
+  &lt;li&gt;总之，通过一些有趣的用法和示例，自定义属性确实为开发者和web平台加入了新的能力&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我希望读完这篇文章后你能用上自定义属性&lt;/p&gt;
+
+&lt;h3 id=&quot;section-12&quot;&gt;扩展阅读&lt;/h3&gt;
+
+&lt;p&gt;近期CSS原生mixins语法发布 - &lt;a href=&quot;https://blog.gospodarets.com/css_apply_rule&quot;&gt;【待翻译】CSS @apply rule (native CSS mixins)&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;原文链接：&lt;a href=&quot;https://blog.gospodarets.com/css_properties_in_depth&quot;&gt;CSS custom properties (native variables) In-Depth&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;原文发布时间：March 29, 2016&lt;/p&gt;
+
+  &lt;p&gt;原作者：Serg Gospodarets&lt;/p&gt;
+
+  &lt;p&gt;翻译者：IwYvI&lt;/p&gt;
+
+  &lt;p&gt;翻译时间：2016/4/22&lt;/p&gt;
+
+  &lt;p&gt;第一次翻译英语文章，如有不准确的地方希望向我提出来&lt;/p&gt;
+&lt;/blockquote&gt;
 
 </description>
         <pubDate>Wed, 20 Apr 2016 00:00:00 +0800</pubDate>
