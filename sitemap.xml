@@ -7,52 +7,58 @@
 	
 	<url>
 	  <loc>http://www.iwyvi.com/404</loc>
-	  <lastmod>2016-04-11 22:53:01 +0800</lastmod>
+	  <lastmod>2016-04-22 15:18:37 +0800</lastmod>
 	  <changefreq>weekly</changefreq>
 	</url>
 	
 	<url>
 	  <loc>http://www.iwyvi.com/about/</loc>
-	  <lastmod>2016-04-11 22:53:01 +0800</lastmod>
+	  <lastmod>2016-04-22 15:18:37 +0800</lastmod>
 	  <changefreq>weekly</changefreq>
 	</url>
 	
 	<url>
 	  <loc>http://www.iwyvi.com/archives/</loc>
-	  <lastmod>2016-04-11 22:53:01 +0800</lastmod>
+	  <lastmod>2016-04-22 15:18:37 +0800</lastmod>
 	  <changefreq>weekly</changefreq>
 	</url>
 	
 	<url>
 	  <loc>http://www.iwyvi.com/feed.xml</loc>
-	  <lastmod>2016-04-11 22:53:01 +0800</lastmod>
+	  <lastmod>2016-04-22 15:18:37 +0800</lastmod>
 	  <changefreq>weekly</changefreq>
 	</url>
 	
 	<url>
 	  <loc>http://www.iwyvi.com/</loc>
-	  <lastmod>2016-04-11 22:53:01 +0800</lastmod>
+	  <lastmod>2016-04-22 15:18:37 +0800</lastmod>
 	  <changefreq>weekly</changefreq>
 	</url>
 	
 	<url>
 	  <loc>http://www.iwyvi.com/css/main.css</loc>
-	  <lastmod>2016-04-11 22:53:01 +0800</lastmod>
+	  <lastmod>2016-04-22 15:18:37 +0800</lastmod>
 	  <changefreq>weekly</changefreq>
 	</url>
 	
 	<url>
 	  <loc>http://www.iwyvi.com/sitemap.xml</loc>
-	  <lastmod>2016-04-11 22:53:01 +0800</lastmod>
+	  <lastmod>2016-04-22 15:18:37 +0800</lastmod>
 	  <changefreq>weekly</changefreq>
 	</url>
 	
 	<url>
 	  <loc>http://www.iwyvi.com/works/</loc>
-	  <lastmod>2016-04-11 22:53:01 +0800</lastmod>
+	  <lastmod>2016-04-22 15:18:37 +0800</lastmod>
 	  <changefreq>weekly</changefreq>
 	</url>
 	
+  
+  <url>
+  	<loc>http://www.iwyvi.com/css/css-properties-in-depth</loc>
+  	<lastmod>2016-04-20 00:00:00 +0800</lastmod>
+  	<changefreq>monthly</changefreq>
+  </url>
   
   <url>
   	<loc>http://www.iwyvi.com/angular/color-picker</loc>
@@ -75,12 +81,6 @@
   <url>
   	<loc>http://www.iwyvi.com/test/test-markdown</loc>
   	<lastmod>2016-03-23 09:42:29 +0800</lastmod>
-  	<changefreq>monthly</changefreq>
-  </url>
-  
-  <url>
-  	<loc>http://www.iwyvi.com/jekyll/update/welcome-to-jekyll</loc>
-  	<lastmod>2016-02-25 21:32:09 +0800</lastmod>
   	<changefreq>monthly</changefreq>
   </url>
   
