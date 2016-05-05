@@ -5,9 +5,312 @@
     <description>IwYvI的博客，分享心得和学习过程</description>
     <link>http://www.iwyvi.com/</link>
     <atom:link href="http://www.iwyvi.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 22 Apr 2016 18:40:08 +0800</pubDate>
-    <lastBuildDate>Fri, 22 Apr 2016 18:40:08 +0800</lastBuildDate>
+    <pubDate>Thu, 05 May 2016 18:17:06 +0800</pubDate>
+    <lastBuildDate>Thu, 05 May 2016 18:17:06 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>【译】CSS @apply规则(mixins)</title>
+        <description>&lt;div class=&quot;description&quot;&gt;【翻译】《CSS @apply rule (native CSS mixins) 》：使用@apply规则，实现CSS原生的mixins。随着CSS的发展，或许我们以后将不再使用CSS预处理器（然而目前这个特性并没有得到广泛的支持），就是这样&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;原文链接：&lt;a href=&quot;https://blog.gospodarets.com/css_apply_rule&quot;&gt;CSS @apply rule (native CSS mixins)&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;原文发布时间：April 11, 2016&lt;/p&gt;
+
+  &lt;p&gt;原作者：Serg Gospodarets&lt;/p&gt;
+
+  &lt;p&gt;翻译者：IwYvI&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在我前一篇文章&lt;a href=&quot;http://www.iwyvi.com/css/css-properties-in-depth&quot;&gt;深入了解CSS自定义属性&lt;/a&gt;中，我描述了CSS属性（变量）和它们各种不同的用法。&lt;/p&gt;
+
+&lt;p&gt;如果你读完之后打算开始从CSS预处理器转变成用纯CSS，你的下一个问题可能是这样：“mixins要怎么办？”&lt;/p&gt;
+
+&lt;p&gt;答案就是：我们现在不仅有一个编辑者草案（editor’s draft）：&lt;a href=&quot;https://tabatkins.github.io/specs/css-apply-rule/&quot;&gt;https://tabatkins.github.io/specs/css-apply-rule/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;还在Chrome浏览器中实现了：&lt;a href=&quot;https://www.chromestatus.com/feature/5753701012602880&quot;&gt;https://www.chromestatus.com/feature/5753701012602880&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;在继续阅读之前，你最好已经理解了&lt;a href=&quot;http://www.iwyvi.com/css/css-properties-in-depth&quot;&gt;CSS自定义属性&lt;/a&gt;和&lt;a href=&quot;https://css-tricks.com/custom-user-mixins/&quot;&gt;CSS mixins&lt;/a&gt;的规则&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;定义自定义集&lt;/h3&gt;
+
+&lt;p&gt;正如我们所知，你可以&lt;a href=&quot;http://www.iwyvi.com/css/css-properties-in-depth#section-1&quot;&gt;为一个自定义属性赋任意值&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;让我们先定义一个属性集&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--pink-theme&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#6A8759&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#F64778&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;（然而目前我的CSS代码高亮在这个语法下好口怕所以我用了SCSS来代替）&lt;/p&gt;
+
+&lt;p&gt;它仍然是一个有效的CSS自定义属性，因为它还是包括在&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;/code&gt;里的一系列CSS属性。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;使用方法&lt;/h3&gt;
+
+&lt;p&gt;为了区分&lt;a href=&quot;http://www.iwyvi.com/css/css-properties-in-depth#section-2&quot;&gt;CSS自定义属性的用法&lt;/a&gt;和mixins，我们提出使用一个新的&lt;a href=&quot;https://developer.mozilla.org/en/docs/Web/CSS/At-rule&quot;&gt;@规则语句&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;你应该更熟悉这些：使用&lt;code class=&quot;highlighter-rouge&quot;&gt;@&lt;/code&gt;开头并跟着一些关键词，以此作为CSS的一些功能标识符&lt;/p&gt;
+
+&lt;p&gt;例子：&lt;code class=&quot;highlighter-rouge&quot;&gt;@charset&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;@import&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;@keyframes&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;@media&lt;/code&gt;和&lt;a href=&quot;https://css-tricks.com/the-at-rules-of-css/&quot;&gt;更多内容&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;下面我们再接触一个实现CSS mixins的新CSS语句：&lt;code class=&quot;highlighter-rouge&quot;&gt;@apply&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;让我们应用一下这些规则（原谅我罗罗嗦嗦说了这么多[表情]）：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;@apply&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--pink-theme&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;iframe id=&quot;cp_embed_yOXWdm&quot; src=&quot;//codepen.io/malyw/embed/yOXWdm?height=150&amp;amp;theme-id=178&amp;amp;slug-hash=yOXWdm&amp;amp;user=malyw&amp;amp;default-tab=result&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;150&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; name=&quot;CodePen Embed&quot; title=&quot;CodePen Embed&quot; class=&quot;cp_embed_iframe &quot; style=&quot;width: 100%; overflow: hidden;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;上面我们轻松使用了我们的第一个CSS mixin，它看起来确实很像&lt;a href=&quot;http://sass-lang.com/guide#topic-6&quot;&gt;SCSS mixins&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;所以一般的语法是这样：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// DEFINING
+&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;--custom-property-name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;prop-name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;cm&quot;&gt;/*...*/&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// APPLYING
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@apply&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;custom-property-name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;mixins&quot;&gt;Mixins的例子&lt;/h3&gt;
+
+&lt;p&gt;通常情况项目中会用到许多mixins。如&lt;a href=&quot;http://stackoverflow.com/questions/9543541/what-does-the-clearfix-class-do-in-css&quot;&gt;清除浮动&lt;/a&gt;，创建CSS三角形和其他内容。&lt;/p&gt;
+
+&lt;p&gt;让我们使用纯CSS来重写它们&lt;/p&gt;
+
+&lt;h4 id=&quot;clearfix-mixins&quot;&gt;清除浮动（clearfix） mixins&lt;/h4&gt;
+
+&lt;p&gt;有&lt;a href=&quot;https://github.com/twbs/bootstrap/blob/master/less/mixins/clearfix.less&quot;&gt;很多&lt;/a&gt;，&lt;a href=&quot;https://gist.github.com/mrinalwadhwa/2934863&quot;&gt;很多&lt;/a&gt;，&lt;a href=&quot;https://gist.github.com/jelmerdemaat/3804403&quot;&gt;很多&lt;/a&gt;关于清除浮动的实现，然而我们可以使用这个简单的方法：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// DEFINE
+&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--clearfix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;both&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// USE
+&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.box&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:after&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;@apply&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--clearfix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;iframe id=&quot;cp_embed_grRNRQ&quot; src=&quot;//codepen.io/malyw/embed/grRNRQ?height=150&amp;amp;theme-id=178&amp;amp;slug-hash=grRNRQ&amp;amp;user=malyw&amp;amp;default-tab=result&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;150&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; name=&quot;CodePen Embed&quot; title=&quot;CodePen Embed&quot; class=&quot;cp_embed_iframe &quot; style=&quot;width: 100%; overflow: hidden;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;如果你没有进行清除浮动，浏览器将合并红色背景&lt;/p&gt;
+
+&lt;p&gt;BTW，在现在Chrome浏览器的实现中有一个有趣的bug：在mixin之前如果没写有&lt;code class=&quot;highlighter-rouge&quot;&gt;.box:after{content:&#39;SOME&#39;;&lt;/code&gt;，在mixin中的&lt;code class=&quot;highlighter-rouge&quot;&gt;content&lt;/code&gt;规则将会无效&lt;/p&gt;
+
+&lt;h4 id=&quot;overflow-ellipsis-mixin&quot;&gt;溢出省略号（overflow-ellipsis） mixin&lt;/h4&gt;
+
+&lt;p&gt;当你的UI界面要保证文字不会超出block，通常的解决方案（根据不同的需求）是使用&lt;a href=&quot;https://developer.mozilla.org/en/docs/Web/CSS/text-overflow&quot;&gt;text-overflow&lt;/a&gt;规则。&lt;/p&gt;
+
+&lt;p&gt;但是&lt;code class=&quot;highlighter-rouge&quot;&gt;text-overflow: ellipsis;&lt;/code&gt;在没有&lt;code class=&quot;highlighter-rouge&quot;&gt;overflow: hidden;&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;white-space: nowrap;&lt;/code&gt;下并没有什么用。这正是mixin大展身手的地方！&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// DEFINE
+&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--mixin-overflow-ellipsis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;text-overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ellipsis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;white-space&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nowrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// USE
+&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.overflow-box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;@apply&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--mixin-overflow-ellipsis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;iframe id=&quot;cp_embed_mVqPwz&quot; src=&quot;//codepen.io/malyw/embed/mVqPwz?height=150&amp;amp;theme-id=178&amp;amp;slug-hash=mVqPwz&amp;amp;user=malyw&amp;amp;default-tab=result&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;150&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; name=&quot;CodePen Embed&quot; title=&quot;CodePen Embed&quot; class=&quot;cp_embed_iframe &quot; style=&quot;width: 100%; overflow: hidden;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h4 id=&quot;css-mixin&quot;&gt;CSS三角形 mixin&lt;/h4&gt;
+
+&lt;p&gt;有大量的方法可以使用CSS创建简单的几何图形，最受欢迎的就是&lt;a href=&quot;http://www.sitepoint.com/sass-mixin-css-triangles/&quot;&gt;使用CSS border绘制三角形&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;让我们为此创建一个简单的mixin：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--triangle-to-bottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;border-style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;solid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;border-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;border-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#007bff&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如你所见，我们可以定义大小和颜色的变量。另一个想法就是做一个单独的0宽高的mixin并重用它&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--zero-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+  &lt;span class=&quot;na&quot;&gt;--triangle-to-bottom-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--triangle-to-bottom-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#007bff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;na&quot;&gt;--triangle-to-bottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;@apply&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--zero-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;border-style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;solid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;border-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;triangle-to-bottom-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;triangle-to-bottom-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;triangle-to-bottom-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;border-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;triangle-to-bottom-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.triangle-to-bottom&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;@apply&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--triangle-to-bottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;iframe id=&quot;cp_embed_grRNZy&quot; src=&quot;//codepen.io/malyw/embed/grRNZy?height=150&amp;amp;theme-id=178&amp;amp;slug-hash=grRNZy&amp;amp;user=malyw&amp;amp;default-tab=result&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;150&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; name=&quot;CodePen Embed&quot; title=&quot;CodePen Embed&quot; class=&quot;cp_embed_iframe &quot; style=&quot;width: 100%; overflow: hidden;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;mixins-1&quot;&gt;将变量传递给mixins&lt;/h3&gt;
+
+&lt;p&gt;根据不同的应用规则把变量传递给mixins将会很有用。&lt;/p&gt;
+
+&lt;p&gt;然而不幸的是，如果你在全局作用域中（&lt;code class=&quot;highlighter-rouge&quot;&gt;:root&#39;）定义了&lt;/code&gt;@apply`规则，它将只能使用在那个作用域中的变量，因此不能使用你的局部变量&lt;/p&gt;
+
+&lt;p&gt;虽然不爽，但是至少你还能使用CSS预处理器把mixins复制粘贴到需要的作用域中，直到CSS变量正常&lt;/p&gt;
+
+&lt;p&gt;目前关于这个问题还在讨论&lt;/p&gt;
+
+&lt;h3 id=&quot;fallbacks&quot;&gt;浏览器支持和fallbacks&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;浏览器&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@apply&lt;/code&gt;在&lt;a href=&quot;https://codereview.chromium.org/1645433002&quot;&gt;Chrome Dev and Canary（桌面和移动端）&lt;/a&gt;中，开启&lt;code class=&quot;highlighter-rouge&quot;&gt;chrome://flags/#enable-experimental-web-platform-features&lt;/code&gt;（
+实验性网络平台功能）（&lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=586974&quot;&gt;issue&lt;/a&gt;）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以查看&lt;a href=&quot;https://www.chromestatus.com/feature/5753701012602880&quot;&gt;Chrome Platform Status issue&lt;/a&gt;从而获得最新的支持消息&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;fallbacks-1&quot;&gt;Fallbacks&lt;/h4&gt;
+
+&lt;p&gt;看起来似乎现在想用的这个特性话唯一方法就是使用一个PostCSS的插件：&lt;a href=&quot;https://github.com/pascalduez/postcss-apply&quot;&gt;https://github.com/pascalduez/postcss-apply&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;它允许自定义属性集的使用&lt;/p&gt;
+
+&lt;p&gt;如你所见“这个插件还是一个早期版本，许多特性还没有被支持”，但是它也包含了一些简单的内容&lt;/p&gt;
+
+&lt;p&gt;同时著名的&lt;a href=&quot;https://github.com/MoOx/postcss-cssnext&quot;&gt;cssnext&lt;/a&gt;插件作者也&lt;a href=&quot;https://github.com/MoOx/postcss-cssnext/issues/203&quot;&gt;期待一个Pull Request&lt;/a&gt;来添加这种特性&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;测试浏览器支持&lt;/h3&gt;
+
+&lt;p&gt;这有一个&lt;a href=&quot;https://gist.github.com/malyw/477cd45bd0ed501a1c3ce0870ae16dd1&quot;&gt;复制过来的例子&lt;/a&gt;，可以检测&lt;code class=&quot;highlighter-rouge&quot;&gt;@apply&lt;/code&gt;规则在浏览器中是否被支持：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;testCSSApply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;id&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// include styles&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;styleEl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;style&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;styleEl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;font&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;family&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}{&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;styleEl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// include element&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;i&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;id&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// test&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getComputedStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;doesSupport&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fontFamily&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// cleaning&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;removeChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;styleEl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;removeChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;doesSupport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;使用它也很简单：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;testCSSApply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()){&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39; supported&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;iframe id=&quot;cp_embed_yOoMRp&quot; src=&quot;//codepen.io/malyw/embed/yOoMRp?default-tab=result&amp;amp;user=malyw&amp;amp;slug-hash=yOoMRp&amp;amp;theme-id=178&amp;amp;height=150&quot; scrolling=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; name=&quot;CodePen Embed&quot; title=&quot;CodePen Embed&quot; class=&quot;cp_embed_iframe &quot; style=&quot;width: 100%; overflow: hidden;&quot; frameborder=&quot;0&quot; height=&quot;150&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;写在最后&lt;/h3&gt;
+
+&lt;p&gt;你可以这样想：“CSS又变得越来越难了嘤嘤嘤”：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/a7sW8y2.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;但是我们已经习惯了CSS预处理器带来的这些概念，换句话说，现在我们将不用任何预处理器就能使用CSS变量和mixins！&lt;/p&gt;
+
+&lt;p&gt;是是是，语法这样并不是很好，但是想想你开始学习使用一门新的预处理器时的感觉&lt;/p&gt;
+
+&lt;p&gt;我倒是觉得这个发展过程会像ES6的进化发展一样：&lt;/p&gt;
+
+&lt;p&gt;为了代替如CoffeeScript一样的转译语言，社区开始为JavaScript添加新的特性，然后到目前为止大多数主流浏览器对其的支持度都达到了80-95%。&lt;/p&gt;
+
+&lt;p&gt;因此希望不久以后，所有的这些你都可以在项目中轻松地使用&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;原文链接：&lt;a href=&quot;https://blog.gospodarets.com/css_apply_rule&quot;&gt;CSS @apply rule (native CSS mixins)&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;原文发布时间：April 11, 2016&lt;/p&gt;
+
+  &lt;p&gt;原作者：Serg Gospodarets&lt;/p&gt;
+
+  &lt;p&gt;翻译者：IwYvI&lt;/p&gt;
+
+  &lt;p&gt;翻译时间：2016/5/5&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Thu, 05 May 2016 00:00:00 +0800</pubDate>
+        <link>http://www.iwyvi.com/css/css-apply-rule</link>
+        <guid isPermaLink="true">http://www.iwyvi.com/css/css-apply-rule</guid>
+        
+        <tag>css,前端</tag>
+        
+        
+        <category>css</category>
+        
+      </item>
     
       <item>
         <title>【译】深入了解CSS自定义属性</title>
@@ -566,7 +869,7 @@
 
 &lt;h3 id=&quot;section-12&quot;&gt;扩展阅读&lt;/h3&gt;
 
-&lt;p&gt;近期CSS原生mixins语法发布 - &lt;a href=&quot;https://blog.gospodarets.com/css_apply_rule&quot;&gt;【待翻译】CSS @apply rule (native CSS mixins)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;近期CSS原生mixins语法发布 - &lt;a href=&quot;http://www.iwyvi.com/css/css-apply-rule&quot;&gt;【译】CSS @apply规则&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;原文链接：&lt;a href=&quot;https://blog.gospodarets.com/css_properties_in_depth&quot;&gt;CSS custom properties (native variables) In-Depth&lt;/a&gt;&lt;/p&gt;
@@ -767,218 +1070,6 @@
         
         
         <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>wechat test</title>
-        <description>&lt;div class=&quot;description&quot;&gt;文字摘要&lt;/div&gt;
-
-
-
-
-&lt;section style=&quot;box-sizing: border-box; background-color: rgb(255, 255, 255);&quot;&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;margin: 0.5em 0px; position: static; box-sizing: border-box;&quot;&gt;
-            &lt;section class=&quot;&quot; style=&quot;height: 0px; margin: 0px 1em; border-top-width: 1.5em; border-top-style: solid; border-top-color: rgb(250, 74, 74); border-bottom-width: 1.5em; border-bottom-style: solid; border-bottom-color: rgb(250, 74, 74); box-sizing: border-box; border-left-width: 1.5em !important; border-left-style: solid !important; border-left-color: transparent !important; border-right-width: 1.5em !important; border-right-style: solid !important; border-right-color: transparent !important;&quot;&gt;&lt;/section&gt;
-            &lt;section class=&quot;&quot; style=&quot;height: 0px; margin: -2.75em 1.65em -2.3em; border-width: 1.3em; border-style: solid; border-color: rgb(255, 255, 255) transparent; box-sizing: border-box;&quot;&gt;&lt;/section&gt;
-            &lt;section class=&quot;&quot; style=&quot;height: 0px; margin: 0px 2.1em; vertical-align: middle; border-top-width: 1.1em; border-top-style: solid; border-top-color: rgb(250, 74, 74); border-bottom-width: 1.1em; border-bottom-style: solid; border-bottom-color: rgb(250, 74, 74); box-sizing: border-box; border-left-width: 1.1em !important; border-left-style: solid !important; border-left-color: transparent !important; border-right-width: 1.1em !important; border-right-style: solid !important; border-right-color: transparent !important;&quot;&gt;
-                &lt;section class=&quot;&quot; style=&quot;margin-top: -0.8em; text-align: center; color: rgb(255, 255, 240); box-sizing: border-box;&quot;&gt;
-                    &lt;section style=&quot;box-sizing: border-box;&quot;&gt;
-                        ~圣诞快乐~
-                    &lt;/section&gt;
-                &lt;/section&gt;
-            &lt;/section&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-            &lt;section class=&quot;&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                &lt;section style=&quot;box-sizing: border-box;&quot;&gt;
-                    &lt;br style=&quot;box-sizing: border-box;&quot;/&gt;
-                &lt;/section&gt;
-            &lt;/section&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;margin-top: 10px; margin-bottom: 10px; position: static; box-sizing: border-box;&quot;&gt;
-            &lt;section class=&quot;&quot; style=&quot;display: inline-block; width: 100%; border: 2px dashed rgb(192, 200, 209); padding: 10px; box-sizing: border-box; background-color: rgb(239, 239, 239);&quot;&gt;
-                &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                    &lt;section class=&quot;&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-                        &lt;section class=&quot;&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                            &lt;section style=&quot;text-indent: 2em; box-sizing: border-box;&quot;&gt;
-                                今天是圣诞节，所以Monica为大家带来的曲子是&amp;nbsp;we wish you a merry christmas 。
-                            &lt;/section&gt;
-                            &lt;section style=&quot;text-indent: 2em; box-sizing: border-box;&quot;&gt;
-                                这首曲子原曲由歌手Enya演唱，是经典的圣诞歌曲，也是每年圣诞节大街小巷都能听到的曲子。本是圣洁庄重的歌，被改编后变得活泼轻快，歌词也都是祝福的话语，给人幸福温馨的感觉。
-                            &lt;/section&gt;
-                        &lt;/section&gt;
-                    &lt;/section&gt;
-                &lt;/section&gt;
-            &lt;/section&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;text-align: center; margin-top: 10px; margin-bottom: 10px; position: static; box-sizing: border-box;&quot;&gt;
-            &lt;img style=&quot;box-sizing: border-box; vertical-align: middle;&quot; class=&quot;&quot; src=&quot;http://im.96weixin.com:89/uploads/userup/image/20160324/1458794407109008.gif&quot;/&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;margin: 0.5em 0px; position: static; box-sizing: border-box;&quot;&gt;
-            &lt;section class=&quot;&quot; style=&quot;display: inline-block; width: 100%; border-bottom-left-radius: 1.6em; border-bottom-right-radius: 1.6em; border: 2px solid rgb(250, 74, 74); padding: 10px; box-sizing: border-box;&quot;&gt;
-                &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                    &lt;section class=&quot;&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-                        &lt;section class=&quot;&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                            &lt;section style=&quot;text-indent: 2em; box-sizing: border-box;&quot;&gt;
-                                &lt;span style=&quot;line-height: 1.6; text-indent: 2em; box-sizing: border-box;&quot;&gt;这首满是祝福的歌在圣诞节的晚上送给爱樱之音的每一个人，Monica的话全在歌词里，祝愿大家幸福美满，平安喜乐，we wish you a merry christmas~&lt;/span&gt;&lt;br style=&quot;box-sizing: border-box;&quot;/&gt;
-                            &lt;/section&gt;
-                        &lt;/section&gt;
-                    &lt;/section&gt;
-                &lt;/section&gt;
-            &lt;/section&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-&lt;/section&gt;
-&lt;p&gt;
-    &lt;br/&gt;
-&lt;/p&gt;
-&lt;section style=&quot;box-sizing: border-box; background-color: rgb(255, 255, 255);&quot;&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;margin: 0.5em 0px; position: static; box-sizing: border-box;&quot;&gt;
-            &lt;section class=&quot;&quot; style=&quot;height: 0px; margin: 0px 1em; border-top-width: 1.5em; border-top-style: solid; border-top-color: rgb(250, 74, 74); border-bottom-width: 1.5em; border-bottom-style: solid; border-bottom-color: rgb(250, 74, 74); box-sizing: border-box; border-left-width: 1.5em !important; border-left-style: solid !important; border-left-color: transparent !important; border-right-width: 1.5em !important; border-right-style: solid !important; border-right-color: transparent !important;&quot;&gt;&lt;/section&gt;
-            &lt;section class=&quot;&quot; style=&quot;height: 0px; margin: -2.75em 1.65em -2.3em; border-width: 1.3em; border-style: solid; border-color: rgb(255, 255, 255) transparent; box-sizing: border-box;&quot;&gt;&lt;/section&gt;
-            &lt;section class=&quot;&quot; style=&quot;height: 0px; margin: 0px 2.1em; vertical-align: middle; border-top-width: 1.1em; border-top-style: solid; border-top-color: rgb(250, 74, 74); border-bottom-width: 1.1em; border-bottom-style: solid; border-bottom-color: rgb(250, 74, 74); box-sizing: border-box; border-left-width: 1.1em !important; border-left-style: solid !important; border-left-color: transparent !important; border-right-width: 1.1em !important; border-right-style: solid !important; border-right-color: transparent !important;&quot;&gt;
-                &lt;section class=&quot;&quot; style=&quot;margin-top: -0.8em; text-align: center; color: rgb(255, 255, 240); box-sizing: border-box;&quot;&gt;
-                    &lt;section style=&quot;box-sizing: border-box;&quot;&gt;
-                        ~圣诞快乐~
-                    &lt;/section&gt;
-                &lt;/section&gt;
-            &lt;/section&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-            &lt;section class=&quot;&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                &lt;section style=&quot;box-sizing: border-box;&quot;&gt;
-                    &lt;br style=&quot;box-sizing: border-box;&quot;/&gt;
-                &lt;/section&gt;
-            &lt;/section&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;margin-top: 10px; margin-bottom: 10px; position: static; box-sizing: border-box;&quot;&gt;
-            &lt;section class=&quot;&quot; style=&quot;display: inline-block; width: 100%; border: 2px dashed rgb(192, 200, 209); padding: 10px; box-sizing: border-box; background-color: rgb(239, 239, 239);&quot;&gt;
-                &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                    &lt;section class=&quot;&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-                        &lt;section class=&quot;&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                            &lt;section style=&quot;text-indent: 2em; box-sizing: border-box;&quot;&gt;
-                                今天是圣诞节，所以Monica为大家带来的曲子是&amp;nbsp;we wish you a merry christmas 。
-                            &lt;/section&gt;
-                            &lt;section style=&quot;text-indent: 2em; box-sizing: border-box;&quot;&gt;
-                                这首曲子原曲由歌手Enya演唱，是经典的圣诞歌曲，也是每年圣诞节大街小巷都能听到的曲子。本是圣洁庄重的歌，被改编后变得活泼轻快，歌词也都是祝福的话语，给人幸福温馨的感觉。
-                            &lt;/section&gt;
-                        &lt;/section&gt;
-                    &lt;/section&gt;
-                &lt;/section&gt;
-            &lt;/section&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;text-align: center; margin-top: 10px; margin-bottom: 10px; position: static; box-sizing: border-box;&quot;&gt;
-            &lt;img style=&quot;box-sizing: border-box; vertical-align: middle;&quot; class=&quot;&quot; src=&quot;http://im.96weixin.com:89/uploads/userup/image/20160324/1458794407109008.gif&quot;/&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;margin: 0.5em 0px; position: static; box-sizing: border-box;&quot;&gt;
-            &lt;section class=&quot;&quot; style=&quot;display: inline-block; width: 100%; border-bottom-left-radius: 1.6em; border-bottom-right-radius: 1.6em; border: 2px solid rgb(250, 74, 74); padding: 10px; box-sizing: border-box;&quot;&gt;
-                &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                    &lt;section class=&quot;&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-                        &lt;section class=&quot;&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                            &lt;section style=&quot;text-indent: 2em; box-sizing: border-box;&quot;&gt;
-                                &lt;span style=&quot;line-height: 1.6; text-indent: 2em; box-sizing: border-box;&quot;&gt;这首满是祝福的歌在圣诞节的晚上送给爱樱之音的每一个人，Monica的话全在歌词里，祝愿大家幸福美满，平安喜乐，we wish you a merry christmas~&lt;/span&gt;&lt;br style=&quot;box-sizing: border-box;&quot;/&gt;
-                            &lt;/section&gt;
-                        &lt;/section&gt;
-                    &lt;/section&gt;
-                &lt;/section&gt;
-            &lt;/section&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-&lt;/section&gt;
-&lt;p&gt;
-    &lt;br/&gt;
-&lt;/p&gt;
-&lt;section style=&quot;box-sizing: border-box; background-color: rgb(255, 255, 255);&quot;&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;margin: 0.5em 0px; position: static; box-sizing: border-box;&quot;&gt;
-            &lt;section class=&quot;&quot; style=&quot;height: 0px; margin: 0px 1em; border-top-width: 1.5em; border-top-style: solid; border-top-color: rgb(250, 74, 74); border-bottom-width: 1.5em; border-bottom-style: solid; border-bottom-color: rgb(250, 74, 74); box-sizing: border-box; border-left-width: 1.5em !important; border-left-style: solid !important; border-left-color: transparent !important; border-right-width: 1.5em !important; border-right-style: solid !important; border-right-color: transparent !important;&quot;&gt;&lt;/section&gt;
-            &lt;section class=&quot;&quot; style=&quot;height: 0px; margin: -2.75em 1.65em -2.3em; border-width: 1.3em; border-style: solid; border-color: rgb(255, 255, 255) transparent; box-sizing: border-box;&quot;&gt;&lt;/section&gt;
-            &lt;section class=&quot;&quot; style=&quot;height: 0px; margin: 0px 2.1em; vertical-align: middle; border-top-width: 1.1em; border-top-style: solid; border-top-color: rgb(250, 74, 74); border-bottom-width: 1.1em; border-bottom-style: solid; border-bottom-color: rgb(250, 74, 74); box-sizing: border-box; border-left-width: 1.1em !important; border-left-style: solid !important; border-left-color: transparent !important; border-right-width: 1.1em !important; border-right-style: solid !important; border-right-color: transparent !important;&quot;&gt;
-                &lt;section class=&quot;&quot; style=&quot;margin-top: -0.8em; text-align: center; color: rgb(255, 255, 240); box-sizing: border-box;&quot;&gt;
-                    &lt;section style=&quot;box-sizing: border-box;&quot;&gt;
-                        ~圣诞快乐~
-                    &lt;/section&gt;
-                &lt;/section&gt;
-            &lt;/section&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-            &lt;section class=&quot;&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                &lt;section style=&quot;box-sizing: border-box;&quot;&gt;
-                    &lt;br style=&quot;box-sizing: border-box;&quot;/&gt;
-                &lt;/section&gt;
-            &lt;/section&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;margin-top: 10px; margin-bottom: 10px; position: static; box-sizing: border-box;&quot;&gt;
-            &lt;section class=&quot;&quot; style=&quot;display: inline-block; width: 100%; border: 2px dashed rgb(192, 200, 209); padding: 10px; box-sizing: border-box; background-color: rgb(239, 239, 239);&quot;&gt;
-                &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                    &lt;section class=&quot;&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-                        &lt;section class=&quot;&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                            &lt;section style=&quot;text-indent: 2em; box-sizing: border-box;&quot;&gt;
-                                今天是圣诞节，所以Monica为大家带来的曲子是&amp;nbsp;we wish you a merry christmas 。
-                            &lt;/section&gt;
-                            &lt;section style=&quot;text-indent: 2em; box-sizing: border-box;&quot;&gt;
-                                这首曲子原曲由歌手Enya演唱，是经典的圣诞歌曲，也是每年圣诞节大街小巷都能听到的曲子。本是圣洁庄重的歌，被改编后变得活泼轻快，歌词也都是祝福的话语，给人幸福温馨的感觉。
-                            &lt;/section&gt;
-                        &lt;/section&gt;
-                    &lt;/section&gt;
-                &lt;/section&gt;
-            &lt;/section&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;text-align: center; margin-top: 10px; margin-bottom: 10px; position: static; box-sizing: border-box;&quot;&gt;
-            &lt;img style=&quot;box-sizing: border-box; vertical-align: middle;&quot; class=&quot;&quot; src=&quot;http://im.96weixin.com:89/uploads/userup/image/20160324/1458794407109008.gif&quot;/&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-    &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-        &lt;section class=&quot;&quot; style=&quot;margin: 0.5em 0px; position: static; box-sizing: border-box;&quot;&gt;
-            &lt;section class=&quot;&quot; style=&quot;display: inline-block; width: 100%; border-bottom-left-radius: 1.6em; border-bottom-right-radius: 1.6em; border: 2px solid rgb(250, 74, 74); padding: 10px; box-sizing: border-box;&quot;&gt;
-                &lt;section class=&quot;Powered-by-XIUMI V5&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                    &lt;section class=&quot;&quot; style=&quot;position: static; box-sizing: border-box;&quot;&gt;
-                        &lt;section class=&quot;&quot; style=&quot;box-sizing: border-box;&quot;&gt;
-                            &lt;section style=&quot;text-indent: 2em; box-sizing: border-box;&quot;&gt;
-                                &lt;span style=&quot;line-height: 1.6; text-indent: 2em; box-sizing: border-box;&quot;&gt;这首满是祝福的歌在圣诞节的晚上送给爱樱之音的每一个人，Monica的话全在歌词里，祝愿大家幸福美满，平安喜乐，we wish you a merry christmas~&lt;/span&gt;&lt;br style=&quot;box-sizing: border-box;&quot;/&gt;
-                            &lt;/section&gt;
-                        &lt;/section&gt;
-                    &lt;/section&gt;
-                &lt;/section&gt;
-            &lt;/section&gt;
-        &lt;/section&gt;
-    &lt;/section&gt;
-&lt;/section&gt;
-&lt;p&gt;
-    &lt;br/&gt;
-&lt;/p&gt;
-</description>
-        <pubDate>Thu, 24 Mar 2016 11:40:09 +0800</pubDate>
-        <link>http://www.iwyvi.com/wechat/wechat-test</link>
-        <guid isPermaLink="true">http://www.iwyvi.com/wechat/wechat-test</guid>
-        
-        
-        <category>wechat</category>
         
       </item>
     
