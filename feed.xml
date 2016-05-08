@@ -5,8 +5,8 @@
     <description>IwYvI的博客，分享心得和学习过程</description>
     <link>http://www.iwyvi.com/</link>
     <atom:link href="http://www.iwyvi.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 05 May 2016 18:35:41 +0800</pubDate>
-    <lastBuildDate>Thu, 05 May 2016 18:35:41 +0800</lastBuildDate>
+    <pubDate>Sun, 08 May 2016 22:43:45 +0800</pubDate>
+    <lastBuildDate>Sun, 08 May 2016 22:43:45 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -869,7 +869,7 @@
 
 &lt;h3 id=&quot;section-12&quot;&gt;扩展阅读&lt;/h3&gt;
 
-&lt;p&gt;近期CSS原生mixins语法发布 - &lt;a href=&quot;http://www.iwyvi.com/css/css-apply-rule&quot;&gt;【译】CSS @apply规则&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;近期CSS原生mixins语法发布 - &lt;a href=&quot;http://www.iwyvi.com/css/css-apply-rule&quot;&gt;【译】CSS @apply规则(mixins)&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;原文链接：&lt;a href=&quot;https://blog.gospodarets.com/css_properties_in_depth&quot;&gt;CSS custom properties (native variables) In-Depth&lt;/a&gt;&lt;/p&gt;
