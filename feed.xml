@@ -5,13 +5,154 @@
     <description>IwYvI的博客，分享心得和学习过程</description>
     <link>http://www.iwyvi.com/</link>
     <atom:link href="http://www.iwyvi.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 May 2016 22:43:45 +0800</pubDate>
-    <lastBuildDate>Sun, 08 May 2016 22:43:45 +0800</lastBuildDate>
+    <pubDate>Sat, 09 Jul 2016 10:41:19 +0800</pubDate>
+    <lastBuildDate>Sat, 09 Jul 2016 10:41:19 +0800</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
+        <title>我的gh60客制化键盘</title>
+        <description>&lt;div class=&quot;description&quot;&gt;我的第一个客制化gh60机械键盘，使用了无钢板g轴红轴，同时刷了自己喜欢的配列。&lt;/div&gt;
+&lt;p&gt;之前的那个贼鸥87键的机械键盘坏了，有一个键一直触发，但是按键的时候却不触发了，不知道是不是因为pcb某处短路。然后前一段时间一直想换一个新的键盘，然后由于预算各种纠结，当然也学习到了许多新的东西。&lt;/p&gt;
+
+&lt;p&gt;最开始想直接买把薄膜键盘算了，然后还是觉得薄膜存在手感问题。而后又看了人体工学键盘，然而机械的人体工学键盘贵的简直不忍直视。微软的Sculpt键盘看起来好漂亮但是迫于预算也只能看一看，微软3000似乎已经是很多年前的型号了，但是还是很贵，这个价格可以买一个机械键盘了。所以当时也在考虑微软2000。后来根据网上评论说这个键盘手感并不好，我又不是特别想买薄膜键盘，所以又想起了曾经看到的客制化。&lt;/p&gt;
+
+&lt;p&gt;然后就接触了一种神奇的60%键盘，这种连f区都被阉割的布局。客制化的键盘主要是gh60，然后网上查到可用通过刷固件改变键盘配列。反正忘了具体为什么下决心买了一套，虽然当时对自己的焊工没有信心。&lt;/p&gt;
+
+&lt;p&gt;上面说了一堆我自己都不会说的废话。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsaq2.com1.z0.glb.clouddn.com/img/material.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这是拆包后的材料，加了一个奇怪的电影滤镜&lt;/p&gt;
+
+&lt;p&gt;然后开始装卫星轴、测试、装轴、刷配列、装键帽、焊轴、拆键帽、装灯、上壳、装键帽（这个顺序是我的顺序，刷配列可以放在最后）。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;这里给几个我参考的教程：&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://forum.eepw.com.cn/forum/thread/threadid/277251/flag/1&quot;&gt;tangdyy的GH60组装过程(修改多层按键配列)&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://forum.eepw.com.cn/thread/277379/1?spm=0.0.0.0.AyAuOv&quot;&gt;【KB230】archlich的GH60进程&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://forum.eepw.com.cn/thread/278667/1&quot;&gt;Simmo 的GH60进程&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://bbs.wstx.com/thread-632487-1-1.html&quot;&gt;【白杨】satan版GH 60组有钢茶 POKER配列详细教程&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsaq2.com1.z0.glb.clouddn.com/img/pcb.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这个是焊完轴插上灯以后的照片&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;成品图明天再放因为键帽还没到&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;这是成品图&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsaq2.com1.z0.glb.clouddn.com/img/keyboard_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsaq2.com1.z0.glb.clouddn.com/img/keyboard_2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;配列&lt;/h3&gt;
+
+&lt;p&gt;设计配列：&lt;a href=&quot;http://www.keyboard-layout-editor.com/&quot;&gt;keyboard-layout-editor&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;生成固件：&lt;a href=&quot;http://tkg.io/&quot;&gt;TMK Keymap Generator&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;我的板子就是淘宝上satan的gh60板子，默认是poker配列，首先我想刷成pure配列，然后加上自己喜欢的功能。上面两个网站里第一个是设计配列的网站，按键内容是在第二个网站帮助里，可以实现所有帮助有的按键效果。&lt;/p&gt;
+
+&lt;p&gt;我一共有5层&lt;/p&gt;
+
+&lt;p&gt;第0层是默认层，基本上是标准键盘，右下角的几个键改成了方向键，大小写锁定键改成了fn，esc作为trick esc（正常按下是esc，shift+esc按下是~）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsaq2.com1.z0.glb.clouddn.com/img/layer0.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第一层是dvorak布局层&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsaq2.com1.z0.glb.clouddn.com/img/layer1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第二层将数字键变成f区&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsaq2.com1.z0.glb.clouddn.com/img/layer2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第三层是小键盘层&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsaq2.com1.z0.glb.clouddn.com/img/layer3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第四层是fn0按下瞬间弹出来的层，主要放了大量的功能，wasd附近按键控制鼠标操作，tab当作大小写锁定，cvb控制背光，右边是媒体键和功能键。fn5切换第一层，fn6切换第二层，fn6切换第三层。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsaq2.com1.z0.glb.clouddn.com/img/layer4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;注意，高层会将低层内容覆盖。&lt;/p&gt;
+
+&lt;p&gt;将每一层的raw data复制到第二个网站里，satan的板子选择GH60(RevCHN)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsaq2.com1.z0.glb.clouddn.com/img/general.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这里是fn和灯的设置&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xsaq2.com1.z0.glb.clouddn.com/img/fnled.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这里让大小写锁定灯和背光保持一致，原本我以为把大小写放在别的层上面只有切换到那一层才显示为大小写灯，没想到这个灯强制为标准的大小写键位灯。&lt;/p&gt;
+
+&lt;p&gt;下面是我的各层的代码&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//-------------layer0-----------
+[&quot;Fn4&quot;,&quot;!\n1&quot;,&quot;@\n2&quot;,&quot;#\n3&quot;,&quot;$\n4&quot;,&quot;%\n5&quot;,&quot;^\n6&quot;,&quot;&amp;amp;\n7&quot;,&quot;*\n8&quot;,&quot;(\n9&quot;,&quot;)\n0&quot;,&quot;_\n-&quot;,&quot;+\n=&quot;,{w:2},&quot;Backspace&quot;],
+[{w:1.5},&quot;Tab&quot;,&quot;Q&quot;,&quot;W&quot;,&quot;E&quot;,&quot;R&quot;,&quot;T&quot;,&quot;Y&quot;,&quot;U&quot;,&quot;I&quot;,&quot;O&quot;,&quot;P&quot;,&quot;{\n[&quot;,&quot;}\n]&quot;,{w:1.5},&quot;|\n\\&quot;],
+[{w:1.75},&quot;fn0&quot;,&quot;A&quot;,&quot;S&quot;,&quot;D&quot;,&quot;F&quot;,&quot;G&quot;,&quot;H&quot;,&quot;J&quot;,&quot;K&quot;,&quot;L&quot;,&quot;:\n;&quot;,&quot;\&quot;\n&#39;&quot;,{w:2.25},&quot;Enter&quot;],
+[{w:2.25},&quot;Shift&quot;,&quot;Z&quot;,&quot;X&quot;,&quot;C&quot;,&quot;V&quot;,&quot;B&quot;,&quot;N&quot;,&quot;M&quot;,&quot;&amp;lt;\n,&quot;,&quot;&amp;gt;\n.&quot;,&quot;?\n/&quot;,{w:1.75},&quot;↑&quot;,&quot;Del&quot;],
+[{w:1.25},&quot;Ctrl&quot;,{w:1.25},&quot;Win&quot;,{w:1.25},&quot;Alt&quot;,{w:6.25},&quot;space&quot;,{w:1.25},&quot;Fn0&quot;,{w:1.25},&quot;←&quot;,{w:1.25},&quot;↓&quot;,{w:1.25},&quot;→&quot;]
+
+//-------------layer1-----------
+[{a:7},&quot;&quot;,{a:4},&quot;!\n1&quot;,&quot;@\n2&quot;,&quot;#\n3&quot;,&quot;$\n4&quot;,&quot;%\n5&quot;,&quot;^\n6&quot;,&quot;&amp;amp;\n7&quot;,&quot;*\n8&quot;,&quot;(\n9&quot;,&quot;)\n0&quot;,&quot;{\n[&quot;,&quot;}\n]&quot;,{a:7,w:2},&quot;&quot;],
+[{w:1.5},&quot;&quot;,{a:4},&quot;\&quot;\n&#39;&quot;,&quot;&amp;lt;\n,&quot;,&quot;&amp;gt;\n.&quot;,&quot;P&quot;,&quot;Y&quot;,&quot;F&quot;,&quot;G&quot;,&quot;C&quot;,&quot;R&quot;,&quot;L&quot;,&quot;?\n/&quot;,&quot;+\n=&quot;,{a:7,w:1.5},&quot;&quot;],
+[{w:1.75},&quot;&quot;,{a:4},&quot;A&quot;,&quot;O&quot;,&quot;E&quot;,&quot;U&quot;,&quot;I&quot;,&quot;D&quot;,&quot;H&quot;,&quot;T&quot;,&quot;N&quot;,&quot;S&quot;,&quot;_\n-&quot;,{a:7,w:2.25},&quot;&quot;],
+[{w:2.25},&quot;&quot;,{a:4},&quot;:\n;&quot;,&quot;Q&quot;,&quot;J&quot;,&quot;K&quot;,&quot;X&quot;,&quot;B&quot;,&quot;M&quot;,&quot;W&quot;,&quot;V&quot;,&quot;Z&quot;,{a:7,w:1.75},&quot;&quot;,&quot;&quot;],
+[{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:6.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;]
+
+//-------------layer2-----------
+[{a:7},&quot;&quot;,{a:4},&quot;F1&quot;,&quot;F2&quot;,&quot;F3&quot;,&quot;F4&quot;,&quot;F5&quot;,&quot;F6&quot;,&quot;F7&quot;,&quot;F8&quot;,&quot;F9&quot;,&quot;F10&quot;,&quot;F11&quot;,&quot;F12&quot;,{a:7,w:2},&quot;&quot;],
+[{w:1.5},&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,{w:1.5},&quot;&quot;],
+[{w:1.75},&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,{w:2.25},&quot;&quot;],
+[{w:2.25},&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,{w:1.75},&quot;&quot;,&quot;&quot;],
+[{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:6.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;]
+
+//-------------layer3-----------
+[{a:7},&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,{a:4},&quot;numlock&quot;,&quot;7\nhome&quot;,&quot;8\nup&quot;,&quot;9\npgup&quot;,&quot;/&quot;,{a:7},&quot;&quot;,&quot;&quot;,{w:2},&quot;&quot;],
+[{w:1.5},&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,{a:4},&quot;4\nleft&quot;,&quot;5&quot;,&quot;6\nright&quot;,&quot;*&quot;,{a:7},&quot;&quot;,&quot;&quot;,{w:1.5},&quot;&quot;],
+[{w:1.75},&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,{a:4},&quot;1\nend&quot;,&quot;2\ndown&quot;,&quot;3\npgdn&quot;,&quot;-&quot;,{a:7},&quot;&quot;,{a:4,w:2.25},&quot;penter&quot;],
+[{a:7,w:2.25},&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,{a:4},&quot;0\nins&quot;,&quot;.\ndel&quot;,&quot;+&quot;,&quot;+&quot;,{a:7,w:1.75},&quot;&quot;,&quot;&quot;],
+[{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:6.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;]
+
+//-------------layer4-----------
+[&quot;~\n`&quot;,&quot;F1&quot;,&quot;F2&quot;,&quot;F3&quot;,&quot;F4&quot;,&quot;F5&quot;,&quot;F6&quot;,&quot;F7&quot;,&quot;F8&quot;,&quot;F9&quot;,&quot;F10&quot;,&quot;F11&quot;,&quot;F12&quot;,{w:2},&quot;fn6&quot;],
+[{w:1.5},&quot;capslock&quot;,&quot;button1&quot;,&quot;mouseup&quot;,&quot;button2&quot;,&quot;wheelup&quot;,&quot;accel0&quot;,{a:7},&quot;&quot;,&quot;&quot;,{a:4},&quot;calc&quot;,{a:7},&quot;&quot;,{a:4},&quot;PSc&quot;,&quot;ScrLk&quot;,&quot;pause\nbreak&quot;,{w:1.5},&quot;fn7&quot;],
+[{a:7,w:1.75},&quot;&quot;,{a:4},&quot;mouseleft&quot;,&quot;mousedown&quot;,&quot;mouseright&quot;,&quot;wheeldown&quot;,&quot;accel1&quot;,{a:7},&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,{a:4},&quot;prevtrack&quot;,&quot;nexttrack&quot;,{a:7,w:2.25},&quot;&quot;],
+[{w:2.25},&quot;&quot;,&quot;&quot;,&quot;&quot;,{a:4},&quot;Fn2&quot;,&quot;Fn3&quot;,&quot;Fn1&quot;,{a:7},&quot;&quot;,{a:4},&quot;Mute&quot;,&quot;VolDn&quot;,&quot;VolUp&quot;,&quot;play&quot;,{w:1.75},&quot;Home&quot;,&quot;PgUp&quot;],
+[{a:7,w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{w:1.25},&quot;&quot;,{a:4,w:6.25},&quot;Fn5&quot;,{a:7,w:1.25},&quot;&quot;,{a:4,w:1.25},&quot;Ins&quot;,{w:1.25},&quot;End&quot;,{w:1.25},&quot;PgDn&quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这个是fn设置&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;0&quot;:[&quot;ACTION_LAYER_MOMENTARY&quot;,&quot;4&quot;],&quot;1&quot;:[&quot;ACTION_BACKLIGHT_TOGGLE&quot;],&quot;2&quot;:[&quot;ACTION_BACKLIGHT_DECREASE&quot;],&quot;3&quot;:[&quot;ACTION_BACKLIGHT_INCREASE&quot;],&quot;4&quot;:[&quot;ACTION_FUNCTION&quot;,0,0],&quot;5&quot;:[&quot;ACTION_LAYER_TOGGLE&quot;,1],&quot;6&quot;:[&quot;ACTION_LAYER_TOGGLE&quot;,&quot;2&quot;],&quot;7&quot;:[&quot;ACTION_LAYER_TOGGLE&quot;,&quot;3&quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;放心去刷适合自己的配列吧嘤嘤嘤&lt;/p&gt;
+</description>
+        <pubDate>Wed, 06 Jul 2016 00:00:00 +0800</pubDate>
+        <link>http://www.iwyvi.com/gh60/gh60-keyboard</link>
+        <guid isPermaLink="true">http://www.iwyvi.com/gh60/gh60-keyboard</guid>
+        
+        <tag>gh60,keyboard</tag>
+        
+        
+        <category>gh60</category>
+        
+      </item>
+    
+      <item>
         <title>【译】CSS @apply规则(mixins)</title>
-        <description>&lt;div class=&quot;description&quot;&gt;【翻译】《CSS @apply rule (native CSS mixins) 》：使用@apply规则，实现CSS原生的mixins。随着CSS的发展，或许我们以后将不再使用CSS预处理器（然而目前这个特性并没有得到广泛的支持），就是这样&lt;/div&gt;
+        <description>&lt;div class=&quot;description&quot;&gt;【翻译】《CSS @apply rule (native CSS mixins) 》：使用@apply规则，实现CSS原生的mixins。随着CSS的发展，或许我们以后将不再使用CSS预处理器（然而目前这个特性并没有得到广泛的支持），就是这样。&lt;/div&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;原文链接：&lt;a href=&quot;https://blog.gospodarets.com/css_apply_rule&quot;&gt;CSS @apply rule (native CSS mixins)&lt;/a&gt;&lt;/p&gt;
