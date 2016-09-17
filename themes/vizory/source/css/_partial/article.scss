@@ -1,0 +1,43 @@
+.article{
+  .articleContent{
+    padding-left: 100px;
+    padding-right: 100px;
+    & > h2{
+      padding-top: 60px;
+    }
+    p.date{
+      float: right;
+      text-indent: 0;
+      font-size: 1rem;
+      line-height: 40px;
+      color: $color_font_date_light;
+    }
+    p.categories{
+      clear: none;
+      text-indent: 0;
+      font-size: 1rem;
+      float: right;
+      margin-right: 20px;
+      line-height: 40px;
+      color: $color_font_date_light;
+    }
+    .articleDetail{
+      clear: both;
+      padding-top: 20px;
+      .markdown{
+        @extend %default_style;
+      }
+      .wechat{
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        *{
+          max-width: 100%;
+        }
+      }
+      .description{
+        display: none;
+      }
+    }
+  }
+}

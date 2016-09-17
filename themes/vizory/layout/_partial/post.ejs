@@ -1,0 +1,12 @@
+<div class="article largeCard">
+	<div class="articleContent largeCardContent">
+	    <h2><%- post.title %></h2>
+	    	<p class="date"><time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, null) %></time></p>
+	    <div class="articleDetail">
+	    	<div class="markdown">
+	    		<%- post.content %>
+	    	</div>
+	    </div>
+  	</div>
+</div>
+<%- partial('comments.ejs') %>

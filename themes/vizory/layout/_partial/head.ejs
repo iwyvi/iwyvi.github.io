@@ -1,0 +1,38 @@
+<%
+  var title = page.title;
+  if (is_archive()){
+    title = __('archive_a');
+
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = __('category') + ': ' + page.category;
+  } else if (is_tag()){
+    title = __('tag') + ': ' + page.tag;
+  }
+%>
+<head lang="<%- config.language %>">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+  <meta name="generator" content="<%- config.title %>">
+  <meta name="author" content="<%- config.author %>">
+  <meta name="description" content="<%- config.subtitle %>" />
+  <meta name="keywords" content="<%- config.keywords %>" />
+
+  <link rel="stylesheet" href="<%- url_for('css') %>/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="<% if (theme.rss){ %><%- theme.rss %><% } else { %><%- url_for(atom.xml) %><% } %>" title="<%= config.title %>" type="application/atom+xml">
+</head>

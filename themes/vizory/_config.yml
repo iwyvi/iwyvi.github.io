@@ -1,0 +1,45 @@
+# Header
+menu:
+  - page: home
+    directory: .
+  - page: archive
+    directory: archives/
+  - page: work
+    directory: works/
+  - page: about
+    directory: about/
+
+rss: /atom.xml
+
+# highlightjs: vs
+
+# Content
+excerpt_link: Read More
+fancybox: true
+
+# Sidebar
+sidebar: right
+widgets:
+  - category
+  - tag
+  - tagcloud
+  - archive
+  - recent_posts
+
+# display widgets at the bottom of index pages (pagination == 2)
+index_widgets:
+# - category
+# - tagcloud
+# - archive
+
+github: https://github.com/IwYvI
+
+# widget behavior
+archive_type: 'monthly'
+show_count: false
+
+# Theme version
+version: 0.0.0
+
+# Miscellaneous
+favicon: /favicon.ico

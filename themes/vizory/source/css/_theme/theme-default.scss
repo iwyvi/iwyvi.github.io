@@ -1,0 +1,107 @@
+/**
+ * 主题文件
+ */
+
+$font_family_default: "Microsoft YaHei","Helvetica Neue", Helvetica, Arial, sans-serif;
+$font_family_monospaced: "YaHei Consolas Hybrid","Consolas","Courier New","Ubuntu Mono";
+$font_family_blog_title: "Clarendon Lt BT", "Microsoft YaHei","Helvetica Neue", Helvetica, Arial, sans-serif;
+$font_size_default: 18px;
+
+$deg_header: 9deg; // 头部旋转角度
+$deg_ribbon: 18deg; //背景彩条旋转角度
+
+$time_transition: 0.3s;
+
+$img_header_background: "http://7xsaq2.com1.z0.glb.clouddn.com/img%2Fbackground.jpg";
+
+$opacity_header_background: 0.6; //头部背景的透明度
+
+/**
+ * 颜色部分
+ */
+
+$color_primary: #ff6268;
+$color_secondary: #d2f1f7;
+$color_accent: #95f0c0;
+$color_accent_2: #57bff3;
+
+$color_background: #333333; // 页面背景色
+$color_container_background: #1a1a1a; // 容器背景色
+
+$color_content_background_dark: #252525; //左半部分
+$color_content_background_light: #ffffff;
+
+$color_content_background_left: $color_content_background_dark;
+$color_content_background_right: $color_content_background_light;
+
+$color_content_shadow: #151515;
+
+$color_ribbon: $color_primary; //彩带颜色
+$color_tableCard: $color_secondary; //card颜色
+
+$color_nav: #aaaaaa;
+$color_nav_border: $color_nav;
+$color_nav_background_hover: rgba(0,0,0,0.1);
+
+$color_selection: $color_primary;
+$color_font_selection: #ffffff;
+
+/**
+ * 字体颜色
+ * 这里的dark和light只是用在黑块（dark）和白块（light）里的
+ */
+
+$color_font_dark: #ffffff;
+$color_font_light: #000000;
+$color_font_default: #999999;
+$color_font_footer: #888888;
+$color_shadow_default: #000000;
+
+$color_font_code: #016d35;
+$color_background_code: #ceffbd;
+
+$color_background_quote_light: #f7f7f7;
+
+$color_font_nav: $color_nav;
+
+$color_font_blog_title: $color_font_dark;
+$color_font_blog_subtitle: darken($color_font_dark, 5%);
+
+$color_font_title_dark: $color_font_dark;
+$color_font_title_light: $color_font_light;
+
+$color_font_date_dark: darken($color_font_dark, 35%);
+$color_font_date_light: lighten($color_font_light, 40%);
+
+$color_font_para_dark: darken($color_font_dark, 15%);
+$color_font_para_light: lighten($color_font_light, 15%);
+
+$color_font_quote_dark: darken($color_font_para_dark, 30%);
+$color_font_quote_light: lighten($color_font_para_light, 30%);
+
+$color_font_list_light: lighten($color_font_para_light, 20%);
+
+$color_font_link_light: darken($color_accent_2,25%);
+$color_font_link_light_hover: darken($color_primary, 10%);
+
+$color_font_largeTitle_dark: darken($color_font_dark, 15%);
+$color_font_largeTitle_light: lighten($color_font_light, 25%);
+
+$color_font_background_code: $color_font_largeTitle_dark;
+
+$color_font_linkBtn_light: $color_font_dark;
+$color_font_linkBtn_dark: $color_font_light;
+
+$color_linkBtn_background_light: $color_content_background_dark;
+$color_linkBtn_background_dark: $color_content_background_light;
+$color_linkBtn_background_hover: $color_accent;
+
+$color_font_pageBtn: $color_font_dark;
+$color_font_pageBtn_shadow: $color_shadow_default;
+$color_pageBtn_background: $color_accent_2;
+$color_pageBtn_background_hover: lighten($color_pageBtn_background, 15%);
+$color_pageBtn_background_disable: grayscale($color_pageBtn_background);
+
+
+
+

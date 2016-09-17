@@ -1,0 +1,42 @@
+.footer{
+	min-height: 150px;
+	color: $color_font_footer;
+	.link{
+		width: 50%;
+		height: 100%;
+		float: right;
+		box-sizing: border-box;
+		padding-top: 120px;
+		padding-right: 150px;
+		-webkit-user-select: none;
+							-moz-user-select: none;
+							-ms-user-select: none;
+									user-select: none;
+		a{
+			float: right;
+			margin-left: 10px;
+			display: block;
+			width: 32px;
+			height: 32px;
+			img{
+				@extend %fill_parent;
+			}
+		}
+	}
+	.copyright{
+		width: 50%;
+		height: 100%;
+		float: left;
+		box-sizing: border-box;
+		padding-top: 120px;
+		padding-left: 150px;
+		padding-bottom: 30px;
+		line-height: 30px;
+		p{
+			font-size: 0.77rem;
+			a{
+				font-weight: bold;
+			}
+		}
+	}
+}

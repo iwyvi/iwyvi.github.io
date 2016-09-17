@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/* Clear */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong,
+sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  background: transparent; }
+
+* {
+  word-wrap: break-word; }
+
+body, textarea, pre, input {
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  font: 14px/1.6 microsoft yahei,Helvetica,arial,sans-serif; }
+
+ol, ul {
+  list-style: none; }
+
+:focus {
+  outline: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a {
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  text-decoration: none; }
+
+input, textarea {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+textarea {
+  resize: none; }
+
+img {
+  border: 0 none;
+  margin: 0;
+  padding: 0; }
+
+input:focus, textarea:focus {
+  outline: none; }
+
+ul, dl, ol, li, dd, p, dt, h1, h2, h3, h4 {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+input, textarea {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+textarea, input[type="text"], input[type="password"] {
+  background: #fff; }
+
+a {
+  color: #888;
+  text-decoration: none; }
+
+a:focus {
+  outline: medium none; }
+
+.clear:before, .clear:after {
+  content: "";
+  display: table; }
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  height: 1px;
+  zoom: 1; }
+
+/* Clear Ends*/

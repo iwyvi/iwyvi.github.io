@@ -1,0 +1,166 @@
+%default_style{
+	font-size: 1rem;
+	@extend %h_style;
+	@extend %a_style;
+	@extend %blockquote_style;
+	@extend %code_style;
+	@extend %img_style;
+	@extend %list_style;
+	@extend %p_style;
+	@extend %highlight_style;
+	@extend %table_style;
+}
+
+%p_style {
+	p{
+		font-size: 1rem;
+		text-indent: 2em;
+		margin-bottom: 0.5rem;
+	}
+}
+
+%code_style {
+	code{
+		font-family: $font_family_monospaced;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		padding-left: 5px;
+		padding-right: 5px;
+		margin-left: 2px;
+		margin-right: 2px;
+		border-radius: 5px;
+		background: $color_background_code;
+		color: $color_font_code;
+	}
+}
+
+%blockquote_style {
+	blockquote{
+		font-size: 0.88rem;
+		font-style: italic;
+		padding-left: 40px;
+		padding-right: 40px;
+		padding-top: 15px;
+		padding-bottom: 5px;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		border-left: 4px solid lighten($color_primary, 10%);
+		background-color: $color_background_quote_light;
+		color: $color_font_quote_light;
+		p{
+			text-indent: 0;
+		}
+	}
+
+}
+
+%h_style{
+	h1,h2,h3,h4,h5,h6{
+		margin-bottom: 0.3em;
+		margin-top: 0.8em;
+	}
+	h1{
+		font-size: 3.0rem;
+	}
+	h2{
+		font-size: 2.6rem;
+	}
+	h3{
+		font-size: 2.2rem;
+	}
+	h4{
+		font-size: 1.8rem;
+	}
+	h5{
+		font-size: 1.5rem
+	}
+	h6{
+		font-size: 1.2rem;
+	}
+}
+
+%a_style{
+	a{
+		color: $color_font_link_light;
+		transition: all $time_transition ease;
+		padding-left: 2px;
+		padding-right: 2px;
+		code{
+			color: $color_font_link_light;
+		}
+	}
+	a:hover{
+		color: $color_font_link_light_hover;
+		text-decoration: underline;
+		code{
+			color: $color_font_link_light_hover;
+		}
+	}
+}
+
+%img_style{
+	img{
+		max-width: 90%;
+		margin: auto;
+		display: block;
+	}
+}
+
+%list_style{
+	ul,ol{
+		margin-top: 5px;
+		margin-bottom: 20px;
+		margin-left: 40px;
+		li{
+			padding-top: 2px;
+			padding-bottom: 2px;
+			list-style-type: disc;
+			color: $color_font_list_light;
+		}
+		p{
+			text-indent: 0;
+		}
+	}
+	ol{
+		li{
+			list-style-type: decimal;
+		}
+	}
+}
+
+%highlight_style{
+	.highlight{
+		background-color: darken($color_content_background_light,3%);
+		margin: 0;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+		overflow: auto;
+		white-space: pre;
+		font-size: 0.8rem;
+		@extend %code_style;
+		code{
+			background-color: transparent;
+			color: $color_font_para_light;
+			padding: 0;
+			margin: 0;
+			border-radius: 0;
+		}
+	}
+}
+
+%table_style{
+	table{
+		text-align: center;
+		margin: auto;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		td,th{
+			padding: 8px;
+			border: 1px solid $color_font_para_light;
+		}
+	}
+}

@@ -1,0 +1,25 @@
+.background{
+	@extend %fill_parent;
+	overflow: hidden;
+	position: absolute;
+	.ribbon{
+		position: absolute;
+		width: 150%;
+		height: 400px;
+		background-color: $color_ribbon;
+		-webkit-transform: translateY(-100px) rotate($deg_ribbon);
+		transform: translateY(-100px) rotate($deg_ribbon);
+		-webkit-transform-origin: left top;
+		transform-origin: left top;
+		z-index: 5;
+	}
+	.tableCard{
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: calc(50% + 400px);
+		height: 400px;
+		background-color: $color_tableCard;
+		z-index: -2;
+	}
+}

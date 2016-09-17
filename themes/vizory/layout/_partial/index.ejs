@@ -1,0 +1,20 @@
+<ul class="postList">
+  <% page.posts.each(function(post) { %>
+    <li>
+      <div class="postContent">
+        <h3><a href="<%- url_for(post.path) %>"><%- post.title %></a></h3>
+        <p class="date"><%= date(post.date, null) %></p>
+        <p><p><% if (post.excerpt){ %>
+                <%- post.excerpt %>
+              <% } else { %>
+                <%- post.content.replace(/<(?:.|\n)*?>/gm, '').substr(0, 220) %>
+              <% } %>
+        </p></p>
+        <a href="<%- url_for(post.path) %>" class="linkBtn"><%- __("read_more")%></a>
+      </div>
+      <div class="postLargeTitle"><p><%- post.title %></p></div>
+    </li>
+  <% }); %>
+</ul>
+
+<%- partial('paginator') %>

@@ -1,0 +1,9 @@
+<!-- 分页代码 -->
+<div class="pageController">
+  <% if (page.prev) { %>
+    <a href="<%- url_for(page.prev_link) %>"><%- __("prev") %></a>
+  <% } %>
+  <% if (page.next) { %>
+    <a href="<%- url_for(page.next_link) %>"><%- __("next") %></a>
+  <% } %>
+</div>
