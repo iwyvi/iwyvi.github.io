@@ -1,6 +1,6 @@
 ---
-title:  "Test Markdown"
-date:   2016-03-23 09:42:29 +0800
+title:  Test Markdown
+date:   2016-03-23 09:42:29
 categories: test
 ---
 # 一级标题

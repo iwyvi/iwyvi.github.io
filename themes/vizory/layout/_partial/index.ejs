@@ -4,12 +4,22 @@
       <div class="postContent">
         <h3><a href="<%- url_for(post.path) %>"><%- post.title %></a></h3>
         <p class="date"><%= date(post.date, null) %></p>
+        <% if(post.categories){ %>
+          <p class="categories">
+          <%- list_categories(post.categories, {
+            show_count: false,
+            class: 'article-category',
+            style: 'none',
+            separator: ','
+          }) %>
+          </p>
+        <% } %>
         <p><p><% if (post.description){ %>
-                <%- post.description %>
+                <%- strip_html(post.description) %>
               <% } else if(post.excerpt) { %>
-                <%- post.excerpt %>
+                <%- strip_html(post.excerpt) %>
               <% } else { %>
-                <%- post.content.replace(/<(?:.|\n)*?>/gm, '').substr(0, 220) %>
+                <%- strip_html(post.content.substr(0, 220)) %>
               <% } %>
         </p></p>
         <a href="<%- url_for(post.path) %>" class="linkBtn"><%- __("read_more")%></a>

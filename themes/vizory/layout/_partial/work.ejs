@@ -1,0 +1,27 @@
+<%
+// var title = '';
+// if (page.category) title = page.category;
+// if (page.tag) title = page.tag;
+// if (page.archive){
+//   if (page.year) title = page.year + (page.month ? '/' + page.month : '');
+//   else title = __('archive_a');
+// }
+%>
+
+<div class="largeCard">
+	<div class="largeCardContent">
+		<h2><% __("work") %></h2>
+		<ul class="largeCardList">
+			<ul class="largeCardList">
+			<% site.posts.each(function(item){ %>
+				<li>
+				    <a href="<%- url_for(item.path) %>">
+				    	<p><%= item.title %></p>
+				    	<p class="date"><%= item.date.format(config.date_format) %></p>
+				    </a>
+				</li>
+			<% }); %>
+			</ul>
+		</ul>
+	</div>
+</div>

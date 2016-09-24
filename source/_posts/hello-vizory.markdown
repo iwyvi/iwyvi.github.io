@@ -1,16 +1,12 @@
 ---
-title:  "Hello Vizory"
-date:   2016-03-26 00:13:15 +0800
+title:  Hello Vizory
+date:   2016-03-26 00:13:15
 categories: jekyll
 tags: theme,jekyll,vizory
-comments: true
 ---
 这将会是博客的第一篇文章，之前的测试文章会在近期全部删除。
 
-Vizory是我设计的第一个博客主题，本来的是让想别人先看看效果图提出修改意见以后再写预览，然而我就直接动手了，代码空间在这里[vizory-design](https://git.oschina.net/iwyvi/vizory-design)。首页强行使用黑白对比，布局部分参考了Dribbble上的一个页面的设计。
-
-
-
+Vizory是我设计的第一个博客主题，本来的是让想别人先看看效果图提出修改意见以后再写预览，然而我就直接动手了，代码空间在这里[vizory-design](https://git.oschina.net/iwyvi/vizory-design)。首页强行使用黑白对比，布局部分参考了Dribbble上的一个页面的设计。<!--more-->
 
 ![](http://ww4.sinaimg.cn/large/74311666jw1f29klhectej21hc2gwqgh.jpg)
 

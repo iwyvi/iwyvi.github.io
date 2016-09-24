@@ -1,8 +1,20 @@
 <div class="article largeCard">
 	<div class="articleContent largeCardContent">
 	    <h2><%- post.title %></h2>
+			<% if(post.date) { %>
 	    	<p class="date"><time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, null) %></time></p>
-	    <div class="articleDetail">
+			<% } %>
+			<% if(post.categories){ %>
+	    	<p class="categories">
+				<%- list_categories(post.categories, {
+					show_count: false,
+					class: 'article-category',
+					style: 'none',
+					separator: ','
+				}) %>
+				</p>
+	    <% } %>
+	    <div class="articleDetail largeCardDetail">
 	    	<div class="markdown">
 	    		<%- post.content %>
 	    	</div>
