@@ -16,12 +16,16 @@ if (page.category){
 	}
 }
 %>
-
+<% 
+showPosts.toArray().sort(function(a, b){
+	return b.date.format('YYYYMMDD') - a.date.format('YYYYMMDD');
+});
+ %>
 <div class="largeCard">
 	<div class="largeCardContent">
 		<h2><%= pageTitle %></h2>
 		<ul class="archiveList">
-		<% showPosts.reverse().each(function(item){ %>
+		<% showPosts.each(function(item){ %>
 			<li>
 					<a href="<%- url_for(item.path) %>">
 						<p class="date"><%= item.date.format(config.date_format) %></p>
