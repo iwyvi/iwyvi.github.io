@@ -65,19 +65,16 @@
       }
     }
     .archiveList{
-      margin-top: 30px;
+      margin-top: 15px;
       clear: both;
       li{
         width: 100%;
         box-sizing: border-box;
         padding: 0 20px;
-        border-top: 1px dashed $color_archiveList_border;
+        border-bottom: 1px dashed $color_archiveList_border;
         transition: all $time_transition ease;
         &:hover{
           background-color: $color_archiveList_background_hover;
-        }
-        &:last-child{
-          border-bottom: 1px dashed $color_archiveList_border;
         }
         a{
           font-size: 1.1rem;
