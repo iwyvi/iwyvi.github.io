@@ -6,23 +6,26 @@ tags: css,前端
 description: 【翻译】《CSS custom properties (native variables) In-Depth》：CSS自定义属性是一项新的CSS特性，它是一种在CSS中定义的变量，我们可以用这些变量实现一些新的功能，同时CSS自定义属性也提供了CSS与JS交互的新方式，与其他CSS预处理器也能做到完美配合。
 ---
 
-> 原文链接：[CSS custom properties (native variables) In-Depth](https://blog.gospodarets.com/css_properties_in_depth)
->
-> 原文发布时间：March 29, 2016
->
-> 原作者：Serg Gospodarets
->
-> 翻译者：IwYvI
+{% blockquote %}
+ 原文链接：[CSS custom properties (native variables) In-Depth](https://blog.gospodarets.com/css_properties_in_depth)
 
-> 这将是我翻译的第一篇文章，主要是关于CSS自定义属性等内容。（这篇文章看上去翻译起来比较简单，（不知道我翻译完了还会不会这么说
+ 原文发布时间：March 29, 2016
+ 原作者：Serg Gospodarets
 
-> 词汇翻译：
->
-> * CSS property：CSS属性
-> * CSS custom property：CSS自定义属性
-> * CSS variable：CSS变量
->
-> 翻译这篇文章借助了有道、bing、Google的翻译。如果出现不准确的地方希望能向我提出来
+ 翻译者：IwYvI
+{% endblockquote %}
+{% blockquote %}
+这将是我翻译的第一篇文章，主要是关于CSS自定义属性等内容。（这篇文章看上去翻译起来比较简单，（不知道我翻译完了还会不会这么说
+{% endblockquote %}
+{% blockquote %}
+词汇翻译：
+
+* CSS property：CSS属性
+* CSS custom property：CSS自定义属性
+* CSS variable：CSS变量
+
+翻译这篇文章借助了有道、bing、Google的翻译。如果出现不准确的地方希望能向我提出来
+{% endblockquote %}
 
 在这篇文章中，我本想从解释CSS变量的用途开始说起，但是事实上许多流行的CSS预、后处理器已经实现了这个功能
 

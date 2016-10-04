@@ -3,18 +3,20 @@ title: 【译】几乎要成为CSS的语言们
 data: 2016-07-07 11:35:58
 categories: css
 tags: css,前端
-description: 【翻译】《The Languages Which Almost Became CSS》
+description: 【翻译】《The Languages Which Almost Became CSS》：在CSS出现之前，还有许多种样式语言，
 ---
 
-> 原文链接：[The Languages Which Almost Became CSS](https://eager.io/blog/the-languages-which-almost-were-css/)
->
-> 原文发布时间：06 Jul 2016
->
-> 原作者：Zack Bloom / @(zackbloom)[https://twitter.com/zackbloom]
->
-> 翻译者：IwYvI
+{% blockquote %}
+原文链接：[The Languages Which Almost Became CSS](https://eager.io/blog/the-languages-which-almost-were-css/)
 
-> In fact, it has been a constant source of delight for me over the past year to get to continually tell hordes (literally) of people who want to – strap yourselves in, here it comes – control what their documents look like in ways that would be trivial in TeX, Microsoft Word, and every other common text processing environment: “Sorry, you’re screwed.”
+原文发布时间：06 Jul 2016
+
+原作者：Zack Bloom / @[zackbloom](https://twitter.com/zackbloom)
+
+翻译者：IwYvI
+{% endblockquote %}
+
+> In fact, it has been a constant source of delight for me over the past year to get to continually tell hordes (literally) of people who want to – strap yourselves in, here it comes – control what their documents look like in ways that would be trivial in TeX, Microsoft Word, and every other common text processing environment: “Sorry, you’re **screwed**.”
 > — Marc Andreessen 1994
 
 当Tim Berners-Lee在1991年宣布HTML规范时，还没有设置页面样式的方法。对于给定的HTML标签，如何渲染它们则是浏览器决定的，还通常根据用户输入的喜好来设置。这样看起来，为页面制定一种标准来“建议”它在样式上应该怎样被渲染是一个很好的想法。
@@ -294,9 +296,74 @@ DISPLAY_HEIGHT > 30cm ? http://NYT.com/style : http://LeMonde.fr/style
 RELEVANCE > 80 ? h1.font.size *= 1.5
 ```
 
-你知道下面将会发生什么
+### 你知道下面将会发生什么
 
 >Microsoft is absolutely committed to open standards, especially on the Internet.
 >
 >— John Ludeman 1994
 
+Håkon Lie继续精简他的提议，并且和Bert Bos一起在1996年12月发布了CSS规范的第一个版本。最终他把CSS的诞生写成了博士论文，这也是帮助我现在写这篇文章的一个重要的文档。
+
+相比于其他提议来说，CSS一个很重要的特点就是它的简洁性。它可以被轻松地分析，书写和阅读。正如在互联网发展史上许多其他方面的例子一样，对于新手更简单友好的技术比起那些在专家手中更加强大的技术来说，更加能在发展中胜出。
+
+它本身对大多数新技术革新存在的偶然性就是一种提醒。例如，支持上下文选择器（`body ol li`）特性的添加是因为网景（Netscape）浏览器已经有一个移除超链接图片边框的方法。同时实现当时流行浏览器所有的功能看起来也是很有必要的。然而这个功能本身也对CSS的实现增加了难度，因为在当时绝大多数浏览器都没有在解析HTML的时候维持一个标签“堆”。这也意味着想要完整支持CSS，解析器就要被重新设计。
+
+像这样的挑战（还有被广泛使用的非标准HTML表情定义样式的方案）导致直到1997年CSS都无法使用，而直到2000年3月才有独立浏览器支持了CSS的完整功能。然而任何一个开发者都会告诉你，浏览器对CSS的支持并不是所有地方都和官方标准一致，大约在CSS发行15年后，这种情况才有所改变。
+
+### 最终的挑战
+
+>If Netscape 4 ignored CSS rules applied to the `<body>` element and added random amounts of whitespace to every structural element on your page, and if IE4 got `<body>` right but bungled padding, what kind of CSS was safe to write? Some developers chose not to write CSS at all. Others wrote one style sheet to compensate for IE4’s flaws and a different style sheet to compensate for the blunders of Netscape 4.
+>
+>— Jeffrey Zeldman
+
+IE3著名的就是支持了CSS（虽然某种意义上很可怕）。为了与之竞争，Netscape4也对CSS有了支持。然而Netscape没有重点押注到这第三种语言上（相对于HTML和JavaScript），而是决定实现一种将CSS转换为JavaScript的技术。更进一步，它们设计的这种"JavaScript Style Sheet"中间语言允许被web开发者访问到。
+
+它的语法就是JavaScript，同时附加了一些指定样式的API：
+
+```javascript
+tags.H1.color = "blue";
+tags.p.fontSize = "14pt";
+with (tags.H3) {
+  color = "green";
+}
+
+classes.punk.all.color = "#00FF00"
+ids.z098y.letterSpacing = "0.3em"
+```
+
+你甚至可以定义函数来计算tag不同状态下的样式：
+
+```javascript
+evaluate_style() {
+  if (color == "red"){
+    fontStyle = "italic";
+  } else {
+    fontWeight = "bold";
+  }
+}
+
+tag.UL.apply = evaluate_style();
+```
+
+
+我们想弱化样式和脚本之间的分界线是有道理的，而如今在[React社区](https://facebook.github.io/react/tips/inline-styles.html)这种现象甚至再次出现。
+
+JavaScript在当时还是一个十分新的语言，但是通过一些逆向工程，IE已经在IE3增加了对它的支持（叫做“JScript”）。更大的问题是社区已经重新围绕CSS来研究，而网景在当时则被主流社区认为是一个[恶霸](https://lists.w3.org/Archives/Public/www-style/1996Jun/0068.html)。网景向标准委员会[提交](https://www.w3.org/Submission/1996/1/WD-jsss-960822)了JSSS提议，但最终该提议被置若罔闻。三年以后，Netscape6取消了对JSSS的支持，JSSS也很快消亡了。
+
+### 本来可能会发生什么
+
+由于W3C的一些公开羞辱，IE5.5终于在2000年发行时提供了对完整CSS1的支持。当然正如我们所知，浏览器CSS的实现还有许多bug并且难以使用长达十年之久。如今这些问题已经幸运地改善了，让许多开发者也实现了编写一次代码，在各个浏览器上都有几乎相同的效果的梦想。
+
+从以上内容中我认识到了那些有可能控制我们现在使用的工具的许多决定。如果当时CSS的设计只是为了满足1996年的限制，那么这一切对于20年后的我们将有所不同。
+
+> 原文链接：[The Languages Which Almost Became CSS](https://eager.io/blog/the-languages-which-almost-were-css/)
+>
+> 原文发布时间：06 Jul 2016
+>
+> 原作者：Zack Bloom / @[zackbloom](https://twitter.com/zackbloom)
+>
+> 翻译者：IwYvI
+>
+> 翻译时间：2016/10/4
+>
+> 这篇文章从七月初就开始翻译了，然后各种拖，到现在也才基本翻译完，里面还有很多地方感觉语句不是很通顺，也带有很强的翻译腔。嘤嘤嘤

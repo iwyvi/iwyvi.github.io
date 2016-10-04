@@ -46,6 +46,13 @@
 		border-left: 4px solid lighten($color_primary, 10%);
 		background-color: $color_background_quote_light;
 		color: $color_font_quote_light;
+		blockquote{
+			margin-top: 5px;
+			padding-top: 5px;
+			padding-left: 30px;
+			padding-right: 30px;
+			padding-bottom: 0;
+		}
 		p{
 			text-indent: 0;
 		}
