@@ -1,6 +1,6 @@
 ---
 title: 【译】几乎要成为CSS的语言们
-data: 2016-07-07 11:35:58
+date:  2016-10-04 11:35:58
 categories: css
 tags: css,前端
 description: 【翻译】《The Languages Which Almost Became CSS》：在CSS出现之前，还有许多种样式语言来定义HTML标签的样式，本文就将介绍这些语言的历史。（这个介绍我实在是编不动了）
@@ -19,15 +19,15 @@ description: 【翻译】《The Languages Which Almost Became CSS》：在CSS出
 > In fact, it has been a constant source of delight for me over the past year to get to continually tell hordes (literally) of people who want to – strap yourselves in, here it comes – control what their documents look like in ways that would be trivial in TeX, Microsoft Word, and every other common text processing environment: “Sorry, you’re **screwed**.”
 > — Marc Andreessen 1994
 
-当Tim Berners-Lee在1991年宣布HTML规范时，还没有设置页面样式的方法。对于给定的HTML标签，如何渲染它们则是浏览器决定的，还通常根据用户输入的喜好来设置。这样看起来，为页面制定一种标准来“建议”它在样式上应该怎样被渲染是一个很好的想法。
+当Tim Berners-Lee在1991年宣布HTML规范时，还没有设置页面样式的方法。对于那些给定的HTML标签，如何渲染它们是由浏览器决定的，同时也根据用户自定义的喜好来设置。这样看来，为页面制定一种标准来“建议”它在样式上应该被渲染成什么样是一个很好的想法。
 
-但是CSS在5年里没有被引入，而10年里也没有被充分执行。这段时间里有许多创新和改革，涌现出多种样式化方法，而这些方法都很有机会演变成规范。
+但是CSS在5年里没有被引入，而10年里也没有被充分执行。在这段时间里页面样式的表示方法有许多创新和改革，涌现出很多种方法，而这些方法当时都很有机会演变成现在规范。
 
-尽管这些语言显然在现在在现在已经不常用了，但我觉得想象世界本来有可能变成什么样还是很有趣的。更令人惊奇的是，这些语言中许多特性却是如今开发者更想在CSS中看到的。
+尽管这些语言显然在现在已经不用了，但我觉得想象世界本来有可能变成什么样还是很有趣的。同时令人惊奇的是，这些语言中许多特性却是如今开发者更想在CSS中看到的。
 
 ### 第一项提议
 
-在1993年初，Mosaic浏览器还没有发布1.0版本，同时那时的各种浏览器也只能处理HTML。没有方法能标识HTML的样式，例如浏览器决定`<h1>`应该是什么样，那么你看到的就是什么样的。
+在1993年初，Mosaic浏览器还没有发布1.0版本，而那时的各种浏览器也只能处理HTML。没有方法能标识HTML的样式，例如浏览器决定`<h1>`应该是什么样，那么你看到的就是什么样的。
 
 在那年六月，Robert Raisch向www-talk mailing list提出了一项提议，要创建一种和Web文档一起发送、用于传播样式化信息并易于解析的格式化语言，这就是RRP。
 

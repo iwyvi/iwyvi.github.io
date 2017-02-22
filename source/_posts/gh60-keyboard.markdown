@@ -1,6 +1,6 @@
 ---
 title: 我的gh60客制化键盘
-data: 2016-07-07 15:42:58
+date:  2016-07-07 15:42:58
 categories: gh60
 tags: gh60,keyboard
 ---
