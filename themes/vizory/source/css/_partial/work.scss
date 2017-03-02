@@ -1,0 +1,66 @@
+.largeCard {
+  .largeCardList {
+    clear: both;
+    -webkit-column-gap: 20px;
+    -moz-column-gap: 20px;
+    -o-column-gap: 20px;
+    column-gap: 20px;
+    column-count: 2;
+    li {
+      width: 100%;
+      display: inline-block;
+      break-inside: avoid;
+      box-sizing: border-box;
+      border: 1px solid black;
+      padding: 10px 10px 20px;
+      margin-top: 30px;
+      text-align: center;
+      position: relative;
+      counter-increment: works;
+      &:before {
+        content: counter(works);
+        z-index: -1;
+        color: $color_font_work_counter;
+        font-size: 4rem;
+        position: absolute;
+        text-align: right;
+        width: 100%;
+        line-height: 1em;
+        top: 4px;
+        right: 10px;
+      }
+      p {
+        &.name {
+          font-size: 1.3rem;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          color: $color_font_light;
+          font-weight: bold;
+        }
+        &.description {
+          font-size: 1rem;
+        }
+        &.date {
+          font-size: .9rem;
+          margin-top: 5px;
+          color: $color_font_date_light;
+        }
+      }
+      a {
+        font-size: 1rem;
+        line-height: 40px;
+        display: block;
+        width: 150px;
+        background-color: $color_pageBtn_background;
+        color: $color_font_pageBtn;
+        text-shadow: 1px 1px 3px $color_font_pageBtn_shadow;
+        margin: auto;
+        margin-top: 10px;
+        transition: background-color $time_transition ease;
+        &:hover {
+          background-color: $color_pageBtn_background_hover;
+        }
+      }
+    }
+  }
+}

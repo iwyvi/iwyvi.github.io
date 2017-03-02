@@ -161,15 +161,6 @@
 						}
 					}
 				}
-				.largeCard{
-					.largeCardContent{
-						.largeCardList{
-							li{
-								width: 33.3%;
-							}
-						}
-					}
-				}
 			}
 		}
 		.footer{
@@ -211,9 +202,7 @@
 					.largeCardContent{
 						width: 85%;
 						.largeCardList{
-							li{
-								width: 50%;
-							}
+							column-count: 1;
 						}
 					}
 				}

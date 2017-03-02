@@ -22,42 +22,7 @@
       color: $color_font_title_light;
     }
     .largeCardList{
-      clear: both;
-      li{
-        width: 25%;
-        height: 90px;
-        float: left;
-        margin-top: 30px;
-        a{
-          display: block;
-          width: 80%;
-          margin: auto;
-          height: 100%;
-          line-height: 90px;
-          text-align: center;
-          font-size: 1.3rem;
-          overflow: hidden;
-          word-spacing: nowrap;
-          background-color: $color_pageBtn_background;
-          color: $color_font_pageBtn;
-          text-shadow: 1px 1px 3px $color_font_pageBtn_shadow;
-          transition: background-color $time_transition ease;
-          p{
-            font-size: 1.3rem;
-            line-height: 55px;
-            height: 55px;
-            word-spacing: nowrap;
-            overflow: hidden;
-          }
-          p.date{
-            font-size: 1.0rem;
-            line-height: 20px;
-          }
-        }
-        a:hover{
-          background-color: $color_pageBtn_background_hover;
-        }
-      }
+      clear: both;     
       &:after{
         content: "";
         display: block;
