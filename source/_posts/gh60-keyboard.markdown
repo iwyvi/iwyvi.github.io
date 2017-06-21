@@ -1,7 +1,7 @@
 ---
 title: 我的gh60客制化键盘
 date:  2016-07-07 15:42:58
-categories: gh60
+categories: keyboard
 tags: gh60,keyboard
 ---
 我的第一个客制化gh60机械键盘，使用了无钢板g轴红轴，同时刷了自己喜欢的配列。
