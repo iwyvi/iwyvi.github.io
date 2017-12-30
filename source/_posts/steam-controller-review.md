@@ -12,7 +12,7 @@ tags: joystick, steamcontroller
 
 在此之前只用过北通斯巴达手柄，所以下面的手感比较的参照物均为北通斯巴达手柄，之后再找dalao们看看有没有xbox one精英版手柄可以体验一下。
 
-![](http://p1.bqimg.com/567571/06fd6d388c8484d7.png)
+![](http://7xsaq2.com1.z0.glb.clouddn.com/img/steamcontroller.jpg)
 
 手柄外观没什么能评价的，至少我觉得挺好看的，虽然看起来塑料感比较严重。
 
