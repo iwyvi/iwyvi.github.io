@@ -11,6 +11,9 @@
 				var item = workList[itemName]; %>
 				<li>
 					<p class="name"><%= item.name %></p>
+					<% if(item.image) { %>
+					<img class="image" src="<%= item.image %>"></img>
+					<% } %>
 					<% if(item.description) { %>
 					<p class="description"><%= item.description %></p>
 					<% } %>
