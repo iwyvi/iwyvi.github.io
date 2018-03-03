@@ -878,7 +878,7 @@ hexo-bunyan@^1.0.0:
     mv "~2"
     safe-json-stringify "~1"
 
-hexo-cli@^1.0.2:
+hexo-cli@^1.0.2, hexo-cli@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/hexo-cli/-/hexo-cli-1.0.4.tgz#c8f1421ec24209d8ffc7bfeea496ab99f34191e1"
   dependencies:
@@ -1043,7 +1043,7 @@ hexo-util@^0.6.0:
     html-entities "^1.2.0"
     striptags "^2.1.1"
 
-hexo@^3.2.0:
+hexo@^3.4.4:
   version "3.4.4"
   resolved "https://registry.yarnpkg.com/hexo/-/hexo-3.4.4.tgz#d761386ea3495079facf7bb896920974c6faefdb"
   dependencies:
