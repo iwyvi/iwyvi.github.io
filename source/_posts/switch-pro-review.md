@@ -2,7 +2,10 @@
 title: switch pro手柄使用感受
 date: 2018-03-11 22:41:10
 categories: joystick
-tags: joystick, switch pro
+tags:
+- joystick
+- switch pro
+- hardware
 ---
 过年期间稍微挣了一些钱，终于在上周下定决心买了一个很早就想入手的switch pro。到现在大概也玩了好几天了，现在来说一下这个手柄的使用感受。<!--more-->
 

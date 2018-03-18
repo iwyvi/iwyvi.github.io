@@ -2,7 +2,10 @@
 title:  Hello Vizory
 date:   2016-03-26 00:13:15
 categories: jekyll
-tags: theme,jekyll,vizory
+tags:
+- theme
+- jekyll
+- vizory
 ---
 这将会是博客的第一篇文章，之前的测试文章会在近期全部删除。
 

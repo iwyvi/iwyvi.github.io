@@ -2,7 +2,11 @@
 title: 八位堂SF30pro手柄使用感受
 date: 2017-12-30 16:04:08
 categories: joystick
-tags: joystick, 8bitdo, sf30pro
+tags: 
+- joystick
+- 8bitdo
+- sf30pro
+- hardware
 ---
 目前来看八位堂SF30pro应该是少有的几个可以支持switch陀螺仪的第三方手柄，又因为switch pro有些贵，所以我在双十一的时候预购了这个手柄，手柄在12月9日才发货，然而因为手柄自身的问题，中途又换了两次，目前拿到手的手柄“现在”还没有什么问题，然后现在来说一下对这个手柄的使用感受。<!--more-->
 

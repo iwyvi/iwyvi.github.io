@@ -2,7 +2,10 @@
 title: 【译】深入了解CSS自定义属性
 date: 2016-04-22 17:25:58
 categories: css
-tags: css,前端
+tags:
+- css
+- 前端
+- 翻译
 description: 【翻译】《CSS custom properties (native variables) In-Depth》：CSS自定义属性是一项新的CSS特性，它是一种在CSS中定义的变量，我们可以用这些变量实现一些新的功能，同时CSS自定义属性也提供了CSS与JS交互的新方式，与其他CSS预处理器也能做到完美配合。
 ---
 

@@ -2,7 +2,10 @@
 title: 【译】CSS @apply规则(mixins)
 date: 2016-04-22 17:25:58
 categories: css
-tags: css,前端
+tags:
+- css
+- 前端
+- 翻译
 description: 【翻译】《CSS @apply rule (native CSS mixins) 》：使用@apply规则，实现CSS原生的mixins。随着CSS的发展，或许我们以后将不再使用CSS预处理器（然而目前这个特性并没有得到广泛的支持），就是这样。
 ---
 

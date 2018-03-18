@@ -2,7 +2,9 @@
 title: 由jekyll转为hexo
 date: 2016-10-04 17:47:22
 categories: hexo
-tags: hexo,vizory
+tags:
+- hexo
+- vizory
 ---
 
 大概就是一周前吧，我终于把博客从jekyll又转到了hexo上，之前改写的hexo主题相比起jekyll主题已经太老了，所以这次也是直接又从jekyll主题中找到源文件来修改的，同时也将文章列表页重新改为列表，因为之前的标签会导致标题显示不全。<!--more-->

@@ -2,7 +2,10 @@
 title:  Color Picker
 date:   2016-03-28 15:59:15
 categories: angular
-tags: angular,前端,颜色
+tags:
+- angular
+- 前端
+- 颜色
 ---
 这个是16年寒假的时候学习`angular`时写的一个demo，可以实现颜色HEX、RGB、HSB转换，因为是初学所以有什么用什么，写的代码也很乱，所以就不在github上建一个项目放了，代码空间见[ColorPicker](https://coding.net/u/IwYvI/p/ColorPicker/git)。<!--more-->
 

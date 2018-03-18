@@ -2,7 +2,10 @@
 title: 【译】几乎要成为CSS的语言们
 date:  2016-10-04 11:35:58
 categories: css
-tags: css,前端
+tags:
+- css
+- 前端
+- 翻译
 description: 【翻译】《The Languages Which Almost Became CSS》：在CSS出现之前，还有许多种样式语言来定义HTML标签的样式，本文就将介绍这些语言的历史。（这个介绍我实在是编不动了）
 ---
 

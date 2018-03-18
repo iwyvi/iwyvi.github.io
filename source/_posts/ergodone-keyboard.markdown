@@ -2,7 +2,11 @@
 title: 新键盘之ergodone
 date:  2017-06-21 17:37:58
 categories: keyboard
-tags: ergodone,keyboard,ergodox
+tags:
+- ergodone
+- keyboard
+- ergodox
+- hardware
 ---
 距离第一个客制化键盘购入还没满一年，我又入坑了一个新的键盘。
 

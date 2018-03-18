@@ -2,7 +2,10 @@
 title: steam手柄使用感受
 date: 2017-02-15 19:46:00
 categories: joystick
-tags: joystick, steamcontroller
+tags:
+- joystick
+- steamcontroller
+- hardware
 ---
 经过过年期间认真研究，查看了国内外许多论坛和科技媒体的评测，我最终在几天前买了Steam Controller。通过这几天的试玩，我对其基本性能已经比较了解了，所以现在来说一下自己的感受<!--more-->
 
