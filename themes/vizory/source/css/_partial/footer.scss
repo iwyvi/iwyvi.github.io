@@ -1,6 +1,8 @@
 .footer{
 	min-height: 150px;
 	color: $color_font_footer;
+	position: relative;
+	box-shadow: 0 3px 10px 1px $color_content_shadow;
 	.link{
 		width: 50%;
 		height: 100%;
