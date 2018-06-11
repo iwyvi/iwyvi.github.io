@@ -15,7 +15,7 @@
     overflow: hidden;
     background-color: $color_container_background;
     z-index: 100;
-    box-shadow: 0 1px 10px .1px $color_content_shadow;
+    box-shadow: 0 4px 12px $color_content_shadow_darklight;
     .headerBackgroundImg{
       @extend %fill_parent;
       -webkit-transform: rotate($deg_header);
