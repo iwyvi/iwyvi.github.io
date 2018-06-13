@@ -1,6 +1,6 @@
 <div class="article largeCard">
 	<div class="articleContent largeCardContent">
-	    <h2><%- post.title %></h2>
+	    <h1><%- post.title %></h1>
 			<% if(post.date) { %>
 	    	<p class="date"><time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, null) %></time></p>
 			<% } %>

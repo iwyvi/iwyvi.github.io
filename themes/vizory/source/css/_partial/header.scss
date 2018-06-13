@@ -64,9 +64,9 @@
       width: 300px;
       text-align: right;
       box-sizing: border-box;
-      border-top: 2px solid $color_font_blog_title;
+      border-top: 2px solid $color_font_blog_title; 
       @extend %title-animation;
-      h1{
+      h2{
         color: $color_font_blog_title;
         font-size: 4.33rem;
         font-family: $font_family_blog_title;
