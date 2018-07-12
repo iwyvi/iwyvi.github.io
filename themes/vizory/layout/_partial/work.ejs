@@ -15,6 +15,9 @@
 						<% if(item.image) { %>
 						<img class="image" src="<%= item.image %>"></img>
 						<% } %>
+						<% if(item.qrcode) { %>
+						<img class="qrcode" src="<%= item.qrcode %>"></img>
+						<% } %>
 						<% if(item.description) { %>
 						<p class="description"><%= item.description %></p>
 						<% } %>
