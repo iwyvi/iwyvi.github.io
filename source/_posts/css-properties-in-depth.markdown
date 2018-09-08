@@ -304,7 +304,7 @@ body:after {
 
 自定义属性已经可以在Chrome，Firefox和桌面版Safari 9.1里正常使用了：
 
-![browser_support](http://7xsaq2.com1.z0.glb.clouddn.com/img/cssvariablesbrowsersupport.jpg)
+![browser_support](https://i.loli.net/2018/09/08/5b935d2c13e90.jpg)
 
 <p style="text-align:center">Stats from <a href="http://caniuse.com/#feat=css-variables">caniuse.com</a></p>
 

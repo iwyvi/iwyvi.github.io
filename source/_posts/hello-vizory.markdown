@@ -11,7 +11,7 @@ tags:
 
 Vizory是我设计的第一个博客主题，本来的是让想别人先看看效果图提出修改意见以后再写预览，然而我就直接动手了，代码空间在这里[vizory-design](https://git.oschina.net/iwyvi/vizory-design)。首页强行使用黑白对比，布局部分参考了Dribbble上的一个页面的设计。<!--more-->
 
-![](http://ww4.sinaimg.cn/large/74311666jw1f29klhectej21hc2gwqgh.jpg)
+![](https://i.loli.net/2018/09/08/5b935e8ff2406.jpg)
 
 
 这就是页面的预览图，现在看来似乎在宽屏状态还是空的部分些多，本意是纸片不同层次的覆盖，然后导航栏的状态是一份日历被正文压住了只留出导航部分。（同时因为使用了`transform: rotate()`，所以层次覆盖和div切割还有许多问题，所以有些地方还是做了一定的妥协，比如正中间那张卡片上的绿色icon）

@@ -23,7 +23,7 @@ tags:
 
 #### 外观和手感
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/switchpro.jpg)
+![](https://i.loli.net/2018/09/08/5b935f364cbea.jpg)
 
 外观就是标准xbox布局，abxy四个键很大，肩键也很大，完全不会误按，-和+键的布局比joycon合理得多，可以轻松按到
 

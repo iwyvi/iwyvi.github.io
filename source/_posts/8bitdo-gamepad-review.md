@@ -12,7 +12,7 @@ tags:
 
 手柄双十一预购价格239，同时买的还有一个10元的套在手柄上的手机支架。
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/8bitdogamepad.jpg)
+![八位堂手柄](https://i.loli.net/2018/09/08/5b935cc2289bb.jpg)
 
 #### 外观和功能
 

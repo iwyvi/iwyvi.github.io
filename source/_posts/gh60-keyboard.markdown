@@ -17,7 +17,7 @@ tags:
 
 上面说了一堆我自己都不会说的废话。
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/material.jpg)
+![](https://i.loli.net/2018/09/08/5b935d7f74347.jpg)
 
 这是拆包后的材料，加了一个奇怪的电影滤镜
 
@@ -33,7 +33,7 @@ tags:
 >
 > [【白杨】satan版GH 60组有钢茶 POKER配列详细教程](http://bbs.wstx.com/thread-632487-1-1.html)
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/pcb.jpg)
+![](https://i.loli.net/2018/09/08/5b935da3ec3ac.jpg)
 
 这个是焊完轴插上灯以后的照片
 
@@ -41,9 +41,9 @@ tags:
 
 这是成品图
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/keyboard_1.jpg)
+![](https://i.loli.net/2018/09/08/5b935dc538db4.jpg)
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/keyboard_2.jpg)
+![](https://i.loli.net/2018/09/08/5b935dda69d77.jpg)
 
 ### 配列
 
@@ -57,33 +57,33 @@ tags:
 
 第0层是默认层，基本上是标准键盘，右下角的几个键改成了方向键，大小写锁定键改成了fn，esc作为trick esc（正常按下是esc，shift+esc按下是~）
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/layer0.jpg)
+![](https://i.loli.net/2018/09/08/5b935df2b1735.jpg)
 
 第一层是dvorak布局层
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/layer1.jpg)
+![](https://i.loli.net/2018/09/08/5b935e0c5aafb.jpg)
 
 第二层将数字键变成f区
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/layer2.jpg)
+![](https://i.loli.net/2018/09/08/5b935e1f56014.jpg)
 
 第三层是小键盘层
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/layer3.jpg)
+![](https://i.loli.net/2018/09/08/5b935e30c26ce.jpg)
 
 第四层是fn0按下瞬间弹出来的层，主要放了大量的功能，wasd附近按键控制鼠标操作，tab当作大小写锁定，cvb控制背光，右边是媒体键和功能键。fn5切换第一层，fn6切换第二层，fn6切换第三层。
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/layer4.jpg)
+![](https://i.loli.net/2018/09/08/5b935e443facf.jpg)
 
 注意，高层会将低层内容覆盖。
 
 将每一层的raw data复制到第二个网站里，satan的板子选择GH60(RevCHN)
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/general.jpg)
+![](https://i.loli.net/2018/09/08/5b935e56145f9.jpg)
 
 这里是fn和灯的设置
 
-![](http://7xsaq2.com1.z0.glb.clouddn.com/img/fnled.jpg)
+![](https://i.loli.net/2018/09/08/5b935e63e86e5.jpg)
 
 这里让大小写锁定灯和背光保持一致，原本我以为把大小写放在别的层上面只有切换到那一层才显示为大小写灯，没想到这个灯强制为标准的大小写键位灯。
 
