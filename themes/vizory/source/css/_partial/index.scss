@@ -1,35 +1,35 @@
-.postList{
+.postList {
   color: $color_font_default;
   padding-bottom: 50px;
-  li{
+  li {
     position: relative;
     width: 100%;
     clear: both;
-    .postContent{
+    .postContent {
       position: relative;
       z-index: 9999;
       padding: 40px;
       overflow: hidden;
       box-sizing: border-box;
-      h3{
+      h3 {
         font-size: 2rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
-      p{
+      p {
         font-size: 1.11rem;
         clear: both;
         line-height: 2rem;
         text-indent: 2em;
       }
-      p.date{
+      p.date {
         text-indent: 0;
         font-size: 1rem;
         line-height: 40px;
         float: left;
       }
-      p.categories{
+      p.categories {
         clear: none;
         text-indent: 0;
         font-size: 1rem;
@@ -37,10 +37,10 @@
         margin-left: 20px;
         line-height: 40px;
       }
-      img{
+      img {
         max-width: 100%;
       }
-      .linkBtn{
+      .linkBtn {
         text-align: center;
         display: block;
         font-size: 1.33rem;
@@ -49,10 +49,10 @@
         height: 50px;
         margin: auto;
         margin-top: 30px;
-        transition: color,background-color $time_transition ease;
+        transition: color, background-color $time_transition ease;
       }
     }
-    .postLargeTitle{
+    .postLargeTitle {
       box-sizing: border-box;
       overflow: hidden;
       white-space: nowrap;
@@ -60,12 +60,12 @@
       line-height: 86px;
       height: 150px;
       -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                    user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
       cursor: default;
     }
-    &:after{
+    &:after {
       content: "";
       display: block;
       clear: both;
@@ -74,8 +74,8 @@
   /*
   奇数（白色格子）
     */
-  li:nth-child(odd){
-    .postContent{
+  li:nth-child(odd) {
+    .postContent {
       margin-top: -170px;
       width: 45%;
       float: right;
@@ -83,31 +83,34 @@
       background-color: $color_content_background_light;
       box-shadow: 0 4px 12px $color_content_shadow_light;
       color: $color_font_para_light;
-      h3{
+      h3 {
         color: $color_font_title_light;
-        a{
+        a {
           color: $color_font_title_light;
         }
       }
-      p{
+      p {
         color: $color_font_para_light;
       }
-      p.date{
+      p.date {
         color: $color_font_date_light;
       }
-      p.categories{
+      p.categories {
         color: $color_font_date_light;
+        .article-category-link {
+          color: $color_font_category_link_light;
+        }
       }
-      .linkBtn{
+      .linkBtn {
         color: $color_font_linkBtn_light;
         background-color: $color_linkBtn_background_light;
-        &:hover{
+        &:hover {
           color: $color_font_linkBtn_dark;
           background-color: $color_linkBtn_background_hover;
         }
       }
     }
-    .postLargeTitle{
+    .postLargeTitle {
       width: 55%;
       text-align: right;
       padding-top: 0;
@@ -116,7 +119,7 @@
       padding-left: 30px;
       color: $color_font_largeTitle_light;
       z-index: 2;
-      p{
+      p {
         margin-right: -60px;
       }
     }
@@ -124,8 +127,8 @@
   /*
   偶数（黑色部分）
     */
-  li:nth-child(even){
-    .postContent{
+  li:nth-child(even) {
+    .postContent {
       width: 55%;
       padding-left: 150px;
       padding-right: 50px;
@@ -134,63 +137,66 @@
       min-height: 300px;
       margin-top: -20px;
       color: $color_font_para_dark;
-      h3{
+      h3 {
         color: $color_font_title_dark;
-        a{
+        a {
           color: $color_font_title_dark;
         }
       }
-      p{
+      p {
         color: $color_font_para_dark;
       }
-      p.date{
+      p.date {
         color: $color_font_date_dark;
       }
-      p.categories{
+      p.categories {
         color: $color_font_date_dark;
+        .article-category-link {
+          color: $color_font_category_link_dark;
+        }
       }
-      .linkBtn{
+      .linkBtn {
         color: $color_font_linkBtn_dark;
         background-color: $color_linkBtn_background_dark;
-        &:hover{
+        &:hover {
           background-color: $color_linkBtn_background_hover;
         }
       }
     }
-    .postLargeTitle{
+    .postLargeTitle {
       width: 35%;
       float: right;
       text-align: left;
       padding-top: 50px;
       color: $color_font_largeTitle_dark;
-      p{
+      p {
         margin-left: -110px;
       }
     }
   }
-  li:first-child{
+  li:first-child {
     margin-top: 100px;
-    .postContent{
+    .postContent {
       float: none !important;
       width: 700px;
       margin: auto !important;
       padding-left: 40px !important;
       padding-right: 40px !important;
       background-color: $color_content_background_light;
-      h3{
+      h3 {
         padding-top: 100px;
         float: right;
       }
-      p.date{
+      p.date {
         float: right;
       }
-      p.categories{
+      p.categories {
         float: right;
         margin-left: 0;
         margin-right: 20px;
       }
     }
-    .postLargeTitle{
+    .postLargeTitle {
       display: none !important;
     }
   }

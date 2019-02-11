@@ -2,7 +2,6 @@
   width: 100%;
   height: 800px;
   position: relative;
-  overflow: hidden;
   z-index: 99999;
   .headerBackground{
     @include position_top_left;

@@ -20,18 +20,18 @@ $img_header_background: "https://i.loli.net/2018/09/08/5b935fa84cfff.jpg";
 $opacity_header_background: 0.6; //头部背景的透明度
 
 /**
- * 颜色部分
- */
+  * 颜色部分
+  */
 
 $color_primary: #ff6268;
 $color_secondary: #d2f1f7;
 $color_accent: #95f0c0;
 $color_accent_2: #57bff3;
 
-$color_background: #333333; // 页面背景色
-$color_container_background: #1a1a1a; // 容器背景色
+$color_background: #474b4c; // 页面背景色
+$color_container_background: #1a241e; // 容器背景色
 
-$color_content_background_dark: #252525; //左半部分
+$color_content_background_dark: #2b312c; //左半部分
 $color_content_background_light: #ffffff;
 
 $color_content_background_left: $color_content_background_dark;
@@ -44,20 +44,20 @@ $color_content_shadow_darklight: rgba(0, 0, 0, 0.6);
 $color_ribbon: $color_primary; //彩带颜色
 $color_tableCard: $color_secondary; //card颜色
 
-$color_nav: #aaaaaa;
+$color_nav: #888888;
 $color_nav_border: $color_nav;
-$color_nav_background_hover: rgba(0, 0, 0, 0.1);
+$color_nav_background_hover: rgba(1, 44, 41, 0.1);
 
 $color_selection: $color_primary;
 $color_font_selection: #ffffff;
 
-$color_archiveList_border: #aaaaaa;
+$color_archiveList_border: #666666;
 $color_archiveList_background_hover: #eeeeee;
 
 /**
- * 字体颜色
- * 这里的dark和light只是用在黑块（dark）和白块（light）里的
- */
+  * 字体颜色
+  * 这里的dark和light只是用在黑块（dark）和白块（light）里的
+  */
 
 $color_font_dark: #ffffff;
 $color_font_light: #000000;
