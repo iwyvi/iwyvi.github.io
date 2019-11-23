@@ -1,18 +1,20 @@
 .largeCard {
   .largeCardList {
     clear: both;
-    -webkit-column-gap: 20px;
-    -moz-column-gap: 20px;
-    -o-column-gap: 20px;
-    column-gap: 20px;
+    -webkit-column-gap: 0;
+    -moz-column-gap: 0;
+    -o-column-gap: 0;
+    column-gap: 0;
     column-count: 2;
     margin-top: 20px;
+    margin-left: -10px;
+    margin-right: -10px;
     li {
       width: 100%;
       display: inline-block;
-      break-inside: avoid;  
+      break-inside: avoid;
       box-sizing: border-box;
-      padding: 10px 0 20px;
+      padding: 10px 10px 20px;
       text-align: center;
       position: relative;
       counter-increment: works;
@@ -26,7 +28,7 @@
         width: 100%;
         line-height: 1em;
         top: 12px;
-        right: 10px;
+        right: 20px;
       }
       .workCard {
         box-shadow: 0 2px 8px $color_content_shadow_light;
@@ -44,7 +46,7 @@
           font-size: 1rem;
         }
         &.date {
-          font-size: .9rem;
+          font-size: 0.9rem;
           margin-top: 5px;
           color: $color_font_date_light;
         }
