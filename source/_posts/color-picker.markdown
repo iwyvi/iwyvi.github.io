@@ -9,7 +9,7 @@ tags:
 ---
 这个是16年寒假的时候学习`angular`时写的一个demo，可以实现颜色HEX、RGB、HSB转换，因为是初学所以有什么用什么，写的代码也很乱，所以就不在github上建一个项目放了，代码空间见[ColorPicker](https://coding.net/u/IwYvI/p/ColorPicker/git)。<!--more-->
 
-<iframe src="https://iwyvi.coding.me/ColorPicker" frameborder="0" style="width:100%;height: 650px;overflow: hidden;"></iframe>
+<iframe src="https://euscj2.coding-pages.com/" frameborder="0" style="width:100%;height: 650px;overflow: hidden;"></iframe>
 
 **演示在IE下完全跪了，不用看了**
 
