@@ -3,6 +3,7 @@
   height: 800px;
   position: relative;
   z-index: 99999;
+  pointer-events: none;
   .headerBackground{
     @include position_top_left;
     -webkit-transform: rotate(-$deg_header);
@@ -46,6 +47,7 @@
       transition: -webkit-transform $time_transition ease;
       transition: transform $time_transition ease;
       box-shadow: 0 2px 10px .2px $color_content_shadow;
+      pointer-events: all;
       a{
         img{
           border-radius: 50%;
@@ -65,6 +67,7 @@
       box-sizing: border-box;
       border-top: 2px solid $color_font_blog_title; 
       @extend %title-animation;
+      pointer-events: all;
       h2{
         color: $color_font_blog_title;
         font-size: 4.33rem;
