@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  
+<head lang="zh-CN">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>Hello Vizory | IwYvI</title>
+  <meta name="generator" content="IwYvI">
+  <meta name="author" content="iwyvi">
+  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="keywords" content="" />
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="/atom.xml" title="IwYvI" type="application/atom+xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      
+        <td><a href="/.">首页</a></td>
+      
+        <td><a href="/archives/">文章</a></td>
+      
+        <td><a href="/works/">作品</a></td>
+      
+        <td><a href="/about/">关于</a></td>
+      
+    </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h2>IwYvI</h2>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+<!-- 这段代码是电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
+
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        <div class="article largeCard">
+	<div class="articleContent largeCardContent">
+	    <h1>Hello Vizory</h1>
+			
+	    	<p class="date"><time datetime="2016-03-25T16:13:15.000Z" itemprop="datePublished">2016-03-26</time></p>
+			
+			
+	    	<p class="categories">
+				<a class="article-category-link" href="/categories/jekyll/">jekyll</a>
+				</p>
+	    
+	    <div class="articleDetail largeCardDetail">
+	    	<div class="markdown">
+	    		<p>这将会是博客的第一篇文章，之前的测试文章会在近期全部删除。</p>
+<p>Vizory是我设计的第一个博客主题，本来的是让想别人先看看效果图提出修改意见以后再写预览，然而我就直接动手了，代码空间在这里<a target="_blank" rel="noopener" href="https://git.oschina.net/iwyvi/vizory-design">vizory-design</a>。首页强行使用黑白对比，布局部分参考了Dribbble上的一个页面的设计。<a id="more"></a></p>
+<p><img src="https://i.loli.net/2018/09/08/5b935e8ff2406.jpg"></p>
+<p>这就是页面的预览图，现在看来似乎在宽屏状态还是空的部分些多，本意是纸片不同层次的覆盖，然后导航栏的状态是一份日历被正文压住了只留出导航部分。（同时因为使用了<code>transform: rotate()</code>，所以层次覆盖和div切割还有许多问题，所以有些地方还是做了一定的妥协，比如正中间那张卡片上的绿色icon）</p>
+<blockquote>
+<p>其实本来页面的设计并不是这样的，本来想使用我之前写的一个插件<a target="_blank" rel="noopener" href="https://github.com/IwYvI/particleChar">particleChar</a>，后来放弃了，因为设计的实在是太吃藕</p>
+</blockquote>
+<p>然后选择博客生成工具，当时我只知道Github Pages推荐的jekyll，所以直接看了一些教程，然后开始的时候直接选择了jekyll来驱动博客。但是因为jekyll必须在ruby环境下面使用，然而在我的Windows上，ruby已经配置成功了，但是jekyll却迟迟不能正常使用，所以转用虚拟机开linux处理，然后代码先传到git空间然后在pull回来<em>（不使用共享文件夹的原因是因为曾经似乎就是因为使用的共享文件夹然后忘了干了什么导致linux崩了）</em>。这样本来就很麻烦，后来直到我发现jeky本身似乎不带categories生成，必须要用插件，而且，那个插件似乎已经不能用了，我也不可能因为一个插件而学习ruby，所以当时，我就想找到一个替代品。</p>
+<p>后来经过搜索发现，静态博客生成工具有很多，然后hexo似乎挺厉害的，所以也有考虑再转为hexo，毕竟本身主题并不复杂，转换起来也比较方便。但是，经过今天一下午加一晚上加一早上的努力（强行努力），我还是感觉不是很适应hexo。hexo使用ejs作为模板，然后使用stylus预处理css，然而目前我只使用过scss，同时我还是觉得，hexo看起来井井有条的theme还是比较复杂和乱。虽然最后转换基本成功，但是我觉得还是暂时jekyll更适合我，所以到目前为止，整体博客还是使用jekyll生成。</p>
+<p>好久没有像这样正式写过什么了，导致我写一句话根本不想加标点符号以及各种语序混乱，再加上第一次写这么多markdown，总是在找有没有什么符号可以使用上，就写这么多把以后再修改（我感觉似乎不会了）</p>
+<h6 id="2016-3-26"><a href="#2016-3-26" class="headerlink" title="2016.3.26"></a>2016.3.26</h6>
+	    	</div>
+	    </div>
+  	</div>
+</div>
+
+
+
+
+	<div class="largeCard comments">
+		<div id="disqus_thread" class="largeCardContent commentsContent">Disqus Comments</div>
+		<script>
+		/**
+		* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+		*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+
+		s.src = '//iwyvi.disqus.com/embed.js';
+
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a target="_blank" href="//disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a></noscript>
+	</div>
+
+
+
+
+
+
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/iwyvi"><img src="/img/github.png" alt="github" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016-2021. Content By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a></p>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
+    <span style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1259030304&web_id=1259030304" language="JavaScript"></script>
+</span>
+  </body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  
+<head lang="zh-CN">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>标签: theme | IwYvI</title>
+  <meta name="generator" content="IwYvI">
+  <meta name="author" content="iwyvi">
+  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="keywords" content="" />
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="/atom.xml" title="IwYvI" type="application/atom+xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      
+        <td><a href="/.">首页</a></td>
+      
+        <td><a href="/archives/">文章</a></td>
+      
+        <td><a href="/works/">作品</a></td>
+      
+        <td><a href="/about/">关于</a></td>
+      
+    </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h2>IwYvI</h2>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+<!-- 这段代码是电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
+
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        
+
+<div class="largeCard">
+	<div class="largeCardContent">
+		<h1>标签: theme</h1>
+		<ul class="archiveList">
+		
+			<a href="/jekyll/hello-vizory/">
+				<li>
+					<p class="date">2016-03-26</p>
+					<p>Hello Vizory</p>
+				</li>
+			</a>
+		
+		</ul>
+		
+		<!-- 分页代码 -->
+<div class="pageController">
+  
+  
+</div>
+		
+	</div>
+</div>
+
+
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/iwyvi"><img src="/img/github.png" alt="github" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016-2021. Content By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a></p>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
+    <span style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1259030304&web_id=1259030304" language="JavaScript"></script>
+</span>
+  </body>
+
+</html>

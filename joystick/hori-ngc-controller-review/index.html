@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  
+<head lang="zh-CN">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>hori ngc手柄使用感受 | IwYvI</title>
+  <meta name="generator" content="IwYvI">
+  <meta name="author" content="iwyvi">
+  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="keywords" content="" />
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="/atom.xml" title="IwYvI" type="application/atom+xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      
+        <td><a href="/.">首页</a></td>
+      
+        <td><a href="/archives/">文章</a></td>
+      
+        <td><a href="/works/">作品</a></td>
+      
+        <td><a href="/about/">关于</a></td>
+      
+    </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h2>IwYvI</h2>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+<!-- 这段代码是电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
+
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        <div class="article largeCard">
+	<div class="articleContent largeCardContent">
+	    <h1>hori ngc手柄使用感受</h1>
+			
+	    	<p class="date"><time datetime="2019-02-11T05:35:00.000Z" itemprop="datePublished">2019-02-11</time></p>
+			
+			
+	    	<p class="categories">
+				<a class="article-category-link" href="/categories/joystick/">joystick</a>
+				</p>
+	    
+	    <div class="articleDetail largeCardDetail">
+	    	<div class="markdown">
+	    		<p>去年年底，我购入了任天堂明星大乱斗。在被电脑各种暴打之后，我认为主要是手柄的问题（并不），而只有ngc布局的手柄才能拯救我。在考察了原装ngc手柄+转接器和直连的ngc手柄这两种方案之后，我最终买了hori的这款ngc布局手柄。<a id="more"></a></p>
+<p>入手的方式依然是淘宝，大约190左右。</p>
+<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><p>这款手柄只是一个“单纯”的手柄，支持xbox手柄全部按键，不带震动、体感和nfc，但是支持switch的home键和截图键。额外支持交换 r-zr, l-zl 键（默认就是交换状态），以及支持按键连发。</p>
+<p>手柄只能有线连接，接口是usb-a接口，可以直接接入switch tv模式底座，如果使用掌机模式需要配otg线。另外手柄home键无法唤醒机器。</p>
+<h4 id="外观和手感"><a href="#外观和手感" class="headerlink" title="外观和手感"></a>外观和手感</h4><p><img src="https://i.loli.net/2019/02/11/5c6111bb8d1c3.jpg"><br><img src="https://i.loli.net/2019/02/11/5c6111bba1a7d.jpg"></p>
+<p>整体手柄看起来塑料感十足（比较廉价），顶部为不透明的乳壳塑料，下面是半透明的塑料，外观确实不怎么好看。</p>
+<p>手柄是ngc布局，与原装ngc手柄不同的是左边有 l 和 zl 两个肩键，switch的相关操作键都在手柄中间，分别是 - 、+ 、截图、连发和home键。</p>
+<p>四个肩键都是非线性按键，手感尚可；肩键布局与正常switch手柄相反，但是可以在插入手柄时选择交换后的模式。</p>
+<p>手柄的主要特点在于abxy四个键的布局与xbox系列手柄分布不同；然后左右摇杆均为8向摇杆，可以进行精确定位。</p>
+<p>abxy四个按键的键程适中，按起来还是比较舒适的。方向键是非分体式，黏连表现尚可，但是按起来比较硬。</p>
+<p>整体手柄感觉比较高，似乎是因为握把比较细长。长时间用的话拇指会比较难受。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>单纯是为了大乱斗买的手柄，虽然买了以后依然被电脑各种暴打。稍微有点操作加成，体现在A键极大，b键不好按，让我养成了少用尹相杰的好习惯。</p>
+<h6 id="pros"><a href="#pros" class="headerlink" title="pros:"></a>pros:</h6><p>手感尚可</p>
+<p>switch支持较为完整</p>
+<p>大乱斗蜜汁加成</p>
+<h6 id="cons"><a href="#cons" class="headerlink" title="cons:"></a>cons:</h6><p>外观较廉价，塑料感极强</p>
+<p>无振动</p>
+<p>略贵（以实际外观和操作体验做比较）</p>
+<p>只能有线连接（线约3m）</p>
+<p>大乱斗被暴打以后缺少了一个借口</p>
+
+	    	</div>
+	    </div>
+  	</div>
+</div>
+
+
+
+
+	<div class="largeCard comments">
+		<div id="disqus_thread" class="largeCardContent commentsContent">Disqus Comments</div>
+		<script>
+		/**
+		* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+		*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+
+		s.src = '//iwyvi.disqus.com/embed.js';
+
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a target="_blank" href="//disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a></noscript>
+	</div>
+
+
+
+
+
+
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/iwyvi"><img src="/img/github.png" alt="github" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016-2021. Content By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a></p>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
+    <span style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1259030304&web_id=1259030304" language="JavaScript"></script>
+</span>
+  </body>
+
+</html>

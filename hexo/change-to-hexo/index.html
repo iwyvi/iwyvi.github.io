@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  
+<head lang="zh-CN">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>由jekyll转为hexo | IwYvI</title>
+  <meta name="generator" content="IwYvI">
+  <meta name="author" content="iwyvi">
+  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="keywords" content="" />
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="/atom.xml" title="IwYvI" type="application/atom+xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      
+        <td><a href="/.">首页</a></td>
+      
+        <td><a href="/archives/">文章</a></td>
+      
+        <td><a href="/works/">作品</a></td>
+      
+        <td><a href="/about/">关于</a></td>
+      
+    </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h2>IwYvI</h2>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+<!-- 这段代码是电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
+
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        <div class="article largeCard">
+	<div class="articleContent largeCardContent">
+	    <h1>由jekyll转为hexo</h1>
+			
+	    	<p class="date"><time datetime="2016-10-04T09:47:22.000Z" itemprop="datePublished">2016-10-04</time></p>
+			
+			
+	    	<p class="categories">
+				<a class="article-category-link" href="/categories/hexo/">hexo</a>
+				</p>
+	    
+	    <div class="articleDetail largeCardDetail">
+	    	<div class="markdown">
+	    		<p>大概就是一周前吧，我终于把博客从jekyll又转到了hexo上，之前改写的hexo主题相比起jekyll主题已经太老了，所以这次也是直接又从jekyll主题中找到源文件来修改的，同时也将文章列表页重新改为列表，因为之前的标签会导致标题显示不全。<a id="more"></a></p>
+<p>这次还把评论换成了友言，因为disqus真正被墙了，嘤嘤嘤。多说看起来总是很丑，而畅言一定要备案，所以最后还是换成了友言。</p>
+<p>这个暑假自从升级了windows10红石以后，就一直想在bash里安装ruby环境并配置jekyll，这样就不用再打开虚拟机来处理博客了，然而apt-get得到的ruby默认版本是1.9，并不能使用jekyll，而后使用rvm来安装不知为何总是失败，后来也没再管，直到开学某一周突然想用hexo弄一个口琴谱的网站，使用了一个新的主题，突然发现hexo也支持scss的渲染，而不是我曾经以为一定要用的stylus，同时更加方便的配置和发布也让我有了使用hexo的想法，然后就直接开始撸主题。</p>
+<p>上个学期本来定了一个计划想要每周都翻译一篇英语文章，到现在看来也不过只翻译了三篇，平时大部分时间都浪费在手机和游戏上。希望这学期能有所改观，虽说每周翻译一篇有点不太现实，但是每月翻译一篇我觉得还是能做到的。</p>
+<p>那么，就这样吧。</p>
+<h6 id="2016年10月4日"><a href="#2016年10月4日" class="headerlink" title="2016年10月4日"></a>2016年10月4日</h6>
+	    	</div>
+	    </div>
+  	</div>
+</div>
+
+
+
+
+	<div class="largeCard comments">
+		<div id="disqus_thread" class="largeCardContent commentsContent">Disqus Comments</div>
+		<script>
+		/**
+		* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+		*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+
+		s.src = '//iwyvi.disqus.com/embed.js';
+
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a target="_blank" href="//disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a></noscript>
+	</div>
+
+
+
+
+
+
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/iwyvi"><img src="/img/github.png" alt="github" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016-2021. Content By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a></p>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
+    <span style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1259030304&web_id=1259030304" language="JavaScript"></script>
+</span>
+  </body>
+
+</html>

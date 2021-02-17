@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  
+<head lang="zh-CN">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>switch pro手柄使用感受 | IwYvI</title>
+  <meta name="generator" content="IwYvI">
+  <meta name="author" content="iwyvi">
+  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="keywords" content="" />
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="/atom.xml" title="IwYvI" type="application/atom+xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      
+        <td><a href="/.">首页</a></td>
+      
+        <td><a href="/archives/">文章</a></td>
+      
+        <td><a href="/works/">作品</a></td>
+      
+        <td><a href="/about/">关于</a></td>
+      
+    </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h2>IwYvI</h2>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+<!-- 这段代码是电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
+
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        <div class="article largeCard">
+	<div class="articleContent largeCardContent">
+	    <h1>switch pro手柄使用感受</h1>
+			
+	    	<p class="date"><time datetime="2018-03-11T14:41:10.000Z" itemprop="datePublished">2018-03-11</time></p>
+			
+			
+	    	<p class="categories">
+				<a class="article-category-link" href="/categories/joystick/">joystick</a>
+				</p>
+	    
+	    <div class="articleDetail largeCardDetail">
+	    	<div class="markdown">
+	    		<p>过年期间稍微挣了一些钱，终于在上周下定决心买了一个很早就想入手的switch pro。到现在大概也玩了好几天了，现在来说一下这个手柄的使用感受。<a id="more"></a></p>
+<p>手柄入手方式是淘宝，年前有一段时间手柄普遍降价了，普通黑色大概在380左右，但是年过完又稍微涨了一些，我是403包邮买到的。（话说本来还有一家400包邮来着，但是一看包的是圆通，正好这几天我的其他几个网购的东西包圆通快递的一个都没到，甚至有一个已经在路上拖了一周了，因此选择了这家包申通的）</p>
+<p>拆开快递以后发现盒子比我想象中的要小一圈（与steam手柄和xbox手柄的盒子相比）</p>
+<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><p>当然是支持switch所有支持的功能了，包括手柄所有键位+体感+nfc</p>
+<p>和之前八位堂手柄比起来，这个手柄还支持switch的待机唤醒，和joycon一样可以在switch待机的时候按home键唤醒主机</p>
+<p>使用的是usb typec接口，似乎机器上可以设置只用有线连接的模式</p>
+<h4 id="外观和手感"><a href="#外观和手感" class="headerlink" title="外观和手感"></a>外观和手感</h4><p><img src="https://i.loli.net/2018/09/08/5b935f364cbea.jpg"></p>
+<p>外观就是标准xbox布局，abxy四个键很大，肩键也很大，完全不会误按，-和+键的布局比joycon合理得多，可以轻松按到</p>
+<p>整体手柄的持握感觉出色，按键反馈灵敏，肩键按键手感很棒，只是扳机键是<code>段落按键</code>而不是线性扳机。与joycon的按键有明显的贴片按钮感觉和肩键有微动感觉不同的是，pro手柄的按键感觉和普通手柄是类似的，肩键有相对较软的段落感，整体按键没有什么声音。</p>
+<p>对于我来说，手柄的握把稍微有点小，不能在持握过程中撑满手掌，不过手小的话应该会很舒适。</p>
+<p>摇杆按键清脆，摇动角度增加，对比joycon有很大提升</p>
+<p>方向键采用非分体式，不过确实有黏连</p>
+<p>然而今天下午我又发现一个问题，就是L和R这两个肩键存在一定的触发问题：当这两个键轻按的时候，有一定几率不触发，或者连续按压时施加的力稍微轻一点触发就会中断，从网上来看并不是个例。</p>
+<p>手柄支持hd震动，这一点比八位堂的手柄不知道高到哪里去了</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>之所以买这个手柄有以下几个原因（按优先级排序）</p>
+<ol>
+<li>被种草</li>
+<li>狗头玩喷射战士总是误操作，按跳跃键有时会碰到右摇杆</li>
+<li>八位堂手柄没有握把很累，而且没有nfc导致喷射战士进入大厅后每次都会卡顿，然后提示nfc错误</li>
+</ol>
+</blockquote>
+<p>手感很好</p>
+<p>支持hd震动</p>
+<p>有点小贵</p>
+<p>电池续航不错（买上到现在只充过一次电）</p>
+<p>switch支持完善</p>
+
+	    	</div>
+	    </div>
+  	</div>
+</div>
+
+
+
+
+	<div class="largeCard comments">
+		<div id="disqus_thread" class="largeCardContent commentsContent">Disqus Comments</div>
+		<script>
+		/**
+		* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+		*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+
+		s.src = '//iwyvi.disqus.com/embed.js';
+
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a target="_blank" href="//disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a></noscript>
+	</div>
+
+
+
+
+
+
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/iwyvi"><img src="/img/github.png" alt="github" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016-2021. Content By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a></p>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
+    <span style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1259030304&web_id=1259030304" language="JavaScript"></script>
+</span>
+  </body>
+
+</html>

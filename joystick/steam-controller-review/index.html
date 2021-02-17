@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  
+<head lang="zh-CN">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>steam手柄使用感受 | IwYvI</title>
+  <meta name="generator" content="IwYvI">
+  <meta name="author" content="iwyvi">
+  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="keywords" content="" />
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="/atom.xml" title="IwYvI" type="application/atom+xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      
+        <td><a href="/.">首页</a></td>
+      
+        <td><a href="/archives/">文章</a></td>
+      
+        <td><a href="/works/">作品</a></td>
+      
+        <td><a href="/about/">关于</a></td>
+      
+    </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h2>IwYvI</h2>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+<!-- 这段代码是电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
+
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        <div class="article largeCard">
+	<div class="articleContent largeCardContent">
+	    <h1>steam手柄使用感受</h1>
+			
+	    	<p class="date"><time datetime="2017-02-15T11:46:00.000Z" itemprop="datePublished">2017-02-15</time></p>
+			
+			
+	    	<p class="categories">
+				<a class="article-category-link" href="/categories/joystick/">joystick</a>
+				</p>
+	    
+	    <div class="articleDetail largeCardDetail">
+	    	<div class="markdown">
+	    		<p>经过过年期间认真研究，查看了国内外许多论坛和科技媒体的评测，我最终在几天前买了Steam Controller。通过这几天的试玩，我对其基本性能已经比较了解了，所以现在来说一下自己的感受<a id="more"></a></p>
+<p>由于国内没有行货出售，因此我选择了淘宝购入。原装盒装手柄加上过年期间的顺丰和手柄包，一共是358元。</p>
+<p>手柄的开箱图片以后有时间再补吧，因为真正开箱的时候并没有拍照，只能再摆拍一遍。</p>
+<p>在此之前只用过北通斯巴达手柄，所以下面的手感比较的参照物均为北通斯巴达手柄，之后再找dalao们看看有没有xbox one精英版手柄可以体验一下。</p>
+<p><img src="https://i.loli.net/2018/09/08/5b935f1d98e1e.jpg"></p>
+<p>手柄外观没什么能评价的，至少我觉得挺好看的，虽然看起来塑料感比较严重。</p>
+<p>可以使用microUSB连接直接使用，也可以安装电池插上无线接收器使用。</p>
+<h4 id="手感"><a href="#手感" class="headerlink" title="手感"></a>手感</h4><p>整体手柄还是比较大的，握手的部分不同于xbox系列，是朝上弯曲的，主要目的是改变拇指的操作范围，整体手掌比较贴合，但是在拇指及指腹部分则完全悬空。握手部分均为磨砂塑料。</p>
+<p>左摇杆手感没有什么特别的地方，移动感觉稍微硬一点。</p>
+<p>XYAB键位置在xbox手柄右摇杆处，略有不习惯，而且按键稍微要小一点，X和A按起来稍微有点远。</p>
+<p>LB和RB很大，按键硬度很大，需要适应一下。</p>
+<p>LT和RT的键程比较短，二段扳机按键硬度中等，在激烈操作中比较容易误按。</p>
+<p>LG和RG为背键，可以用中指和无名指按，硬度适中，但是声音略闷。</p>
+<p>下面说一下左右触控板，触控板可以触摸和点击。<br>默认桌面模式下，左触控板为鼠标滚轮，顺时针旋转为向下滚动，逆时针为向上。右触控板控制鼠标，操作感觉有点像笔记本电脑的触控板，但是具有一定的轨迹球性质，即离开触控板以后鼠标还将继续移动一段距离。同时触控板在触摸时均有震动的触感反馈，滚轮的反馈为每移动一个格的距离时左手单机震动一下，触控板的反馈为持续的震动，在轨迹球模式下能感受到移动方向和轨迹球持续滚动的震动。（默认震动反馈强度为强，因此震感较大，而且声音也比较大）。</p>
+<p>在作为摇杆的情况下，触控板可以选择鼠标摇杆、摇杆视角和摇杆移动三种模式。鼠标摇杆和模拟鼠标的手感一致，但是相关信号仍然为摇杆信号。摇杆视角的控制方式似乎是以每次开始触摸地方为摇杆中心，操作类似非固定型的手机屏幕摇杆，触感反馈为离开始触摸的中心越远震动越强。摇杆移动是以触摸面板的物理中心为摇杆中心，可以设置最大区域，在区域内有摇杆的动态位置增量，在最大区域外则等于摇杆边缘，触感反馈为区域内震动逐渐增强，到区域边缘有很强的一下震动，区域外无震动。</p>
+<p>触控板作为按键组时，每次切换按键范围会有一下震动。</p>
+<p>总体来说触控板因为有触感反馈，所以不会误按。左触控板通常作为方向键或按键组，定位和按键都十分准确。右触控板使用摇杆视角和摇杆移动模式时，总是感觉不是很习惯，因此我通常选择使用鼠标摇杆模式。</p>
+<p>陀螺仪很稳，控制视角很棒，还可以分别配置水平和垂直的移动程度。</p>
+<p>但是！但是因为手柄没有专门用于游戏震动的电机，在游戏震动表现上只能借助于触感反馈的震动电机，手感很不理想，同时声音也<del>比较大</del>（是很大）。（注：长期震动后手都有些麻）</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>手柄配置十分十分全面，就是需要打开大屏幕模式才能设置，这一点比较麻烦。</p>
+<p>各种游戏软件都能导入steam里运行，然后就可以分别配置按键了。</p>
+<p>部分游戏有UAC，这时需要以管理员身份运行steam才可以控制。（新版beta客户端似乎对UAC检测有更新）</p>
+<p>每个按键的配置包括单击、双击、长按、按下、松开、其他按键按下后，可以设置单键或组合键。触控板、扳机、摇杆均可以设置死区和响应曲线。同时还可以设置不同的按键布局，可以在按下特定按键或鼠标消失显示时切换。</p>
+<h4 id="游戏体验"><a href="#游戏体验" class="headerlink" title="游戏体验"></a>游戏体验</h4><p>这几天我试了很多游戏，以下是列表：</p>
+<ol>
+<li>Awesomenauts</li>
+<li>Dead or Alive</li>
+<li>Dmc - Devil May Cry</li>
+<li>GTAV</li>
+<li>MGSV</li>
+<li>Orcs Must Die 2</li>
+<li>Ori</li>
+<li>Overcooked</li>
+<li>Overwatch</li>
+<li>Saints Row IV</li>
+<li>Witcher 3</li>
+<li>For Honor beta</li>
+<li>无尽战区</li>
+<li>古墓丽影9</li>
+</ol>
+<p>前十二个游戏均原生支持xbox手柄，所以开始时均设置为模拟xbox手柄，设置后可以正常使用。</p>
+<p>其中部分游戏有社区方案，例如合金装备5有一个模拟键鼠的方案，但由于之前我一直使用手柄玩，因此不是很懂方案里各种按键有什么用又改了回来，同时使用键鼠方案的话没有辅助瞄准，比较尴尬。</p>
+<p>Overcooked中可以和xbox手柄一起使用。</p>
+<p>守望先锋里因为手柄操作并不舒服，因此自定义了一个键鼠方案，视角使用右触控板和陀螺仪一起控制，然后玩了几盘，然后就换回了键鼠，除了根本瞄不准人以外，没什么毛病，猩猩三妹什么的就很强。</p>
+<p>巫师3使用了社区方案，左触控板作为触摸菜单，可以显示9个按键，虽然没用手柄本身的方案玩，但总感觉这么多按键手柄要么阉割操作，要么就需要很多组合键。</p>
+<p>荣耀战魂提供了官方手柄配置预设，总体和xbox手柄操作一致，额外提供了背键的绑定和在防御姿态下右触控板按钮的变换。我因为玩了野武士，隐藏姿态在键鼠操作时为按下c键，而手柄为右摇杆向下，极易误操作，因此我额外将左摇杆的完全按下改为右摇杆向下，很完美。</p>
+<p>无尽战区完全没有提供手柄支持，但是通过一翻设置，操作完全不输键鼠。左触控板使用径向菜单，实现1-6的数字键，用来购买装备，在RG按下的情况下则显示一些不常用的按键，包括b、g、c、v、f1、f2、f3等。</p>
+<p>综上所述，steam手柄在原生支持手柄操作的游戏中可以实现无缝切换使用。但是在完全不支持手柄操作的游戏中，仍然可以实现很棒的体验。</p>
+<hr>
+<p>2月22日：前几天玩了古墓丽影9，我使用了一个社区配置，主要方案还是标准xbox手柄，但是在射击模式下可以使用陀螺仪，操作感十分棒，有一种真正瞄准的感觉，让我更容易（误）爆头。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>手柄整体使用体验较好，可以完美模拟xbox手柄，也可以模拟键鼠操作，使用范围很广。</p>
+<p>操作手感较好，功能按键较小，LB和RB较硬。</p>
+<p>游戏震动体验很差。</p>
+<p>开关机一定要播一段8位音乐。</p>
+<p>无线操作距离约在10m左右。</p>
+<p>外观塑料感较强。</p>
+<p>放上电池略重。</p>
+
+	    	</div>
+	    </div>
+  	</div>
+</div>
+
+
+
+
+	<div class="largeCard comments">
+		<div id="disqus_thread" class="largeCardContent commentsContent">Disqus Comments</div>
+		<script>
+		/**
+		* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+		*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+
+		s.src = '//iwyvi.disqus.com/embed.js';
+
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a target="_blank" href="//disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a></noscript>
+	</div>
+
+
+
+
+
+
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/iwyvi"><img src="/img/github.png" alt="github" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016-2021. Content By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a></p>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
+    <span style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1259030304&web_id=1259030304" language="JavaScript"></script>
+</span>
+  </body>
+
+</html>

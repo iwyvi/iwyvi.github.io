@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  
+<head lang="zh-CN">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>【译】CSS @apply规则(mixins) | IwYvI</title>
+  <meta name="generator" content="IwYvI">
+  <meta name="author" content="iwyvi">
+  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="keywords" content="" />
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="/atom.xml" title="IwYvI" type="application/atom+xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      
+        <td><a href="/.">首页</a></td>
+      
+        <td><a href="/archives/">文章</a></td>
+      
+        <td><a href="/works/">作品</a></td>
+      
+        <td><a href="/about/">关于</a></td>
+      
+    </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h2>IwYvI</h2>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+<!-- 这段代码是电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
+
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        <div class="article largeCard">
+	<div class="articleContent largeCardContent">
+	    <h1>【译】CSS @apply规则(mixins)</h1>
+			
+	    	<p class="date"><time datetime="2016-04-22T09:25:58.000Z" itemprop="datePublished">2016-04-22</time></p>
+			
+			
+	    	<p class="categories">
+				<a class="article-category-link" href="/categories/css/">css</a>
+				</p>
+	    
+	    <div class="articleDetail largeCardDetail">
+	    	<div class="markdown">
+	    		<blockquote>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.gospodarets.com/css_apply_rule">CSS @apply rule (native CSS mixins)</a></p>
+<p>原文发布时间：April 11, 2016</p>
+<p>原作者：Serg Gospodarets</p>
+<p>翻译者：IwYvI</p>
+</blockquote>
+<p>在我前一篇文章<a href="http://www.iwyvi.com/css/css-properties-in-depth">深入了解CSS自定义属性</a>中，我描述了CSS属性（变量）和它们各种不同的用法。</p>
+<p>如果你读完之后打算开始从CSS预处理器转变成用纯CSS，你的下一个问题可能是这样：“mixins要怎么办？”</p>
+<p>答案就是：我们现在不仅有一个编辑者草案（editor’s draft）：<a target="_blank" rel="noopener" href="https://tabatkins.github.io/specs/css-apply-rule/">https://tabatkins.github.io/specs/css-apply-rule/</a></p>
+<p>还在Chrome浏览器中实现了：<a target="_blank" rel="noopener" href="https://www.chromestatus.com/feature/5753701012602880">https://www.chromestatus.com/feature/5753701012602880</a></p>
+<p>在继续阅读之前，你最好已经理解了<a href="http://www.iwyvi.com/css/css-properties-in-depth">CSS自定义属性</a>和<a target="_blank" rel="noopener" href="https://css-tricks.com/custom-user-mixins/">CSS mixins</a>的规则</p>
+<h3 id="定义自定义集"><a href="#定义自定义集" class="headerlink" title="定义自定义集"></a>定义自定义集</h3><p>正如我们所知，你可以<a href="http://www.iwyvi.com/css/css-properties-in-depth#section-1">为一个自定义属性赋任意值</a></p>
+<p>让我们先定义一个属性集</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  --pink-theme: &#123;</span><br><span class="line">    color: <span class="number">#6A8759</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#F64778</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（然而目前我的CSS代码高亮在这个语法下好口怕所以我用了SCSS来代替）</p>
+<p>它仍然是一个有效的CSS自定义属性，因为它还是包括在<code>&#123;&#125;</code>里的一系列CSS属性。</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>为了区分<a href="http://www.iwyvi.com/css/css-properties-in-depth#section-2">CSS自定义属性的用法</a>和mixins，我们提出使用一个新的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/docs/Web/CSS/At-rule">@规则语句</a></p>
+<p>你应该更熟悉这些：使用<code>@</code>开头并跟着一些关键词，以此作为CSS的一些功能标识符</p>
+<p>例子：<code>@charset</code>，<code>@import</code>，<code>@keyframes</code>，<code>@media</code>和<a target="_blank" rel="noopener" href="https://css-tricks.com/the-at-rules-of-css/">更多内容</a>。</p>
+<p>下面我们再接触一个实现CSS mixins的新CSS语句：<code>@apply</code>。</p>
+<p>让我们应用一下这些规则（原谅我罗罗嗦嗦说了这么多[表情]）：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">  <span class="keyword">@apply</span> --pink-theme;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<iframe id="cp_embed_yOXWdm" src="//codepen.io/malyw/embed/yOXWdm?height=150&amp;theme-id=178&amp;slug-hash=yOXWdm&amp;user=malyw&amp;default-tab=result" scrolling="no" frameborder="0" height="150" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="CodePen Embed" class="cp_embed_iframe " style="width: 100%; overflow: hidden;"></iframe>
+
+<p>上面我们轻松使用了我们的第一个CSS mixin，它看起来确实很像<a target="_blank" rel="noopener" href="http://sass-lang.com/guide#topic-6">SCSS mixins</a>。</p>
+<p>所以一般的语法是这样：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DEFINING</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    --custom-property-name: &#123;</span><br><span class="line">        prop-name: value;</span><br><span class="line">        <span class="comment">/*...*/</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// APPLYING</span></span><br><span class="line"><span class="keyword">@apply</span> custom-property-name;</span><br></pre></td></tr></table></figure>
+<h3 id="Mixins的例子"><a href="#Mixins的例子" class="headerlink" title="Mixins的例子"></a>Mixins的例子</h3><p>通常情况项目中会用到许多mixins。如<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/9543541/what-does-the-clearfix-class-do-in-css">清除浮动</a>，创建CSS三角形和其他内容。</p>
+<p>让我们使用纯CSS来重写它们</p>
+<h4 id="清除浮动（clearfix）-mixins"><a href="#清除浮动（clearfix）-mixins" class="headerlink" title="清除浮动（clearfix） mixins"></a>清除浮动（clearfix） mixins</h4><p>有<a target="_blank" rel="noopener" href="https://github.com/twbs/bootstrap/blob/master/less/mixins/clearfix.less">很多</a>，<a target="_blank" rel="noopener" href="https://gist.github.com/mrinalwadhwa/2934863">很多</a>，<a target="_blank" rel="noopener" href="https://gist.github.com/jelmerdemaat/3804403">很多</a>关于清除浮动的实现，然而我们可以使用这个简单的方法：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DEFINE</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  --clearfix: &#123;</span><br><span class="line">    display: table;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// USE</span></span><br><span class="line"><span class="selector-class">.box</span>:after&#123;</span><br><span class="line">  @apply --clearfix;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<iframe id="cp_embed_grRNRQ" src="//codepen.io/malyw/embed/grRNRQ?height=150&amp;theme-id=178&amp;slug-hash=grRNRQ&amp;user=malyw&amp;default-tab=result" scrolling="no" frameborder="0" height="150" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="CodePen Embed" class="cp_embed_iframe " style="width: 100%; overflow: hidden;"></iframe>
+
+<p>如果你没有进行清除浮动，浏览器将合并红色背景</p>
+<p>BTW，在现在Chrome浏览器的实现中有一个有趣的bug：在mixin之前如果没写有<code>.box:after&#123;content:&#39;SOME&#39;;</code>，在mixin中的<code>content</code>规则将会无效</p>
+<h4 id="溢出省略号（overflow-ellipsis）-mixin"><a href="#溢出省略号（overflow-ellipsis）-mixin" class="headerlink" title="溢出省略号（overflow-ellipsis） mixin"></a>溢出省略号（overflow-ellipsis） mixin</h4><p>当你的UI界面要保证文字不会超出block，通常的解决方案（根据不同的需求）是使用<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/docs/Web/CSS/text-overflow">text-overflow</a>规则。</p>
+<p>但是<code>text-overflow: ellipsis;</code>在没有<code>overflow: hidden;</code>和<code>white-space: nowrap;</code>下并没有什么用。这正是mixin大展身手的地方！</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DEFINE</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  --mixin-<span class="attribute">overflow</span>-ellipsis: &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// USE</span></span><br><span class="line"><span class="selector-class">.overflow-box</span>&#123;</span><br><span class="line">  <span class="keyword">@apply</span> --mixin-overflow-ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<iframe id="cp_embed_mVqPwz" src="//codepen.io/malyw/embed/mVqPwz?height=150&amp;theme-id=178&amp;slug-hash=mVqPwz&amp;user=malyw&amp;default-tab=result" scrolling="no" frameborder="0" height="150" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="CodePen Embed" class="cp_embed_iframe " style="width: 100%; overflow: hidden;"></iframe>
+
+<h4 id="CSS三角形-mixin"><a href="#CSS三角形-mixin" class="headerlink" title="CSS三角形 mixin"></a>CSS三角形 mixin</h4><p>有大量的方法可以使用CSS创建简单的几何图形，最受欢迎的就是<a target="_blank" rel="noopener" href="http://www.sitepoint.com/sass-mixin-css-triangles/">使用CSS border绘制三角形</a>。</p>
+<p>让我们为此创建一个简单的mixin：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  --triangle-to-<span class="attribute">bottom</span>: &#123;</span><br><span class="line">    width: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-style</span>: solid;</span><br><span class="line">    <span class="attribute">border-width</span>: <span class="number">50px</span> <span class="number">50px</span> <span class="number">0</span> <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">border-color</span>: <span class="number">#007bff</span> transparent transparent transparent;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如你所见，我们可以定义大小和颜色的变量。另一个想法就是做一个单独的0宽高的mixin并重用它</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  --zero-size: &#123;</span><br><span class="line">    width: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  --triangle-to-<span class="attribute">bottom</span>-size: <span class="number">50px</span>;</span><br><span class="line">  --triangle-to-<span class="attribute">bottom</span>-<span class="attribute">color</span>: <span class="number">#007bff</span>;</span><br><span class="line"></span><br><span class="line">  --triangle-to-<span class="attribute">bottom</span>: &#123;</span><br><span class="line">    @apply --zero-size;</span><br><span class="line">    <span class="attribute">border-style</span>: solid;</span><br><span class="line">    <span class="attribute">border-width</span>: var(--triangle-to-bottom-size) var(--triangle-to-bottom-size) <span class="number">0</span> var(--triangle-to-bottom-size);</span><br><span class="line">    <span class="attribute">border-color</span>: var(--triangle-to-bottom-color) transparent transparent transparent;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.triangle-to-bottom</span> &#123;</span><br><span class="line">  <span class="keyword">@apply</span> --triangle-to-bottom;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<iframe id="cp_embed_grRNZy" src="//codepen.io/malyw/embed/grRNZy?height=150&amp;theme-id=178&amp;slug-hash=grRNZy&amp;user=malyw&amp;default-tab=result" scrolling="no" frameborder="0" height="150" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="CodePen Embed" class="cp_embed_iframe " style="width: 100%; overflow: hidden;"></iframe>
+
+<h3 id="将变量传递给mixins"><a href="#将变量传递给mixins" class="headerlink" title="将变量传递给mixins"></a>将变量传递给mixins</h3><p>根据不同的应用规则把变量传递给mixins将会很有用。</p>
+<p>然而不幸的是，如果你在全局作用域中（<code>:root&#39;）定义了</code>@apply`规则，它将只能使用在那个作用域中的变量，因此不能使用你的局部变量</p>
+<p>虽然不爽，但是至少你还能使用CSS预处理器把mixins复制粘贴到需要的作用域中，直到CSS变量正常</p>
+<p>目前关于这个问题还在讨论</p>
+<h3 id="浏览器支持和fallbacks"><a href="#浏览器支持和fallbacks" class="headerlink" title="浏览器支持和fallbacks"></a>浏览器支持和fallbacks</h3><h4 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h4><ol>
+<li><p><code>@apply</code>在<a target="_blank" rel="noopener" href="https://codereview.chromium.org/1645433002">Chrome Dev and Canary（桌面和移动端）</a>中，开启<code>chrome://flags/#enable-experimental-web-platform-features</code>（<br>实验性网络平台功能）（<a target="_blank" rel="noopener" href="https://bugs.chromium.org/p/chromium/issues/detail?id=586974">issue</a>）</p>
+</li>
+<li><p>可以查看<a target="_blank" rel="noopener" href="https://www.chromestatus.com/feature/5753701012602880">Chrome Platform Status issue</a>从而获得最新的支持消息</p>
+</li>
+</ol>
+<h4 id="Fallbacks"><a href="#Fallbacks" class="headerlink" title="Fallbacks"></a>Fallbacks</h4><p>看起来似乎现在想用的这个特性话唯一方法就是使用一个PostCSS的插件：<a target="_blank" rel="noopener" href="https://github.com/pascalduez/postcss-apply">https://github.com/pascalduez/postcss-apply</a></p>
+<p>它允许自定义属性集的使用</p>
+<p>如你所见“这个插件还是一个早期版本，许多特性还没有被支持”，但是它也包含了一些简单的内容</p>
+<p>同时著名的<a target="_blank" rel="noopener" href="https://github.com/MoOx/postcss-cssnext">cssnext</a>插件作者也<a target="_blank" rel="noopener" href="https://github.com/MoOx/postcss-cssnext/issues/203">期待一个Pull Request</a>来添加这种特性</p>
+<h3 id="测试浏览器支持"><a href="#测试浏览器支持" class="headerlink" title="测试浏览器支持"></a>测试浏览器支持</h3><p>这有一个<a target="_blank" rel="noopener" href="https://gist.github.com/malyw/477cd45bd0ed501a1c3ce0870ae16dd1">复制过来的例子</a>，可以检测<code>@apply</code>规则在浏览器中是否被支持：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testCSSApply</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> ID = <span class="string">&#x27;id&#x27;</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// include styles</span></span><br><span class="line">  <span class="keyword">const</span> styleEl = <span class="built_in">document</span>.createElement(<span class="string">&#x27;style&#x27;</span>);</span><br><span class="line">  styleEl.innerHTML = <span class="string">`</span></span><br><span class="line"><span class="string">  :root &#123;</span></span><br><span class="line"><span class="string">    --<span class="subst">$&#123;ID&#125;</span>: &#123;</span></span><br><span class="line"><span class="string">      font-family: <span class="subst">$&#123;ID&#125;</span>;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  #<span class="subst">$&#123;ID&#125;</span>&#123;</span></span><br><span class="line"><span class="string">    @apply --<span class="subst">$&#123;ID&#125;</span>;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  `</span>;</span><br><span class="line">  <span class="built_in">document</span>.head.appendChild(styleEl);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// include element</span></span><br><span class="line">  <span class="keyword">const</span> el = <span class="built_in">document</span>.createElement(<span class="string">&#x27;i&#x27;</span>);</span><br><span class="line">  el.setAttribute(<span class="string">&#x27;id&#x27;</span>, ID)</span><br><span class="line">  <span class="built_in">document</span>.documentElement.appendChild(el);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// test</span></span><br><span class="line">  <span class="keyword">const</span> styles = getComputedStyle(el);</span><br><span class="line">  <span class="keyword">const</span> doesSupport = styles.fontFamily === ID;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// cleaning</span></span><br><span class="line">  <span class="built_in">document</span>.head.removeChild(styleEl);</span><br><span class="line">  <span class="built_in">document</span>.documentElement.removeChild(el);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> doesSupport;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用它也很简单：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(testCSSApply())&#123;</span><br><span class="line">  <span class="built_in">document</span>.documentElement.className += <span class="string">&#x27; supported&#x27;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<iframe id="cp_embed_yOoMRp" src="//codepen.io/malyw/embed/yOoMRp?default-tab=result&amp;user=malyw&amp;slug-hash=yOoMRp&amp;theme-id=178&amp;height=150" scrolling="no" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="CodePen Embed" class="cp_embed_iframe " style="width: 100%; overflow: hidden;" frameborder="0" height="150"></iframe>
+
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>你可以这样想：“CSS又变得越来越难了嘤嘤嘤”：</p>
+<p><img src="https://i.imgur.com/a7sW8y2.gif"></p>
+<p>但是我们已经习惯了CSS预处理器带来的这些概念，换句话说，现在我们将不用任何预处理器就能使用CSS变量和mixins！</p>
+<p>是是是，语法这样并不是很好，但是想想你开始学习使用一门新的预处理器时的感觉</p>
+<p>我倒是觉得这个发展过程会像ES6的进化发展一样：</p>
+<p>为了代替如CoffeeScript一样的转译语言，社区开始为JavaScript添加新的特性，然后到目前为止大多数主流浏览器对其的支持度都达到了80-95%。</p>
+<p>因此希望不久以后，所有的这些你都可以在项目中轻松地使用</p>
+<blockquote>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.gospodarets.com/css_apply_rule">CSS @apply rule (native CSS mixins)</a></p>
+<p>原文发布时间：April 11, 2016</p>
+<p>原作者：Serg Gospodarets</p>
+<p>翻译者：IwYvI</p>
+<p>翻译时间：2016/5/5</p>
+</blockquote>
+
+	    	</div>
+	    </div>
+  	</div>
+</div>
+
+
+
+
+	<div class="largeCard comments">
+		<div id="disqus_thread" class="largeCardContent commentsContent">Disqus Comments</div>
+		<script>
+		/**
+		* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+		*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+
+		s.src = '//iwyvi.disqus.com/embed.js';
+
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a target="_blank" href="//disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a></noscript>
+	</div>
+
+
+
+
+
+
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/iwyvi"><img src="/img/github.png" alt="github" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016-2021. Content By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a></p>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
+    <span style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1259030304&web_id=1259030304" language="JavaScript"></script>
+</span>
+  </body>
+
+</html>

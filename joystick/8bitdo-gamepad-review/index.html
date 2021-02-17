@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  
+<head lang="zh-CN">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>八位堂SF30pro手柄使用感受 | IwYvI</title>
+  <meta name="generator" content="IwYvI">
+  <meta name="author" content="iwyvi">
+  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="keywords" content="" />
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="/atom.xml" title="IwYvI" type="application/atom+xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      
+        <td><a href="/.">首页</a></td>
+      
+        <td><a href="/archives/">文章</a></td>
+      
+        <td><a href="/works/">作品</a></td>
+      
+        <td><a href="/about/">关于</a></td>
+      
+    </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h2>IwYvI</h2>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+<!-- 这段代码是电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
+
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        <div class="article largeCard">
+	<div class="articleContent largeCardContent">
+	    <h1>八位堂SF30pro手柄使用感受</h1>
+			
+	    	<p class="date"><time datetime="2017-12-30T08:04:08.000Z" itemprop="datePublished">2017-12-30</time></p>
+			
+			
+	    	<p class="categories">
+				<a class="article-category-link" href="/categories/joystick/">joystick</a>
+				</p>
+	    
+	    <div class="articleDetail largeCardDetail">
+	    	<div class="markdown">
+	    		<p>目前来看八位堂SF30pro应该是少有的几个可以支持switch陀螺仪的第三方手柄，又因为switch pro有些贵，所以我在双十一的时候预购了这个手柄，手柄在12月9日才发货，然而因为手柄自身的问题，中途又换了两次，目前拿到手的手柄“现在”还没有什么问题，然后现在来说一下对这个手柄的使用感受。<a id="more"></a></p>
+<p>手柄双十一预购价格239，同时买的还有一个10元的套在手柄上的手机支架。</p>
+<p><img src="https://i.loli.net/2018/09/08/5b935cc2289bb.jpg" alt="八位堂手柄"></p>
+<h4 id="外观和功能"><a href="#外观和功能" class="headerlink" title="外观和功能"></a>外观和功能</h4><p>这个手柄还是比较便携的，大小的话和5.5寸屏的手机差不多。</p>
+<p>外观采用了超任手柄的设计，只是多了两个摇杆。</p>
+<p>虽然这个手柄看起来比较小，但是是一个全功能的手柄，包括所有手柄需要的按键，只是LT和RT键为段落式按键而非线性扳机，这在非赛车游戏中影响不大（大概是因为switch的手柄也是段落式按键）。</p>
+<p>此外手柄还额外有两个键，在switch模式下用作截图键和home键，在非switch模式下用作（就是xbox手柄的那个xbox键，这个键我也不知道叫什么）和连发开关。</p>
+<p>手柄支持四个模式，分别是switch模式，xinput模式，dinput模式和一个大概是ps4手柄模式，这四个模式可以分别匹配机器，不需要重新配对（这一点我觉得就很方便）。可以一次配对好手机电脑和switch，之后需要玩哪个就打开哪个模式。</p>
+<h4 id="手感"><a href="#手感" class="headerlink" title="手感"></a>手感</h4><p>因为便携性，这样的手柄还是牺牲了手感。</p>
+<p>然而这个手柄的摇杆还是很舒服的，包括移动、归中和按键的感觉都很不错，虽然比起xbox手柄还是有一定差距，但是这个手柄的摇杆比xbox手柄要明显小一圈，所以有这样的手感还是很惊艳的。（当然比起switch的joycon就不知道好到哪里去了）</p>
+<p>abxy这四个按键手感也比较好，按键清脆。</p>
+<p>十字键相对来说没有那么舒服，虽然是分体十字键直接按压时不容易误按，但是整体有些偏硬，而且按下以后更换方位没有相关反馈，不是很理想。（我已经忘了xbox的十字键按下去是什么感受了）</p>
+<p>LB和RB键按键很长，按压有段落感，整体感觉较软，而且声音比较小。同时比较明显存在的问题就是，按下之后有可能不持续触发，然后这一问题经过我的仔细研究，发现是这两个键按下之后，在按压力度变轻但并没有到回弹点时，也会停止触发按键。大概是整体的设计问题。</p>
+<p>LT和RT键略做了扳机效果，但是是段落按键，构造和switch的joycon有点像，按键应该是硅胶碗提供的回弹，与LB和RB键的手感一样。</p>
+<p>体感的话目前只支持switch，和正常手柄体感操作一致。我个人的话是很希望以后固件升级可以在steam上使用体感。</p>
+<p>同时手柄还配有震动，震动感觉就是手机的震动那样，相对比较震手。在pc上表现比较好，但是switch上hd震动会触发一些蜜汁震动，例如本身hd震动很轻微的效果在这个手柄上就震得很厉害。</p>
+<p>然而因为这个手柄没有握把，因此在长期使用后会比较累。同时摇杆位置与ps4手柄一致，长时间行走的话左手拇指会比较酸。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>我之所以买这个手柄，有一部分原因是这个手柄相比switch pro更便宜，另一方面是这个手柄能很稳定的在多平台使用，平时可以只带这一个手柄出去玩。</p>
+<p>然后整体使用手感一般，不是很适合长时间使用。</p>
+<p>蓝牙连接较快，使用时间比较长。</p>
+<p>外观还不错。</p>
+<p>功能支持比较完善。</p>
+<p>switch上震动略傻。</p>
+
+	    	</div>
+	    </div>
+  	</div>
+</div>
+
+
+
+
+	<div class="largeCard comments">
+		<div id="disqus_thread" class="largeCardContent commentsContent">Disqus Comments</div>
+		<script>
+		/**
+		* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+		*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+
+		s.src = '//iwyvi.disqus.com/embed.js';
+
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a target="_blank" href="//disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a></noscript>
+	</div>
+
+
+
+
+
+
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/iwyvi"><img src="/img/github.png" alt="github" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016-2021. Content By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a></p>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
+    <span style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1259030304&web_id=1259030304" language="JavaScript"></script>
+</span>
+  </body>
+
+</html>

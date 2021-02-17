@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  
+<head lang="zh-CN">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>IwYvI</title>
+  <meta name="generator" content="IwYvI">
+  <meta name="author" content="iwyvi">
+  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="keywords" content="" />
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="/atom.xml" title="IwYvI" type="application/atom+xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      
+        <td><a href="/.">首页</a></td>
+      
+        <td><a href="/archives/">文章</a></td>
+      
+        <td><a href="/works/">作品</a></td>
+      
+        <td><a href="/about/">关于</a></td>
+      
+    </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h2>IwYvI</h2>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+<!-- 这段代码是电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
+
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        <ul class="postList">
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/tools/awesome-tools/">我的工具列表</a></h3>
+        <p class="date">2019-11-10</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/tools/">tools</a>
+          </p>
+        
+        <p><p>
+                此列表收集了我的各种工具，包括硬件、软件和服务。
+              
+        </p></p>
+        <a href="/tools/awesome-tools/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>我的工具列表</p></div>
+    </li>
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/joystick/hori-ngc-controller-review/">hori ngc手柄使用感受</a></h3>
+        <p class="date">2019-02-11</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/joystick/">joystick</a>
+          </p>
+        
+        <p><p>
+                去年年底，我购入了任天堂明星大乱斗。在被电脑各种暴打之后，我认为主要是手柄的问题（并不），而只有ngc布局的手柄才能拯救我。在考察了原装ngc手柄+转接器和直连的ngc手柄这两种方案之后，我最终买了hori的这款ngc布局手柄。
+              
+        </p></p>
+        <a href="/joystick/hori-ngc-controller-review/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>hori ngc手柄使用感受</p></div>
+    </li>
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/audio/simple-way-to-merge-multi-sound-source/">多路音源的合并输出</a></h3>
+        <p class="date">2018-03-18</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/audio/">audio</a>
+          </p>
+        
+        <p><p>
+                过年期间，看到乌贼群里的人一边在qq上语音一边玩游戏，对于我这种生活环境不适合开外放只能长期耳机的乌贼来说，耳机连了语音就不能听游戏声音，所以在游戏里只能被打爆乌头。直到最近，我终于在网上发现了一种可以将多路音频源合并到同一个耳机的方案。
+              
+        </p></p>
+        <a href="/audio/simple-way-to-merge-multi-sound-source/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>多路音源的合并输出</p></div>
+    </li>
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/joystick/switch-pro-review/">switch pro手柄使用感受</a></h3>
+        <p class="date">2018-03-11</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/joystick/">joystick</a>
+          </p>
+        
+        <p><p>
+                过年期间稍微挣了一些钱，终于在上周下定决心买了一个很早就想入手的switch pro。到现在大概也玩了好几天了，现在来说一下这个手柄的使用感受。
+              
+        </p></p>
+        <a href="/joystick/switch-pro-review/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>switch pro手柄使用感受</p></div>
+    </li>
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/joystick/8bitdo-gamepad-review/">八位堂SF30pro手柄使用感受</a></h3>
+        <p class="date">2017-12-30</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/joystick/">joystick</a>
+          </p>
+        
+        <p><p>
+                目前来看八位堂SF30pro应该是少有的几个可以支持switch陀螺仪的第三方手柄，又因为switch pro有些贵，所以我在双十一的时候预购了这个手柄，手柄在12月9日才发货，然而因为手柄自身的问题，中途又换了两次，目前拿到手的手柄“现在”还没有什么问题，然后现在来说一下对这个手柄的使用感受。
+              
+        </p></p>
+        <a href="/joystick/8bitdo-gamepad-review/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>八位堂SF30pro手柄使用感受</p></div>
+    </li>
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/keyboard/ergodone-keyboard/">新键盘之ergodone</a></h3>
+        <p class="date">2017-06-21</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/keyboard/">keyboard</a>
+          </p>
+        
+        <p><p>
+                距离第一个客制化键盘购入还没满一年，我又入坑了一个新的键盘。
+ergodone是一个分体式机械键盘，是基于ergodox的一个平民化修改版，相比ergodox原版的材料来说，这个的各种元件的价格更加便宜。
+              
+        </p></p>
+        <a href="/keyboard/ergodone-keyboard/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>新键盘之ergodone</p></div>
+    </li>
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/joystick/steam-controller-review/">steam手柄使用感受</a></h3>
+        <p class="date">2017-02-15</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/joystick/">joystick</a>
+          </p>
+        
+        <p><p>
+                经过过年期间认真研究，查看了国内外许多论坛和科技媒体的评测，我最终在几天前买了Steam Controller。通过这几天的试玩，我对其基本性能已经比较了解了，所以现在来说一下自己的感受
+              
+        </p></p>
+        <a href="/joystick/steam-controller-review/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>steam手柄使用感受</p></div>
+    </li>
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/hexo/change-to-hexo/">由jekyll转为hexo</a></h3>
+        <p class="date">2016-10-04</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/hexo/">hexo</a>
+          </p>
+        
+        <p><p>
+                大概就是一周前吧，我终于把博客从jekyll又转到了hexo上，之前改写的hexo主题相比起jekyll主题已经太老了，所以这次也是直接又从jekyll主题中找到源文件来修改的，同时也将文章列表页重新改为列表，因为之前的标签会导致标题显示不全。
+              
+        </p></p>
+        <a href="/hexo/change-to-hexo/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>由jekyll转为hexo</p></div>
+    </li>
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/css/the-languages-which-almost-were-css/">【译】几乎要成为CSS的语言们</a></h3>
+        <p class="date">2016-10-04</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/css/">css</a>
+          </p>
+        
+        <p><p>
+                【翻译】《The Languages Which Almost Became CSS》：在CSS出现之前，还有许多种样式语言来定义HTML标签的样式，本文就将介绍这些语言的历史。（这个介绍我实在是编不动了）
+              
+        </p></p>
+        <a href="/css/the-languages-which-almost-were-css/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>【译】几乎要成为CSS的语言们</p></div>
+    </li>
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/keyboard/gh60-keyboard/">我的gh60客制化键盘</a></h3>
+        <p class="date">2016-07-07</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/keyboard/">keyboard</a>
+          </p>
+        
+        <p><p>
+                我的第一个客制化gh60机械键盘，使用了无钢板g轴红轴，同时刷了自己喜欢的配列。
+之前的那个贼鸥87键的机械键盘坏了，有一个键一直触发，但是按键的时候却不触发了，不知道是不是因为pcb某处短路。然后前一段时间一直想换一个新的键盘，然后由于预算各种纠结，当然也学习到了许多新的东西。
+              
+        </p></p>
+        <a href="/keyboard/gh60-keyboard/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>我的gh60客制化键盘</p></div>
+    </li>
+  
+</ul>
+
+<!-- 分页代码 -->
+<div class="pageController">
+  
+  
+    <a href="/page/2/">下一页</a>
+  
+</div>
+
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/iwyvi"><img src="/img/github.png" alt="github" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016-2021. Content By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a></p>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
+    <span style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1259030304&web_id=1259030304" language="JavaScript"></script>
+</span>
+  </body>
+
+</html>

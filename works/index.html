@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  
+<head lang="zh-CN">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>作品 | IwYvI</title>
+  <meta name="generator" content="IwYvI">
+  <meta name="author" content="iwyvi">
+  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="keywords" content="" />
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="/atom.xml" title="IwYvI" type="application/atom+xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      
+        <td><a href="/.">首页</a></td>
+      
+        <td><a href="/archives/">文章</a></td>
+      
+        <td><a href="/works/">作品</a></td>
+      
+        <td><a href="/about/">关于</a></td>
+      
+    </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h2>IwYvI</h2>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+<!-- 这段代码是电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
+
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        
+
+<div class="largeCard">
+	<div class="largeCardContent">
+		<h1>作品</h1>
+		<ul class="largeCardList">
+		
+				<li>
+					<div class="workCard">
+						<p class="name">vue-float-preview</p>
+						
+						
+						
+						<p class="description">Vue2.x桌面端组件：跟随鼠标的动态展示内容</p>
+						
+						
+						<p class="date">2018-10</p>
+						
+						
+						<a href="https://www.iwyvi.com/vue-float-preview/" target="_blank">DEMO</a>
+						
+						
+						
+						<a href="https://github.com/IwYvI/vue-float-preview" target="_blank">SOURCE</a>
+						
+					</div>
+				</li>
+		
+				<li>
+					<div class="workCard">
+						<p class="name">乌贼日历</p>
+						
+						
+						<img class="qrcode" src="https://s1.ax1x.com/2018/07/09/PmRHtU.jpg"></img>
+						
+						
+						<p class="description">基于wepy构建，为Splatoon2玩家提供地图时刻表等信息查询的微信小程序</p>
+						
+						
+						<p class="date">2018-07</p>
+						
+						
+						
+						
+						<a href="https://github.com/IwYvI/splatoon2-schedules-weapp" target="_blank">SOURCE</a>
+						
+					</div>
+				</li>
+		
+				<li>
+					<div class="workCard">
+						<p class="name">chinolor</p>
+						
+						
+						
+						<p class="description">一个使用中国传统颜色构造的VSCode主题</p>
+						
+						
+						<p class="date">2018-05</p>
+						
+						
+						
+						<a href="https://marketplace.visualstudio.com/items?itemName=iwyvi.chinolor" target="_blank">LINK</a>
+						
+						
+						<a href="https://github.com/IwYvI/chinolor" target="_blank">SOURCE</a>
+						
+					</div>
+				</li>
+		
+				<li>
+					<div class="workCard">
+						<p class="name">数字谱转调器微信小程序</p>
+						
+						
+						<img class="qrcode" src="https://i.loli.net/2018/09/08/5b93601713449.jpg"></img>
+						
+						
+						<p class="description">数字谱转调器的微信小程序版本，提供转调功能和本地曲谱存储的功能</p>
+						
+						
+						<p class="date">2018-01</p>
+						
+						
+						
+						
+						<a href="https://github.com/IwYvI/NumberOpernInflexion-weapp" target="_blank">SOURCE</a>
+						
+					</div>
+				</li>
+		
+				<li>
+					<div class="workCard">
+						<p class="name">spider-for-whu-lesson</p>
+						
+						
+						
+						<p class="description">基于node.js的武汉大学教务系统爬虫（目前只有课程爬取）</p>
+						
+						
+						<p class="date">2016-11</p>
+						
+						
+						
+						
+						<a href="https://github.com/IwYvI/spider-for-whu-lessons" target="_blank">SOURCE</a>
+						
+					</div>
+				</li>
+		
+				<li>
+					<div class="workCard">
+						<p class="name">signup-for-soundofsakura</p>
+						
+						
+						
+						<p class="description">社团报名前端网站+使用node.js和mongodb构建的后台，解决社团报名时钱货记录的问题</p>
+						
+						
+						<p class="date">2016-08</p>
+						
+						
+						
+						
+						<a href="https://git.oschina.net/iwyvi/signup-for-soundofsakura" target="_blank">SOURCE</a>
+						
+					</div>
+				</li>
+		
+				<li>
+					<div class="workCard">
+						<p class="name">particleChar</p>
+						
+						
+						
+						<p class="description">基于Sketch.js的canvas生成文字粒子化效果的插件</p>
+						
+						
+						<p class="date">2016-03</p>
+						
+						
+						<a href="https://iwyvi.github.io/particleChar" target="_blank">DEMO</a>
+						
+						
+						
+						<a href="https://github.com/IwYvI/particleChar" target="_blank">SOURCE</a>
+						
+					</div>
+				</li>
+		
+				<li>
+					<div class="workCard">
+						<p class="name">vizory</p>
+						
+						
+						
+						<p class="description">响应式博客主题设计</p>
+						
+						
+						<p class="date">2016-03</p>
+						
+						
+						<a href="https://iwyvi.oschina.io/vizory-design/" target="_blank">DEMO</a>
+						
+						
+						
+						<a href="https://git.oschina.net/iwyvi/vizory-design" target="_blank">SOURCE</a>
+						
+					</div>
+				</li>
+		
+				<li>
+					<div class="workCard">
+						<p class="name">ColorPicker</p>
+						
+						
+						
+						<p class="description">使用Angular的颜色选择器demo</p>
+						
+						
+						<p class="date">2016-02</p>
+						
+						
+						<a href="https://euscj2.coding-pages.com/" target="_blank">DEMO</a>
+						
+						
+						
+						<a href="https://iwyvi.coding.net/p/ColorPicker/" target="_blank">SOURCE</a>
+						
+					</div>
+				</li>
+		
+				<li>
+					<div class="workCard">
+						<p class="name">NumberOpernInflexion</p>
+						
+						
+						
+						<p class="description">数字谱转调小工具</p>
+						
+						
+						<p class="date">2015-10</p>
+						
+						
+						<a href="https://iwyvi.github.io/NumberOpernInflexion" target="_blank">DEMO</a>
+						
+						
+						
+						<a href="https://github.com/IwYvI/NumberOpernInflexion" target="_blank">SOURCE</a>
+						
+					</div>
+				</li>
+		
+				<li>
+					<div class="workCard">
+						<p class="name">mdbtn.js</p>
+						
+						
+						
+						<p class="description">使用canvas实现Android 5.0按钮波纹效果的js插件</p>
+						
+						
+						<p class="date">2015-08</p>
+						
+						
+						<a href="https://iwyvi.github.io/mdbtn/" target="_blank">DEMO</a>
+						
+						
+						
+						<a href="https://github.com/IwYvI/mdbtn" target="_blank">SOURCE</a>
+						
+					</div>
+				</li>
+		
+		</ul>
+	</div>
+</div>
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/iwyvi"><img src="/img/github.png" alt="github" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016-2021. Content By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a></p>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
+    <span style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1259030304&web_id=1259030304" language="JavaScript"></script>
+</span>
+  </body>
+
+</html>

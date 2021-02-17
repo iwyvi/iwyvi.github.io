@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  
+<head lang="zh-CN">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>多路音源的合并输出 | IwYvI</title>
+  <meta name="generator" content="IwYvI">
+  <meta name="author" content="iwyvi">
+  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="keywords" content="" />
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="/atom.xml" title="IwYvI" type="application/atom+xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      
+        <td><a href="/.">首页</a></td>
+      
+        <td><a href="/archives/">文章</a></td>
+      
+        <td><a href="/works/">作品</a></td>
+      
+        <td><a href="/about/">关于</a></td>
+      
+    </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h2>IwYvI</h2>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+<!-- 这段代码是电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
+
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        <div class="article largeCard">
+	<div class="articleContent largeCardContent">
+	    <h1>多路音源的合并输出</h1>
+			
+	    	<p class="date"><time datetime="2018-03-18T09:11:15.000Z" itemprop="datePublished">2018-03-18</time></p>
+			
+			
+	    	<p class="categories">
+				<a class="article-category-link" href="/categories/audio/">audio</a>
+				</p>
+	    
+	    <div class="articleDetail largeCardDetail">
+	    	<div class="markdown">
+	    		<p>过年期间，看到乌贼群里的人一边在qq上语音一边玩游戏，对于我这种生活环境不适合开外放只能长期耳机的乌贼来说，耳机连了语音就不能听游戏声音，所以在游戏里只能被打爆乌头。直到最近，我终于在网上发现了一种可以将多路音频源合并到同一个耳机的方案。<a id="more"></a></p>
+<blockquote>
+<p>目标：使用一个耳机同时听switch、手机和电脑的声音</p>
+</blockquote>
+<p>这个方案的核心是一个耳机分线器。</p>
+<p><img src="https://i.loli.net/2018/09/08/5b935ee0af53b.jpg"></p>
+<p>在三月的某一天，突然在知乎上看到有人问了和我的需求差不多的问题（<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20942127">如何制作一个能同时接两个音源的耳机？</a>），然后底下有人回答可以使用耳机分线器来转接，因为音频线是模拟信号，最终信号都是会混到一起，然后当天我就在某宝上面买了一个这样的分线器。（买的时候我还专门注意了一下，找了一个可以连接麦克风的分线器，也就是支持四段式耳机的）</p>
+<p>之后还单独买了三根四段式的对录线（也叫aux线），用于连接各种设备。</p>
+<p>一开始测试了手机和电脑同时连接，输出端使用了带线控的四段式耳机，发现可以正常合并两个设备各自的声音，然而耳机的麦克风和线控没有用。想到我这台电脑虽然只有一个音频接口却不支持四段式耳机（没错就是华硕），所以拔掉电脑的音频线，果然线控和麦克风就可以在手机上用了。</p>
+<p>这时我有了一个奇妙的想法，似乎可以空接四段式耳机线的麦克风线来让电脑插进来的同时支持线控（这句话我也不知道我自己说了什么，反正就是感觉自己很厉害的那种术语就对了）。实现方式是先找了一个买耳麦送的二转一的转接器（一个音频接口一个麦克风接口转成一个四段式插头的那种转接器），将四段插头接入分线器，然后把电脑端的输出接到另一边的音频接口处。结论是线控依然可以用。</p>
+<p>然后综上所述，我又单独买了两个二转一的转接器，把所有需要接入的不支持四段式的接口都用转接器中转一遍，保证连接手机时的线控是正常的。（PS: 那种本来就有两个接口的耳麦插到转接器的麦克风端以后线控就会失效，目前解决方案就是不插麦克风，需要麦克风时换手机耳机）</p>
+<p>当我把switch也接入这个系统时，出现了另外一个问题，就是有时会有电流噪音（反正听见噪音就超级难受）。最开始想在淘宝上找一找有没有什么音频降噪器，发现没有单纯降噪的设备，之后发现了一种叫做音频共地隔离器的东西，根据产品说明，解决的是共用同一个电源的设备间音频噪音的问题，似乎和我这里出现的问题有点像。然后经过多次分离变量分析，我发现噪音只有switch接入底座时才会出现，而使用电池供电时就没有，大概率是这种共地噪音，终于在前两天买了一个共地隔离器。</p>
+<p>然后，就是在我写这篇博客的中午，我把这个隔离器接入了这个简陋的音频系统，同时打开了switch和电脑，惊奇地发现噪音消失了，然而代价是接入隔离器的音源音量会稍微有所降低，最终我选择把隔离器接在了电脑与分线器之间。至于使用隔离器会不会使音质有所降低，反正我使用辣鸡耳机外加木耳并没有听出来什么区别。</p>
+<blockquote>
+<p>这里是所有设备的价格：</p>
+<ul>
+<li>耳机分线器：12.8</li>
+<li>四段式对录线 * 3：6.8</li>
+<li>二转一转接器 * 2：4.9</li>
+<li>音频共地隔离器：23</li>
+</ul>
+</blockquote>
+<p>总的来说我对这次的音频线路和设备的改造非常满意，终于可以一边开黑一边玩游戏了。</p>
+
+	    	</div>
+	    </div>
+  	</div>
+</div>
+
+
+
+
+	<div class="largeCard comments">
+		<div id="disqus_thread" class="largeCardContent commentsContent">Disqus Comments</div>
+		<script>
+		/**
+		* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+		*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+
+		s.src = '//iwyvi.disqus.com/embed.js';
+
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a target="_blank" href="//disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a></noscript>
+	</div>
+
+
+
+
+
+
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/iwyvi"><img src="/img/github.png" alt="github" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016-2021. Content By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a></p>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
+    <span style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1259030304&web_id=1259030304" language="JavaScript"></script>
+</span>
+  </body>
+
+</html>

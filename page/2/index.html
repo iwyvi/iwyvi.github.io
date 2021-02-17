@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  
+<head lang="zh-CN">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="apple-mobile-app-status-bar-style" content="black" />
+  <meta name="apple-touch-fullscreen" content="YES" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>IwYvI</title>
+  <meta name="generator" content="IwYvI">
+  <meta name="author" content="iwyvi">
+  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="keywords" content="" />
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<!--   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"> -->
+  <link rel="alternate" href="/atom.xml" title="IwYvI" type="application/atom+xml">
+</head>
+
+
+  <body>
+
+    <div class="background">
+  <div class="ribbon"></div>
+  <div class="tableCard"></div>
+</div>
+<div class="nav">
+  <table>
+    <tr>
+      
+        <td><a href="/.">首页</a></td>
+      
+        <td><a href="/archives/">文章</a></td>
+      
+        <td><a href="/works/">作品</a></td>
+      
+        <td><a href="/about/">关于</a></td>
+      
+    </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+      <tr>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+          <td></td>
+        
+      </tr>
+    
+  </table>
+</div>
+<div class="container">
+  <div class="header">
+    <div class="headerBackground">
+      <div class="headerBackgroundImg"></div>
+    </div>
+    <div class="headerContent">
+      <div class="avatar" alt="avatar">
+        <a href="/">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+      </div>
+      <div class="blogTitle">
+        <h2>IwYvI</h2>
+        <p>干了这碗鸡汤</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="mainBackground">
+      <div class="mainBackgroundLeft"></div>
+      <div class="mainBackgroundRight">
+        <div class="mainBackgroundCode">
+<!-- 这段代码是电影《极乐空间》空站重新启动的代码，原文在《Intel Architecture Software Developer’s Manual Volume 3: System Programming》8-24页 -->
+          <pre>; fixup GDT base in descriptor
+ MOV ECX,EDX
+ MOV [EDX].bas_0_15+GDT_DESC_OFF,CX
+ ROR ECX,16
+ MOV [EDX].bas_16_23+GDT_DESC_OFF,CL
+ MOV [EDX].bas_24_31+GDT_DESC_OFF,CH
+
+ ; copy EPROM IDT to ram at:
+ ; RAM_START+size(STARTUP_DATA)+SIZE (EPROM GDT)
+ MOV ECX, CS_BASE
+ ADD ECX, OFFSET (IDT_EPROM)
+ MOV ESI, [ECX].table_linear
+ MOV EDI,EAX
+ MOVZX ECX, [ECX].table_lim
+ MOV APP_IDT_ram[EBX].table_lim,CX
+ INC ECX
+ MOV APP_IDT_ram[EBX].table_linear,EAX
+ MOV EBX,EAX
+ ADD EAX,ECX
+ REP MOVS BYTE PTR ES:[EDI],BYTE PTR DS:[ESI]</pre>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mainContent">
+        <ul class="postList">
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/css/css-apply-rule/">【译】CSS @apply规则(mixins)</a></h3>
+        <p class="date">2016-04-22</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/css/">css</a>
+          </p>
+        
+        <p><p>
+                【翻译】《CSS @apply rule (native CSS mixins) 》：使用@apply规则，实现CSS原生的mixins。随着CSS的发展，或许我们以后将不再使用CSS预处理器（然而目前这个特性并没有得到广泛的支持），就是这样。
+              
+        </p></p>
+        <a href="/css/css-apply-rule/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>【译】CSS @apply规则(mixins)</p></div>
+    </li>
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/css/css-properties-in-depth/">【译】深入了解CSS自定义属性</a></h3>
+        <p class="date">2016-04-22</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/css/">css</a>
+          </p>
+        
+        <p><p>
+                【翻译】《CSS custom properties (native variables) In-Depth》：CSS自定义属性是一项新的CSS特性，它是一种在CSS中定义的变量，我们可以用这些变量实现一些新的功能，同时CSS自定义属性也提供了CSS与JS交互的新方式，与其他CSS预处理器也能做到完美配合。
+              
+        </p></p>
+        <a href="/css/css-properties-in-depth/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>【译】深入了解CSS自定义属性</p></div>
+    </li>
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/angular/color-picker/">Color Picker</a></h3>
+        <p class="date">2016-03-28</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/angular/">angular</a>
+          </p>
+        
+        <p><p>
+                这个是16年寒假的时候学习angular时写的一个demo，可以实现颜色HEX、RGB、HSB转换，因为是初学所以有什么用什么，写的代码也很乱，所以就不在github上建一个项目放了，代码空间见ColorPicker。
+              
+        </p></p>
+        <a href="/angular/color-picker/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>Color Picker</p></div>
+    </li>
+  
+    <li>
+      <div class="postContent">
+        <h3><a href="/jekyll/hello-vizory/">Hello Vizory</a></h3>
+        <p class="date">2016-03-26</p>
+        
+          <p class="categories">
+          <a class="article-category-link" href="/categories/jekyll/">jekyll</a>
+          </p>
+        
+        <p><p>
+                这将会是博客的第一篇文章，之前的测试文章会在近期全部删除。
+Vizory是我设计的第一个博客主题，本来的是让想别人先看看效果图提出修改意见以后再写预览，然而我就直接动手了，代码空间在这里vizory-design。首页强行使用黑白对比，布局部分参考了Dribbble上的一个页面的设计。
+              
+        </p></p>
+        <a href="/jekyll/hello-vizory/" class="linkBtn">阅读更多</a>
+      </div>
+      <div class="postLargeTitle"><p>Hello Vizory</p></div>
+    </li>
+  
+</ul>
+
+<!-- 分页代码 -->
+<div class="pageController">
+  
+    <a href="/">上一页</a>
+  
+  
+</div>
+
+
+    </div>
+
+      </div>
+  <div class="footer">
+    <div class="link">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/iwyvi"><img src="/img/github.png" alt="github" height="32" width="32" alt=""></a>
+      
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2016-2021. Content By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a>. All Rights Reserved.
+      </p>
+      <p>Theme By <a target="_blank" rel="noopener" href="https://github.com/iwyvi">iwyvi</a></p>
+    </div>
+  </div>
+</div>
+<div class="bottom"></div>
+    <span style="display: none;">
+  <script src="https://s4.cnzz.com/z_stat.php?id=1259030304&web_id=1259030304" language="JavaScript"></script>
+</span>
+  </body>
+
+</html>
