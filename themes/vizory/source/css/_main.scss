@@ -30,12 +30,14 @@ body > a[title="站长统计"]{
 	overflow: hidden;
 	margin: auto;
 	margin-top: 110px;
-	margin-bottom: 50px;
 	position: relative;
 	z-index: 10;
 	background-color: $color_container_background;
 	box-shadow: 0 5px 10px 1px $color_content_shadow;
 	@extend %page-animation;
+}
+.bottom {
+	height: 30px;
 }
 .main{
 	width: 100%;
