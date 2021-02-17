@@ -1450,7 +1450,9 @@ body > a[title="站长统计"] {
     .container .footer .copyright {
       padding-left: 100px; }
     .container .footer .link {
-      padding-right: 100px; } }
+      padding-right: 100px; }
+  .bottom {
+    display: none; } }
 
 @media screen and (max-width: 1000px) {
   .container .header .headerContent .avatar {
@@ -1478,7 +1480,7 @@ body > a[title="站长统计"] {
     width: 100%;
     padding-left: 0;
     padding-top: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     text-align: center;
     line-height: 24px; } }
 
