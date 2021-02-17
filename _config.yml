@@ -5,10 +5,10 @@
 # Site
 title: IwYvI
 subtitle: 干了这碗鸡汤
-description: IwYvI的博客，分享心得和学习过程
-author: IwYvI
+description: IwYvI 的博客，分享心得和学习过程
+author: iwyvi
 language: zh-CN
-timezone:
+# timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'

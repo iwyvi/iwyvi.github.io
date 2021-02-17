@@ -32,6 +32,7 @@
     .archiveList {
       margin-top: 15px;
       clear: both;
+      padding-bottom: 20px;
       li {
         width: 100%;
         box-sizing: border-box;
@@ -41,13 +42,13 @@
         &:hover {
           background-color: $color_archiveList_background_hover;
         }
-        a {
-          font-size: 1.1rem;
-          color: $color_archiveList_border;
-          .date {
-            float: right;
-            font-size: 1rem;
-          }
+      }
+      a {
+        font-size: 1.1rem;
+        color: $color_archiveList_border;
+        .date {
+          float: right;
+          font-size: 1rem;
         }
       }
     }

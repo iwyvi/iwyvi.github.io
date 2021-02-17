@@ -26,12 +26,12 @@ showPosts.toArray().sort(function(a, b){
 		<h1><%= pageTitle %></h1>
 		<ul class="archiveList">
 		<% showPosts.each(function(item){ %>
-			<li>
-					<a href="<%- url_for(item.path) %>">
-						<p class="date"><%= item.date.format(config.date_format) %></p>
-						<p><%= item.title %></p>
-					</a>
-			</li>
+			<a href="<%- url_for(item.path) %>">
+				<li>
+					<p class="date"><%= item.date.format(config.date_format) %></p>
+					<p><%= item.title %></p>
+				</li>
+			</a>
 		<% }) %>
 		</ul>
 		<% if(hasPaginator){ %>
