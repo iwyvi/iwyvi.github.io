@@ -17,7 +17,9 @@
   <title>【译】深入了解CSS自定义属性 | IwYvI</title>
   <meta name="generator" content="IwYvI">
   <meta name="author" content="iwyvi">
-  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="description" content="
+    【翻译】《CSS custom properties (native variables) In-Depth》：CSS自定义属性是一项新的CSS特性，它是一种在CSS中定义的变量，我们可以用这些变量实现一些新的功能，同时CSS自定义属性也提供了CSS与JS交互的新方式，与其他CSS预处理器也能做到完美配合。
+    " />
   <meta name="keywords" content="" />
 
   <link rel="stylesheet" href="/css/style.css" type="text/css">
@@ -345,8 +347,11 @@
 
 
 	<div class="largeCard comments">
-		<div id="disqus_thread" class="largeCardContent commentsContent">Disqus Comments</div>
-		<script>
+		<div class="largeCardContent commentsContent">
+			<div id="disqus_thread">Disqus Comments</div>
+		</div>
+	</div>
+	<script>
 		/**
 		* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 		* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
@@ -359,15 +364,12 @@
 		*/
 		(function() { // DON'T EDIT BELOW THIS LINE
 		var d = document, s = d.createElement('script');
-
-		s.src = '//iwyvi.disqus.com/embed.js';
-
+		s.src = 'https://iwyvi.disqus.com/embed.js';
 		s.setAttribute('data-timestamp', +new Date());
 		(d.head || d.body).appendChild(s);
 		})();
 		</script>
 		<noscript>Please enable JavaScript to view the <a target="_blank" href="//disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a></noscript>
-	</div>
 
 
 

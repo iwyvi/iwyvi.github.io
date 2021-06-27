@@ -17,7 +17,9 @@
   <title>Color Picker | IwYvI</title>
   <meta name="generator" content="IwYvI">
   <meta name="author" content="iwyvi">
-  <meta name="description" content="干了这碗鸡汤" />
+  <meta name="description" content="
+      这个是16年寒假的时候学习angular时写的一个demo，可以实现颜色HEX、RGB、HSB转换，因为是初学所以有什么用什么，写的代码也很乱，所以就不在github上建一个项目放了，代码空间见ColorPicker。
+    " />
   <meta name="keywords" content="" />
 
   <link rel="stylesheet" href="/css/style.css" type="text/css">
@@ -177,8 +179,11 @@
 
 
 	<div class="largeCard comments">
-		<div id="disqus_thread" class="largeCardContent commentsContent">Disqus Comments</div>
-		<script>
+		<div class="largeCardContent commentsContent">
+			<div id="disqus_thread">Disqus Comments</div>
+		</div>
+	</div>
+	<script>
 		/**
 		* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 		* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
@@ -191,15 +196,12 @@
 		*/
 		(function() { // DON'T EDIT BELOW THIS LINE
 		var d = document, s = d.createElement('script');
-
-		s.src = '//iwyvi.disqus.com/embed.js';
-
+		s.src = 'https://iwyvi.disqus.com/embed.js';
 		s.setAttribute('data-timestamp', +new Date());
 		(d.head || d.body).appendChild(s);
 		})();
 		</script>
 		<noscript>Please enable JavaScript to view the <a target="_blank" href="//disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a></noscript>
-	</div>
 
 
 
